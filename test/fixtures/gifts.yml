@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  confirmation_code: MyString
+  zip: MyString
+  gift_code: MyString
+
+two:
+  confirmation_code: MyString
+  zip: MyString
+  gift_code: MyString

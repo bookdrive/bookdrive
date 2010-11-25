@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Confirmation code:</b>
+  <%= @gift.confirmation_code %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @gift.zip %>
+</p>
+
+<p>
+  <b>Gift code:</b>
+  <%= @gift.gift_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_gift_path(@gift) %> |
+<%= link_to 'Back', gifts_path %>
