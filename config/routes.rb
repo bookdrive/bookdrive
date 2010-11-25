@@ -1,4 +1,12 @@
 Bookdrive::Application.routes.draw do
+  devise_for :users
+
+  resources :gifts
+
+  resources :downloads
+
+  root :to => "gifts#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
