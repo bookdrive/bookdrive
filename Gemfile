@@ -11,6 +11,10 @@ gem 'devise'
 gem 'declarative_authorization'
 gem 'paperclip'
 gem 'will_paginate'
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'passenger'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
