@@ -6,9 +6,16 @@
 [DONE] - friendly_id
 [DONE] - better routes
 [DONE] - confirmation validation
+[DONE] - donor page copy
+[DONE] - used books copy
+[DONE] - Look and Feel
 
-- Look and Feel
-- Donor Address
+- Error From Display
+- Track Download View
+
+
+
+- download events
 
 - Security
 
@@ -33,4 +40,8 @@ POST-LAUNCH
 - declarative_auth
 - paginate
 - sort
+- caching
+- analytics
+- Donor Address
+- tabs for thank you page
 

@@ -42,7 +42,7 @@ before "deploy", "deploy:web:disable"
 after "deploy", "deploy:web:enable"
 #before "deploy:symlink", "deploy:package_assets"
 #before "deploy:package_assets", "deploy:compile_css"
-before "deploy:migrate", "backup"
+#before "deploy:migrate", "backup"
 
 
 namespace :deploy do

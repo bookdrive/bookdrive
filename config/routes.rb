@@ -3,7 +3,8 @@ Bookdrive::Application.routes.draw do
   devise_for :users
 
   match 'thankyou' => 'pages#thankyou'
-
+  match 'usedbooks' => 'pages#usedbooks'
+  
   resources :donors do
     resources :gifts do
       member do

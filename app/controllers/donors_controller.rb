@@ -1,5 +1,5 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create, :show]
+  before_filter :authenticate_user!, :except => [:create, :show, :update]
   before_filter :confirm_donor, :except => [:create, :new]
   
   # GET /donors
@@ -16,7 +16,7 @@ class DonorsController < ApplicationController
   # GET /donors/1
   # GET /donors/1.xml
   def show
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @donor }
@@ -70,6 +70,8 @@ class DonorsController < ApplicationController
   # PUT /donors/1.xml
   def update
 
+#    @donor.saving_address = true
+    
     respond_to do |format|
       if @donor.update_attributes(params[:donor])
         format.html { redirect_to(@donor, :notice => 'Donor was successfully updated.') }
