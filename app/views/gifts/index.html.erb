@@ -2,9 +2,8 @@
 
 <table>
   <tr>
-    <th>Confirmation code</th>
-    <th>Zip</th>
-    <th>Gift code</th>
+    <th>Name</th>
+    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +11,8 @@
 
 <% @gifts.each do |gift| %>
   <tr>
-    <td><%= gift.confirmation_code %></td>
-    <td><%= gift.zip %></td>
-    <td><%= gift.gift_code %></td>
+    <td><%= gift.name %></td>
+    <td><%= gift.description %></td>
     <td><%= link_to 'Show', gift %></td>
     <td><%= link_to 'Edit', edit_gift_path(gift) %></td>
     <td><%= link_to 'Destroy', gift, :confirm => 'Are you sure?', :method => :delete %></td>

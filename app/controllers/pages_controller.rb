@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
 
   def thankyou
-    @gift = Gift.new
+    @donor = Donor.new
   end
 end

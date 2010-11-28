@@ -13,9 +13,14 @@
 
     <%= render 'layouts/header' %>
 
+
+    <%= yield :video %>
+
     <section class="round">
       <%= yield %>
     </section>
+
+    <%= yield :widget %>
 
     <%= render 'layouts/footer' %>
     

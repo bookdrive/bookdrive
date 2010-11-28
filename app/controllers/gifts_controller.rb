@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:download]
+  before_filter :confirm_donor, :only => [:download]
   
   # GET /gifts
   # GET /gifts.xml
@@ -23,6 +24,11 @@ class GiftsController < ApplicationController
     end
   end
 
+  def download
+    @gift = Gift.find(params[:id])
+    send_file('public/' + @gift.attachment.url.sub(/\?\d+$/,''))
+  end
+    
   # GET /gifts/new
   # GET /gifts/new.xml
   def new
@@ -43,17 +49,10 @@ class GiftsController < ApplicationController
   # POST /gifts.xml
   def create
     @gift = Gift.new(params[:gift])
-    @gift.generate_uuid
-    
+
     respond_to do |format|
       if @gift.save
-
-        cookies.permanent[:gift_code] = {
-          :value => @gift.gift_code,
-          :expires => 1.month.from_now
-        }
-
-        format.html { redirect_to(@gift, :notice => 'Thank you for making a donation!') }
+        format.html { redirect_to(@gift, :notice => 'Gift was successfully created.') }
         format.xml  { render :xml => @gift, :status => :created, :location => @gift }
       else
         format.html { render :action => "new" }
@@ -89,5 +88,4 @@ class GiftsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-      
 end

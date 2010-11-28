@@ -10,9 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101127193658) do
+ActiveRecord::Schema.define(:version => 20101128182924) do
 
-  create_table "downloads", :force => true do |t|
+  create_table "donors", :force => true do |t|
+    t.string   "confirmation_code"
+    t.string   "zip"
+    t.string   "donor_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gifts", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -21,14 +29,6 @@ ActiveRecord::Schema.define(:version => 20101127193658) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
-  end
-
-  create_table "gifts", :force => true do |t|
-    t.string   "confirmation_code"
-    t.string   "zip"
-    t.string   "gift_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
