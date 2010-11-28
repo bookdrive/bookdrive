@@ -4,13 +4,13 @@ require 'capistrano/ext/multistage'
 
 set :application, "bookdrive"
 
-set :user, 'marshall'
+set :user, 'bookdrive'
 set :domain, 'richmondbookdrive.com'
 set :repository,  "ssh://#{user}@#{domain}:2288/~/git/#{application}.git"
 
 
 ssh_options[:port] = 2288
-ssh_options[:username] = "marshall" 
+ssh_options[:username] = "bookdrive"
 ssh_options[:forward_agent] = true
 ssh_options[:paranoid] = false
 default_run_options[:pty] = true
