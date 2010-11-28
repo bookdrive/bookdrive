@@ -43,10 +43,17 @@ class GiftsController < ApplicationController
   # POST /gifts.xml
   def create
     @gift = Gift.new(params[:gift])
-
+    @gift.generate_uuid
+    
     respond_to do |format|
       if @gift.save
-        format.html { redirect_to(@gift, :notice => 'Gift was successfully created.') }
+
+        cookies.permanent[:gift_code] = {
+          :value => @gift.gift_code,
+          :expires => 1.month.from_now
+        }
+
+        format.html { redirect_to(@gift, :notice => 'Thank you for making a donation!') }
         format.xml  { render :xml => @gift, :status => :created, :location => @gift }
       else
         format.html { render :action => "new" }
@@ -82,4 +89,5 @@ class GiftsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+      
 end

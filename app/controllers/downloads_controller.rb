@@ -1,5 +1,4 @@
 class DownloadsController < ApplicationController
-  before_filter :authenticate_user!
   
   # GET /downloads
   # GET /downloads.xml
@@ -23,6 +22,16 @@ class DownloadsController < ApplicationController
     end
   end
 
+  def download
+    @download = Download.find(params[:id])
+    gift_code = cookies[:gift_code]
+    if gift_code && Gift.find_by_gift_code( gift_code ).size() > 1
+      send_file('public/' + @download.attachment.url.sub(/\?\d+$/,''))
+    else
+      redirect_to thankyou_path, :alert => "You must have registered a valid confirmation code to download files"
+    end
+  end
+    
   # GET /downloads/new
   # GET /downloads/new.xml
   def new

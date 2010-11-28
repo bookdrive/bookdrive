@@ -9,6 +9,8 @@ gem 'mysql2'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'declarative_authorization'
+gem 'paperclip'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'

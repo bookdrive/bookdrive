@@ -1,11 +1,18 @@
 Bookdrive::Application.routes.draw do
+  
   devise_for :users
+
+  match 'thankyou' => 'pages#thankyou'
 
   resources :gifts
 
-  resources :downloads
+  resources :downloads do
+    member do
+      get 'download'
+    end
+  end
 
-  root :to => "gifts#index"
+  root :to => 'pages#home'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
