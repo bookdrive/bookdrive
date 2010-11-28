@@ -28,6 +28,16 @@ test:
   password: dnomhcir
   host: localhost
 
+qa:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: bookdrive_qa
+  pool: 5
+  username: bookdrive
+  password: dnomhcir
+  host: localhost
+
 production:
   adapter: mysql2
   encoding: utf8
