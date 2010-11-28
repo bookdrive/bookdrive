@@ -1,0 +1,31 @@
+[DONE] - Paperclip
+[DONE] - uuid
+[DONE] - cookie
+
+- blueprint
+- Look and Feel
+
+- friendly_id
+- better routes
+
+- Security
+- confirmation validation
+
+- Analytics
+
+
+
+DEPLOY
+=========
+- git remote
+- passenger
+- capistrano
+
+
+
+POST-LAUNCH
+================
+- declarative_auth
+- paginate
+- sort
+
