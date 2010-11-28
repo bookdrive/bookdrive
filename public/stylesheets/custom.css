@@ -92,5 +92,60 @@ div.wl_link {
 input[type='text'] {
   padding: 8px 5px;
   font-size: 125%;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  background-color: #6688aa;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;  
+}
+
+input[type='text']:focus {
+  background-color: #aaaaaa;
+}
+
+
+input[type='submit'] {
+  font-size: 150%;
+  letter-spacing: 2px;
+  padding: 5px 10px;
+}
+
+/* stylesheets/application.css */
+.simple_form label {
+  margin: 2px 10px;
+}
+
+.simple_form div.input {
+  margin-bottom: 10px;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 60px;
+}
+
+.simple_form div.boolean label, .simple_form label.collection_radio {
+  margin: 0;
+}
+
+.simple_form label.collection_radio {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+.simple_form .error {
+  
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+.simple_form .hint {
+  margin-left: 60px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
 }
