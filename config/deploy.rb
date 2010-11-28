@@ -1,16 +1,18 @@
 set :stages, %w(qa production)
 set :default_stage, "qa"
+
 require 'capistrano/ext/multistage'
 
-set :application, "bookdrive"
 
 set :user, 'bookdrive'
 set :domain, 'richmondbookdrive.com'
+set :application, "bookdrive"
+
 set :repository,  "ssh://#{user}@#{domain}:2288/~/git/#{application}.git"
 
 
-ssh_options[:port] = 2288
 ssh_options[:username] = "bookdrive"
+ssh_options[:port] = 2288
 ssh_options[:forward_agent] = true
 ssh_options[:paranoid] = false
 default_run_options[:pty] = true
