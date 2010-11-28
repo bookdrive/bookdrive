@@ -1,17 +1,16 @@
-<h1>Download Gifts</h1>
-
-<p>The following gifts are available for download:</p>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <b>Gifts</b>
-  <ul>
-  <% Download.all.each do |download| %>
-    <li><%= link_to download.name, download_download_path( download ) %></li>
-  <% end %>
-  </ul>
+  <b>Name:</b>
+  <%= @gift.name %>
 </p>
 
-<div>
-<%= @gift.confirmation_code %>
-<%= @gift.zip %>
-</div>
+<p>
+  <b>Description:</b>
+  <%= @gift.description %>
+</p>
+
+<%= link_to 'Download', download_gift_path(@gift) %> | 
+
+<%= link_to 'Edit', edit_gift_path(@gift) %> |
+<%= link_to 'Back', gifts_path %>

@@ -1,15 +1,16 @@
 [DONE] - Paperclip
 [DONE] - uuid
 [DONE] - cookie
+[DONE] - blueprint
+[DONE] - donor hierarchy security
+[DONE] - friendly_id
+[DONE] - better routes
+[DONE] - confirmation validation
 
-- blueprint
 - Look and Feel
-
-- friendly_id
-- better routes
+- Donor Address
 
 - Security
-- confirmation validation
 
 - Analytics
 
@@ -17,10 +18,14 @@
 
 DEPLOY
 =========
-- git remote
-- passenger
-- capistrano
-
+[DONE] - git remote
+[DONE] - passenger
+[DONE] - capistrano
+- production environment
+- production database
+- production apache conf
+- production www URL rewrite
+- production deploy
 
 
 POST-LAUNCH

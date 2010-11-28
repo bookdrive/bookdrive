@@ -4,9 +4,15 @@ Bookdrive::Application.routes.draw do
 
   match 'thankyou' => 'pages#thankyou'
 
-  resources :gifts
-
-  resources :downloads do
+  resources :donors do
+    resources :gifts do
+      member do
+        get 'download'
+      end
+    end
+  end
+  
+  resources :gifts do
     member do
       get 'download'
     end

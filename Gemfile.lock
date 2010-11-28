@@ -29,6 +29,7 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.3)
+    babosa (0.2.0)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     capistrano (2.5.19)
@@ -49,6 +50,8 @@ GEM
     fastthread (1.0.7)
     file-tail (1.0.5)
       spruz (>= 0.1.0)
+    friendly_id (3.1.8)
+      babosa (~> 0.2.0)
     highline (1.6.1)
     i18n (0.4.2)
     mail (2.2.9.1)
@@ -111,6 +114,7 @@ DEPENDENCIES
   capistrano-ext
   declarative_authorization
   devise
+  friendly_id (~> 3.1)
   mysql2
   paperclip
   passenger

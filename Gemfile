@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'passenger'
+gem 'friendly_id', "~> 3.1"
 
 
 # Use unicorn as the web server
