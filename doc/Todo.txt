@@ -11,9 +11,9 @@
 [DONE] - Look and Feel
 
 - Error From Display
-- Track Download View
 
 
+- Gift Download View
 
 - download events
 

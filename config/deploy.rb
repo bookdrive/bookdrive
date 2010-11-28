@@ -48,7 +48,7 @@ after "deploy", "deploy:web:enable"
 namespace :deploy do
 
   after "deploy:setup", "deploy:images:setup"
-  after "deploy:symlink", "deploy:images:symlink"
+  #after "deploy:symlink", "deploy:images:symlink"
 
   namespace :images do
     desc "Create the images dir in shared path."
@@ -72,6 +72,11 @@ namespace :deploy do
 #    run "cd #{release_path}; rake asset:packager:build_all"
 #  end
   
+  desc "Run bundle install"
+  task :bundle, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path}; bundle install"
+  end
+
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"

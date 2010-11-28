@@ -15,7 +15,7 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem 'passenger'
 gem 'friendly_id', "~> 3.1"
-
+gem 'simple_form'
 
 # Use unicorn as the web server
 # gem 'unicorn'

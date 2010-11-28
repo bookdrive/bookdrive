@@ -1,21 +1,7 @@
-<%= form_for(@donor) do |f| %>
-  <% if @donor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
-
-      <ul>
-      <% @donor.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :confirmation_code, "Order Number" %><br />
-    <%= f.text_field :confirmation_code %>
-  </div>
-  <div class="actions">
-    <%= submit_tag( "Claim Gifts" ) %>
-  </div>
+<%= simple_form_for @donor do |f| %>
+  <%= f.input :confirmation_code, :required => false %>
+  <%= f.submit 'Claim Gift' %>
 <% end %>
+
+<br />
+<%= image_tag 'email.png' %>
