@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128182924) do
+ActiveRecord::Schema.define(:version => 20101128212516) do
 
   create_table "donors", :force => true do |t|
     t.string   "confirmation_code"
@@ -18,7 +18,15 @@ ActiveRecord::Schema.define(:version => 20101128182924) do
     t.string   "donor_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.boolean  "cd_requested",      :default => false
   end
+
+  add_index "donors", ["confirmation_code"], :name => "index_donors_on_confirmation_code"
 
   create_table "gifts", :force => true do |t|
     t.string   "name"

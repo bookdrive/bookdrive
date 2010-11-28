@@ -10,16 +10,23 @@
   <li>Once you’ve ordered a book (or books!), visit the <a href="/thankyou">Thank You</a> page to download the mp3s.</li>
 </ul>
 
+<p>Interested in donating <%= link_to 'used books', usedbooks_path %>? Find out where to send them.</p>
+
+<div class="wl_link">
+<a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8">View the entire wishlist on Amazon.com</a>
+</div>
+
+
 <p>Need Help?  Email: <a href="mailto:richmondbookdrive@gmail.com">richmondbookdrive@gmail.com</a></p>
 
+
+
 </div>
+
+
 
 <% content_for :widget do %>
 <SCRIPT charset="utf-8" type="text/javascript" src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822/US/ricboodri-20/8004/01c57f6e-eb46-4a04-83e4-5eb9b1905169"> </SCRIPT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fricboodri-20%2F8004%2F01c57f6e-eb46-4a04-83e4-5eb9b1905169&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT>
 <% end %>
-
-<div class="wl_link">
-  <a href="http://amazon.com">Richmond Book Drive Wish List</a>
-</div>
 
 
