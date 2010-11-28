@@ -38,14 +38,15 @@ header {
   box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
 	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -0px 3px 6px;
 	-moz-box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
-  
 }
+
 
 header h1 {
   letter-spacing: 3px;
   margin: 0;
   padding: 0;
 }
+
 
 header h2 {
   margin: 0;
@@ -58,8 +59,7 @@ section {
   background-color: #dddddd;
   box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
 	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -0px 3px 6px;
-	-moz-box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
-  
+	-moz-box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;  
 }
 
 
@@ -67,6 +67,7 @@ footer {
   text-align: center;
   margin-top: 10px;
 }
+
 
 div.home {
   padding: 20px 25px;
