@@ -1,10 +1,10 @@
 <% simple_form_for @gift, :html => { :multipart => true } do |f| %>
 
   <%= f.input :name %>
-  <%= f.input :description %>
-
-  <%= f.file_field :attachment %>
-  <%= f.submit %>
+  <%= f.input :attachment, :as => :file %>
   
+  <div class='submit'>
+  <%= f.button :submit %>
+  </div>
   
 <% end %>
