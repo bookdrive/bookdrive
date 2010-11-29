@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Donor:</b>
+  <%= @download_event.donor_id %>
+</p>
+
+<p>
+  <b>Gift:</b>
+  <%= @download_event.gift_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_download_event_path(@download_event) %> |
+<%= link_to 'Back', download_events_path %>
