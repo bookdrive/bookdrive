@@ -26,9 +26,9 @@ class GiftsController < ApplicationController
 
   def download
     @gift = Gift.find(params[:id])
-    send_file('public/' + @gift.attachment.url.sub(/\?\d+$/,''))
+    send_file('public' + @gift.attachment.url('original',false), :x_sendfile => false )
   end
-    
+
   # GET /gifts/new
   # GET /gifts/new.xml
   def new
