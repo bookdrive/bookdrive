@@ -33,6 +33,7 @@ DEPLOY
 - production apache conf
 - production www URL rewrite
 - production deploy
+- attachments need to go in shared
 
 
 POST-LAUNCH
