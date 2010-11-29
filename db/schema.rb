@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128212516) do
+ActiveRecord::Schema.define(:version => 20101129134350) do
 
   create_table "donors", :force => true do |t|
     t.string   "confirmation_code"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20101128212516) do
   end
 
   add_index "donors", ["confirmation_code"], :name => "index_donors_on_confirmation_code"
+
+  create_table "download_events", :force => true do |t|
+    t.integer  "donor_id"
+    t.integer  "gift_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ip_address"
+  end
 
   create_table "gifts", :force => true do |t|
     t.string   "name"
