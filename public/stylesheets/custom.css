@@ -98,7 +98,7 @@ div.links {
 }
 
 
-input[type='text'] {
+input[type='text'], input[type='email'], input[type='password'] {
   padding: 8px 5px;
   font-size: 125%;
   letter-spacing: 2px;
@@ -111,7 +111,7 @@ input[type='text'] {
   -webkit-transition-timing-function: ease;  
 }
 
-input[type='text']:focus {
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus {
   background-color: #aaaaaa;
 }
 
