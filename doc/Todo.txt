@@ -11,15 +11,18 @@
 [DONE] - Look and Feel
 
 - Error From Display
-
-
 - Gift Download View
-
 - download events
-
-- Security
-
 - Analytics
+
+
+LAUREN REVIEW
+=================
+
+- Confirmation Code should say "Order Number"
+- Change email screenshot to ######## so they don't know the format
+- Claim Gift -> Get Your Pomlamoose Mp3's
+
 
 
 
