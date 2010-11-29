@@ -20,11 +20,13 @@
       <%= yield %>
     </section>
 
-    <%= yield :widget %>
-
     <%= render 'layouts/footer' %>
     
   </div>
 
+  <% if ENV['RAILS_ENV'] == 'production' %>
+  <%= render 'layouts/analytics' %>
+  <% end %>
+  
 </body>
 </html>
