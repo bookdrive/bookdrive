@@ -3,7 +3,7 @@ class Gift < ActiveRecord::Base
 #  validates_presence_of :attachment_file_name, :message => "You have to choose a file to upload"
   has_attached_file :attachment
   validates_attachment_presence :attachment
-  validates_attachment_size :attachment, :less_than => 10.kilobytes 
+  validates_attachment_size :attachment, :greater_than => 10.kilobytes 
   
   
 end
