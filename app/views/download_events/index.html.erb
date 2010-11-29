@@ -1,0 +1,25 @@
+<h1>Listing download_events</h1>
+
+<table>
+  <tr>
+    <th>Donor</th>
+    <th>Gift</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @download_events.each do |download_event| %>
+  <tr>
+    <td><%= download_event.donor_id %></td>
+    <td><%= download_event.gift_id %></td>
+    <td><%= link_to 'Show', download_event %></td>
+    <td><%= link_to 'Edit', edit_download_event_path(download_event) %></td>
+    <td><%= link_to 'Destroy', download_event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Download event', new_download_event_path %>

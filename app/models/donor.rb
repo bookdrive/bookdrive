@@ -1,4 +1,6 @@
 class Donor < ActiveRecord::Base
+  has_many :download_events
+  
   validates_presence_of :confirmation_code, :message => "You must enter your order number before submitting the form!"
   validates_format_of :confirmation_code, :with => /\A\d{3}-?\d{7}-?\d{7}\Z/, :message => "Oops! This is not a valid order number. Try to copy and paste it from your confirmation email again."
   validates_uniqueness_of :confirmation_code, :message => "I'm sorry, the order number you entered has already been used on another computer. If you believe this is an error, please email us at richmondbookdrive@gmail.com."
