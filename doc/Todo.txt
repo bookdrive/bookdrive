@@ -9,9 +9,9 @@
 [DONE] - donor page copy
 [DONE] - used books copy
 [DONE] - Look and Feel
+[DONE] - Error From Display
+[DONE] - Gift Download View
 
-- Error From Display
-- Gift Download View
 - download events
 - Analytics
 
@@ -19,10 +19,7 @@
 LAUREN REVIEW
 =================
 
-- Confirmation Code should say "Order Number"
-- Change email screenshot to ######## so they don't know the format
-- Claim Gift -> Get Your Pomlamoose Mp3's
-
+- Fix broken mp3 downloads
 
 
 
@@ -36,7 +33,6 @@ DEPLOY
 - production apache conf
 - production www URL rewrite
 - production deploy
-- attachments need to go in shared
 
 
 POST-LAUNCH
@@ -45,7 +41,7 @@ POST-LAUNCH
 - paginate
 - sort
 - caching
-- analytics
+- analytics on our data
 - Donor Address
 - tabs for thank you page
 
