@@ -1,7 +1,7 @@
 <h1>Thank You!</h1>
 
 <p>
-  <b>Download Your Free Gifts!</b>
+  <b>Download Pomplamoose's Christmas Album!</b>
   <ul>
   <% Gift.all.each do |gift| %>
     <li><%= link_to gift.name, download_donor_gift_path( @donor, gift ) %></li>
