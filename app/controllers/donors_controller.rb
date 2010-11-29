@@ -46,15 +46,21 @@ class DonorsController < ApplicationController
     
     respond_to do |format|
 
-      if existing_donor = Donor.find_by_confirmation_code( @donor[:confirmation_code] ) && cookies['donor_' + @donor[:confirmation_code]]
-        format.html { redirect_to donor_path( existing_donor ) }
+      confirmation_code = @donor[:confirmation_code].dup;
+      if confirmation_code !~ /-\d+-/
+        confirmation_code.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
       end
-
-      if @donor.save
-
-        cookies.permanent['donor_' + @donor.confirmation_code] = {
+      
+      if cookies['donor_' + confirmation_code] && existing_donor = Donor.find_by_confirmation_code( confirmation_code )
+      
+        logger.debug 'redirecting'
+        format.html { redirect_to donor_path( existing_donor ) }
+      
+      elsif @donor.save
+        logger.debug 'saving'
+        cookies['donor_' + @donor.confirmation_code] = {
           :value => @donor.donor_code,
-          :expires => 1.month.from_now
+          :expires => 2.months.from_now
         }
 
         format.html { redirect_to(@donor, :notice => 'Thank you for making a donation!') }

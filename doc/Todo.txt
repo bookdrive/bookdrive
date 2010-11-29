@@ -11,15 +11,12 @@
 [DONE] - Look and Feel
 [DONE] - Error From Display
 [DONE] - Gift Download View
+[DONE] - Fix broken mp3 downloads
 
 - download events
 - Analytics
-
-
-LAUREN REVIEW
-=================
-
-- Fix broken mp3 downloads
+- get video embed
+- upload mp3s
 
 
 
@@ -33,6 +30,7 @@ DEPLOY
 - production apache conf
 - production www URL rewrite
 - production deploy
+- production block attachment
 
 
 POST-LAUNCH
