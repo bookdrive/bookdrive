@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bookdrive</title>
+  <title><%= yield(:title) || "Richmond Book Drive" %></title>
   <%= render 'layouts/stylesheets' %>
   
   <%= javascript_include_tag :defaults %>
