@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
     donor_code = cookies['donor_' + confirmation_code]
     if !@donor || !donor_code || donor_code != @donor.donor_code
-      redirect_to thankyou_path, :alert => "I'm sorry, the order number you entered has already been used on another computer. If you believe this is an error, please email us at richmondbookdrive@gmail.com."
+      redirect_to thankyou_path, :alert => "The order number you entered has already been used on another computer."
     end
   end
 
