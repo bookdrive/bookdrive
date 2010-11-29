@@ -15,7 +15,7 @@ set :use_sudo, false
 set :repository,  "/home/#{user}/git/#{application}.git"
 set :local_repository,  "ssh://#{user}@#{domain}:2288/~/git/#{application}.git"
 set :port, 2288
-
+set :stack, :passenger_apache
 
 ssh_options[:username] = "bookdrive"
 ssh_options[:keys] = %w(~/.ssh/id_dsa)
@@ -40,3 +40,14 @@ end
 
 before "deploy", "deploy:web:disable"
 after "deploy", "deploy:web:enable"
+
+namespace :deploy do
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+    
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
