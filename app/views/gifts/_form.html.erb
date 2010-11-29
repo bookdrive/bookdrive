@@ -1,30 +1,10 @@
-<% form_for :gift, @gift, :url => gifts_path, :html => { :multipart => true } do |f| %>
-  <% if @gift.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gift.errors.count, "error") %> prohibited this gift from being saved:</h2>
+<% simple_form_for @gift, :html => { :multipart => true } do |f| %>
 
-      <ul>
-      <% @gift.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :description %>
 
   <%= f.file_field :attachment %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit %>
   
   
 <% end %>
