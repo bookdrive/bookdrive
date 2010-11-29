@@ -1,0 +1,22 @@
+<%= simple_form_for(@download_event) do |f| %>
+  <% if @download_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@download_event.errors.count, "error") %> prohibited this download_event from being saved:</h2>
+
+      <ul>
+      <% @download_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :donor_id %>
+    <%= f.input :gift_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

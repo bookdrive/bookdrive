@@ -26,6 +26,10 @@ class GiftsController < ApplicationController
 
   def download
     @gift = Gift.find(params[:id])
+    
+    de = DownloadEvent.new( :donor => @donor, :gift => @gift, :ip_address => request.env['REMOTE_ADDR'] )
+    de.save
+    
     send_file('public' + @gift.attachment.url('original',false), :x_sendfile => false )
   end
 
