@@ -1,5 +1,5 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create, :show, :update]
+  before_filter :authenticate_user!, :except => [:create, :show, :update, :new]
   before_filter :confirm_donor, :except => [:create, :new]
   
   # GET /donors
@@ -46,7 +46,7 @@ class DonorsController < ApplicationController
     
     respond_to do |format|
 
-      if existing_donor = Donor.find_by_confirmation_code( @donor[:confirmation_code] )
+      if existing_donor = Donor.find_by_confirmation_code( @donor[:confirmation_code] ) && cookies['donor_' + @donor[:confirmation_code]]
         format.html { redirect_to donor_path( existing_donor ) }
       end
 
