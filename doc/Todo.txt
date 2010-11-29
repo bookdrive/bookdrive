@@ -12,11 +12,11 @@
 [DONE] - Error From Display
 [DONE] - Gift Download View
 [DONE] - Fix broken mp3 downloads
+[DONE] - Analytics
+[DONE] - download events
+[DONE] - upload mp3s
 
-- download events
-- Analytics
 - get video embed
-- upload mp3s
 
 
 
@@ -25,12 +25,12 @@ DEPLOY
 [DONE] - git remote
 [DONE] - passenger
 [DONE] - capistrano
-- production environment
-- production database
-- production apache conf
-- production www URL rewrite
-- production deploy
-- production block attachment
+[DONE] - production environment
+[DONE] - production database
+[DONE] - production apache conf
+[DONE] - production deploy
+[DONE] - production www URL rewrite
+[DONE] - production block attachment
 
 
 POST-LAUNCH
