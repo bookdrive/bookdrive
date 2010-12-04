@@ -1,7 +1,18 @@
-<%= simple_form_for @donor do |f| %>
-  <%= f.input :confirmation_code, :label => 'Order Number', :required => false, :input_html => { :maxlength => 30, :size => 30, :style => 'width: 98%' } %>
-  <%= f.submit 'Get Your Pomplamoose Christmas Album' %>
-<% end %>
 
-<br />
-<%= image_tag 'email.png' %>
+<%= simple_form_for @donor do |f| %>
+
+<%= f.input :full_name %>
+<%= f.input :address1 %>
+<%= f.input :address2 %>
+<%= f.input :city %>
+<%= f.input :state %>
+<%= f.input :zip %>
+<%= f.input :country, :priority => [ "United States"] %>
+
+<p>Also please give us your email address so we can contact you should there be any problems</p>
+
+<%= f.input :email %>
+
+<%= f.submit :value => 'Submit' %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<%= simple_form_for @donor do |f| %>
+  <%= f.input :confirmation_code, :label => 'Order Number', :required => false, :input_html => { :maxlength => 30, :size => 30, :style => 'width: 98%' } %>
+  <%= f.submit 'Get Your Pomplamoose Christmas Album' %>
+<% end %>
+
+<br />
+<%= image_tag 'email.png' %>
