@@ -1,16 +1,12 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:destroy]
-  before_filter :confirm_donor, :except => [:create, :new]
+  before_filter :authenticate_user!, :only => [:destroy, :index]
+  before_filter :confirm_donor, :except => [:create, :new, :index]
+  helper_method :sort_column, :sort_direction
   
   # GET /donors
   # GET /donors.xml
   def index
-    @donors = Donor.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @donors }
-    end
+    @donors = Donor.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /donors/1
@@ -95,6 +91,16 @@ class DonorsController < ApplicationController
       format.html { redirect_to(donors_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  
+  def sort_column
+    Donor.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
       
 end

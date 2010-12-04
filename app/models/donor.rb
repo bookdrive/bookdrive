@@ -23,6 +23,13 @@ class Donor < ActiveRecord::Base
 #    saving_address || self.cd_requested?
 #  end
   
+  def self.search(search)
+    if search
+      where('confirmation_code LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 
   private
   

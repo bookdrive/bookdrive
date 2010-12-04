@@ -1,27 +1,11 @@
 <h1>Listing donors</h1>
 
-<table>
-  <tr>
-    <th>Confirmation code</th>
-    <th>Zip</th>
-    <th>Donor code</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @donors.each do |donor| %>
-  <tr>
-    <td><%= donor.confirmation_code %></td>
-    <td><%= donor.zip %></td>
-    <td><%= donor.donor_code %></td>
-    <td><%= link_to 'Show', donor %></td>
-    <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-    <td><%= link_to 'Destroy', donor, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%= form_tag donors_path, :method => 'get', :id => "donors_search", :class => "search_form" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="donors"><%= render 'donors' %></div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Donor', new_donor_path %>

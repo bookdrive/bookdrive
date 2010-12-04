@@ -1,0 +1,25 @@
+<table id="donors_table">
+  <tr>
+    <th><%= sortable "confirmation_code", "Order Number" %></th>
+    <th><%= sortable "created_at" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donors.each do |donor| %>
+  <tr>
+    <td><%= donor.confirmation_code %></td>
+    <td><%= donor.created_at %></td>
+    <td><%= link_to 'Show', donor %></td>
+    <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+    <td><%= link_to 'Destroy', donor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<%= will_paginate @donors %>
