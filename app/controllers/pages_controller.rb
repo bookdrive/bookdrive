@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def schools
+  end
+
   def usedbooks
   end
 
