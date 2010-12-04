@@ -1,5 +1,5 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create, :show, :update, :new]
+  before_filter :authenticate_user!, :only => [:destroy]
   before_filter :confirm_donor, :except => [:create, :new]
   
   # GET /donors
