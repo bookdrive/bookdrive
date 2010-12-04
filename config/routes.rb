@@ -6,6 +6,7 @@ Bookdrive::Application.routes.draw do
 
   match 'thankyou' => 'pages#thankyou'
   match 'usedbooks' => 'pages#usedbooks'
+  match 'schools' => 'pages#schools'
   
   resources :donors do
     resources :gifts do
