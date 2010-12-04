@@ -39,19 +39,19 @@ class DonorsController < ApplicationController
   def create
 
     # Clean the confirmation code before creating the donor
-    params[:donor][:confirmation_code].gsub!(/\D/,'')
-    params[:donor][:confirmation_code].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
+    params[:donor][:order_number].gsub!(/\D/,'')
+    params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
 
     @donor = Donor.new(params[:donor])
     
     respond_to do |format|
       
-      if cookies['donor_' + @donor.confirmation_code] && existing_donor = Donor.find_by_confirmation_code( @donor.confirmation_code )
+      if cookies['donor_' + @donor.order_number] && existing_donor = Donor.find_by_order_number( @donor.order_number )
       
         format.html { redirect_to donor_path( existing_donor ) }
       
       elsif @donor.save
-        cookies['donor_' + @donor.confirmation_code] = {
+        cookies['donor_' + @donor.order_number] = {
           :value => @donor.donor_code,
           :expires => 2.months.from_now
         }

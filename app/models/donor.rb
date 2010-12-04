@@ -1,9 +1,9 @@
 class Donor < ActiveRecord::Base
   has_many :download_events
   
-  validates_presence_of :confirmation_code, :message => "You must enter your order number before submitting the form!"
-  validates_format_of :confirmation_code, :with => /\A\d{3}-?\d{7}-?\d{7}\Z/, :message => "Oops! This is not a valid order number. Try to copy and paste it from your confirmation email again."
-  validates_uniqueness_of :confirmation_code, :message => "I'm sorry, the order number you entered has already been used on another computer. If you believe this is an error, please email us at richmondbookdrive@gmail.com."
+  validates_presence_of :order_number, :message => "You must enter your order number before submitting the form!"
+  validates_format_of :order_number, :with => /\A\d{3}-?\d{7}-?\d{7}\Z/, :message => "Oops! This is not a valid order number. Try to copy and paste it from your confirmation email again."
+  validates_uniqueness_of :order_number, :message => "I'm sorry, the order number you entered has already been used on another computer. If you believe this is an error, please email us at richmondbookdrive@gmail.com."
 
 #  validates_presence_of :full_name, :if => :should_validate_address?
 #  validates_format_of :full_name, :with => /\A\w+\s\w+\Z/, :if => :should_validate_address?
@@ -14,10 +14,10 @@ class Donor < ActiveRecord::Base
 #  validates_presence_of :zip, :if => :should_validate_address?
 #  validates_format_of :zip, :with => /\A\d{5}(-\d{4})?\Z/, :if => :should_validate_address?
 
-  has_friendly_id :confirmation_code
+  has_friendly_id :order_number
 #  attr_accessor :saving_address
   
-  before_create :format_confirmation_code, :generate_donor_code
+  before_create :format_order_number, :generate_donor_code
 
 #  def should_validate_address?
 #    saving_address || self.cd_requested?
@@ -25,7 +25,7 @@ class Donor < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('confirmation_code LIKE ?', "%#{search}%")
+      where('order_number LIKE ?', "%#{search}%")
     else
       scoped
     end
@@ -35,12 +35,12 @@ class Donor < ActiveRecord::Base
   
   def generate_donor_code
     time = Time.now.to_i.to_s(16).upcase
-    self.donor_code = Digest::MD5.hexdigest("#{self.confirmation_code}#{time}")
+    self.donor_code = Digest::MD5.hexdigest("#{self.order_number}#{time}")
   end
   
-  def format_confirmation_code
-    if ( self.confirmation_code !~ /-\d+-/ )
-      self.confirmation_code.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
+  def format_order_number
+    if ( self.order_number !~ /-\d+-/ )
+      self.order_number.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
     end
   end
   

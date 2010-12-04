@@ -1,6 +1,6 @@
 <table id="donors_table">
   <tr>
-    <th><%= sortable "confirmation_code", "Order Number" %></th>
+    <th><%= sortable "order_number" %></th>
     <th><%= sortable "created_at" %></th>
     <th></th>
     <th></th>
@@ -9,7 +9,7 @@
 
 <% @donors.each do |donor| %>
   <tr>
-    <td><%= donor.confirmation_code %></td>
+    <td><%= donor.order_number %></td>
     <td><%= donor.created_at.to_formatted_s(:short) %></td>
     <td><%= link_to 'Show', donor %></td>
     <td><%= link_to 'Edit', edit_donor_path(donor) %></td>

@@ -4,16 +4,16 @@ class ApplicationController < ActionController::Base
   private
   
   def confirm_donor
-    confirmation_code = params[:donor_id] || params[:id]
-    if confirmation_code !~ /-\d+-/
-      confirmation_code.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
+    order_number = params[:donor_id] || params[:id]
+    if order_number !~ /-\d+-/
+      order_number.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
     end
     
-    @donor = Donor.find_by_confirmation_code( confirmation_code )
+    @donor = Donor.find_by_order_number( order_number )
     if user_signed_in?
       return
     end
-    donor_code = cookies['donor_' + confirmation_code]
+    donor_code = cookies['donor_' + order_number]
     logger.debug donor_code
     #logger.debug @donor.donor_code
     if !@donor || !donor_code || donor_code != @donor.donor_code

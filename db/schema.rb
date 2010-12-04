@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101204042444) do
+ActiveRecord::Schema.define(:version => 20101204060234) do
 
   create_table "donors", :force => true do |t|
-    t.string   "confirmation_code"
+    t.string   "order_number"
     t.string   "zip"
     t.string   "donor_code"
     t.datetime "created_at"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20101204042444) do
     t.string   "address2"
     t.string   "city"
     t.string   "state"
-    t.boolean  "cd_requested",      :default => false
+    t.boolean  "cd_requested", :default => false
     t.string   "country"
     t.string   "email"
   end
 
-  add_index "donors", ["confirmation_code"], :name => "index_donors_on_confirmation_code"
+  add_index "donors", ["order_number"], :name => "index_donors_on_confirmation_code"
 
   create_table "download_events", :force => true do |t|
     t.integer  "donor_id"
