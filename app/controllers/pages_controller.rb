@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   def schools
   end
 
+  def faq
+  end
+
   def usedbooks
   end
 
