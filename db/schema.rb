@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101204060234) do
+ActiveRecord::Schema.define(:version => 20101204061153) do
 
   create_table "donors", :force => true do |t|
     t.string   "order_number"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20101204060234) do
     t.string   "email"
   end
 
-  add_index "donors", ["order_number"], :name => "index_donors_on_confirmation_code"
+  add_index "donors", ["order_number"], :name => "index_donors_on_order_number"
 
   create_table "download_events", :force => true do |t|
     t.integer  "donor_id"
