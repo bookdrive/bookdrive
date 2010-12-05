@@ -26,4 +26,12 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+  
+  def tab_for(name, options, condition=nil)
+    condition = current_page?(options) if condition.nil?
+    link_to_unless(condition, name, options) do
+      content_tag(:span, name)
+    end
+  end
+  
 end

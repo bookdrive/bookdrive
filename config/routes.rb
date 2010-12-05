@@ -6,10 +6,11 @@ Bookdrive::Application.routes.draw do
 
   devise_for :users
 
-  match 'thankyou' => 'pages#thankyou'
-  match 'usedbooks' => 'pages#usedbooks'
-  match 'schools' => 'pages#schools'
-  match 'faq' => 'pages#faq'
+  match 'thankyou' => 'pages#thankyou', :as => :thankyou
+  match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
+  match 'schools' => 'pages#schools', :as => :schools
+  match 'faq' => 'pages#faq', :as => :faq
+  match '' => 'pages#home', :as => :home
   
   resources :donors do
     resources :gifts do

@@ -6,23 +6,19 @@
 
 <div class="home">
 
+  <p class="mission">Join <%= number_with_delimiter Donor.count %> donors to help put compelling, relevant books<br /> into the hands of young people in middle and high schools<br /> throughout the City of Richmond, California</p>
+
 <ol>
   <li><b><a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">Visit the Wish List</a></b> on Amazon.com to select and purchase a book (or books!) for Richmond's students.</li>
   <li>Make sure to select Richmond Book Drive as the shipping address.</li>
-  <li>Once you’ve completed your order, visit the <b><a href="/thankyou">Thank You</a></b> page to download Pomplamoose's Christmas Album.</li>
+  <li>Once you’ve completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></a></b> page to download Pomplamoose's Christmas Album.</li>
 </ol>
-
-<p>Interested in donating <b><%= link_to 'used books', usedbooks_path %></b>? Find out where to send them.</p>
 
 <div class="wl_link">
 <a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">View the Wish List on Amazon.com</a>
 </div>
 
-<p>Learn more about the <b><%= link_to "Richmond schools", schools_path %></b> that are receiving your donated books!</p>
-
-<p>Need Help? Check out our <b><%= link_to "FAQ", faq_path %></b> or email us at <a href="mailto:richmondbookdrive@gmail.com">richmondbookdrive@gmail.com</a></p>
-
-<p>Join the <%= number_with_delimiter Donor.count %> donors!</p>
+<p class="help">Need Help? Check out our <b><%= link_to "FAQ", faq_path %></b> or<br /> email us at <a href="mailto:richmondbookdrive@gmail.com">richmondbookdrive@gmail.com</a></p>
 
 
 </div>
