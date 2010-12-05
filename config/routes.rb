@@ -8,7 +8,7 @@ Bookdrive::Application.routes.draw do
   
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
   match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
-  match 'schools' => 'pages#schools', :as => :schools
+  match 'about' => 'pages#about', :as => :about
   match 'faq' => 'pages#faq', :as => :faq
   match '' => 'pages#home', :as => :home
   
