@@ -27,6 +27,34 @@ a:hover {
   border-radius:         10px;
 }
 
+nav {
+  margin-top: 10px;
+}
+
+nav span, nav a, nav a:link, nav a:visited, nav a:active {
+  display: inline;
+  margin-right: 10px;
+  font-size: 150%;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
+  padding: 5px 10px;
+  color: #eeeeee;
+}
+
+nav a {
+  background-color: #005511;
+}
+
+nav a:hover {
+  background-color: #772211;
+  text-decoration: none;
+}
+
+nav span {
+  background-color: #333333;
+}
+
 
 
 header {
@@ -166,4 +194,20 @@ input[type='submit'] {
 
 .alert, .notice {
   font-size: 150%;
+}
+
+.help {
+  font-size: 90%;
+  font-style: italic;
+  text-align: center;
+}
+
+.home ol {
+  margin-left: 50px;
+}
+
+.home p.mission {
+  font-size: 115%;
+  font-style: italic;
+  text-align: center;
 }

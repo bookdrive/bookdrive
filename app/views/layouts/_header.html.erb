@@ -1,7 +1,16 @@
 <header class="round">
 
-  <h1><%= link_to 'Richmond Book Drive', '/' %></h1>
+  <!-- <h1><%= link_to 'Richmond Book Drive', '/' %></h1> -->
+  <h1>Richmond Book Drive</h1>
   <h2>Ignite a student's love of reading by donating great books!</h2>
+
+  <nav>
+    <%= tab_for "Home", root_path %>
+    <%= tab_for "Schools", schools_path %>
+    <%= tab_for "Press", press_index_path %>
+    <%= tab_for "Used Books", usedbooks_path %>
+    <%= tab_for "Thank You", thankyou_path %>
+  </nav>
 
 </header>
 
