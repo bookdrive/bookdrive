@@ -9,16 +9,16 @@
   <h3>Donors have given <%= number_with_delimiter Donor.count %> books and counting! Join the cause!</h3>
 
 <ol>
-  <li><b><a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">Visit the Wish List</a></b> on Amazon.com to select and purchase a book (or books!) for Richmond's students.</li>
+  <li><b><%= link_to "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8", :target => "_blank" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond's students.</li>
   <li>Make sure to select Richmond Book Drive as the shipping address.</li>
-  <li>Once you've completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></a></b> page to download Pomplamoose's Christmas Album.</li>
+  <li>Once you've completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></b> page to download Pomplamoose's Christmas Album.</li>
 </ol>
 
 <div class="wl_link">
 <a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">View the Wish List on Amazon.com</a>
 </div>
 
-<p class="help">Need Help? Check out our <b><%= link_to "FAQ", faq_path %></b> or<br /> email us at <a href="mailto:richmondbookdrive@gmail.com">richmondbookdrive@gmail.com</a></p>
+<p class="help">Need Help? Check out our <b><%= link_to "FAQ", faq_path %></b> or<br /> email us at <%= link_to "richmondbookdrive@gmail.com", "mailto:richmondbookdrive@gmail.com" %></p>
 
 
 </div>
