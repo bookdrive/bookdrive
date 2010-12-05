@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
-  caches_page :home, :schools, :faq, :usedbooks, :thankyou
+  caches_page :home, :about, :faq, :usedbooks, :thankyou
   
   def home
   end
 
-  def schools
+  def about
   end
 
   def faq
