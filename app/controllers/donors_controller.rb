@@ -2,6 +2,7 @@ class DonorsController < ApplicationController
   before_filter :authenticate_user!, :only => [:destroy, :index]
   before_filter :confirm_donor, :except => [:create, :new, :index]
   helper_method :sort_column, :sort_direction
+  cache_sweeper :donor_sweeper
   
   # GET /donors
   # GET /donors.xml

@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  caches_page :home, :schools, :faq, :usedbooks, :thankyou
+  
   def home
   end
 
