@@ -1,0 +1,23 @@
+<% title "Press" %>
+
+<h1>Press</h1>
+
+<% @press.each do |press| %>
+
+<div class="press">
+  <h3><%= link_to press.title, press.url, :target => "_blank" %></h3>
+  <p class="source"><%= press.source %> &mdash; <%= press.date.to_formatted_s(:long) %></p>
+  <p class="summary"><%= press.summary %> <%= link_to "Read more...", press.url, :target => "_blank " %></p>
+  <%= press.embed.html_safe %>
+  
+  <!--
+  <%= link_to 'Show', press %>
+  <%= link_to 'Edit', edit_press_path(press) %>
+  <%= link_to 'Destroy', press, :confirm => 'Are you sure?', :method => :delete %>
+-->
+
+</div>
+
+<% end %>
+
+
