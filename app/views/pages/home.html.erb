@@ -6,12 +6,12 @@
 
 <div class="home">
 
-  <p class="mission">Join <%= number_with_delimiter Donor.count %> donors to help put compelling, relevant books<br /> into the hands of young people in middle and high schools<br /> throughout the City of Richmond, California</p>
+  <p class="mission">Donors have given <%= number_with_delimiter Donor.count %> books and counting! Join the cause!</p>
 
 <ol>
   <li><b><a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">Visit the Wish List</a></b> on Amazon.com to select and purchase a book (or books!) for Richmond's students.</li>
   <li>Make sure to select Richmond Book Drive as the shipping address.</li>
-  <li>Once you’ve completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></a></b> page to download Pomplamoose's Christmas Album.</li>
+  <li>Once you've completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></a></b> page to download Pomplamoose's Christmas Album.</li>
 </ol>
 
 <div class="wl_link">
