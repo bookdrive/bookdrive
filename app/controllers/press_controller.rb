@@ -1,5 +1,7 @@
 class PressController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  caches_page :index
+  cache_sweeper :press_sweeper
   
   # GET /press
   # GET /press.xml
