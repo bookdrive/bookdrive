@@ -1,18 +1,20 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:destroy, :index]
-  before_filter :confirm_donor, :except => [:create, :new, :index]
+  before_filter :authenticate_user!, :except => [:register, :submit_registration, :downloads]
+  before_filter :confirm_donor, :only => [:downloads]
+  before_filter :cleanse_order_number, :only => [:submit_registration, :create]
   helper_method :sort_column, :sort_direction
   cache_sweeper :donor_sweeper
   
   # GET /donors
   # GET /donors.xml
   def index
-    @donors = Donor.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @donors = Donor.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 25, :page => params[:page])
   end
 
   # GET /donors/1
   # GET /donors/1.xml
   def show
+    @donor = Donor.find_by_order_number(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -30,19 +32,30 @@ class DonorsController < ApplicationController
       format.xml  { render :xml => @donor }
     end
   end
+  
+  def downloads
+    
+  end
+
+
+  # GET /donors/register
+  # GET /donors/register.xml
+  def register
+    @donor = Donor.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @donor }
+    end
+  end
+
 
   # GET /donors/1/edit
   def edit
   end
 
-  # POST /donors
-  # POST /donors.xml
-  def create
 
-    # Clean the confirmation code before creating the donor
-    params[:donor][:order_number].gsub!(/\D/,'')
-    params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
-
+  def submit_registration
     @donor = Donor.new(params[:donor])
     
     respond_to do |format|
@@ -57,7 +70,31 @@ class DonorsController < ApplicationController
           :expires => 2.months.from_now
         }
 
-        format.html { redirect_to(@donor, :notice => 'Thank you for making a donation!') }
+        format.html { redirect_to(downloads_donor_path(@donor), :notice => 'Thank you for making a donation!') }
+        format.xml  { render :xml => @donor, :status => :created, :location => @donor }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @donor.errors, :status => :unprocessable_entity }
+      end
+    end
+    
+    
+  end
+
+  # POST /donors
+  # POST /donors.xml
+  def create
+
+    # Clean the confirmation code before creating the donor
+    params[:donor][:order_number].gsub!(/\D/,'')
+    params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
+
+    @donor = Donor.new(params[:donor])
+    
+    respond_to do |format|
+            
+      if @donor.save
+        format.html { redirect_to(@donor, :notice => 'Donor was successfully created!') }
         format.xml  { render :xml => @donor, :status => :created, :location => @donor }
       else
         format.html { render :action => "new" }
@@ -102,6 +139,12 @@ class DonorsController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+  
+  def cleanse_order_number
+    # Clean the confirmation code before creating the donor
+    params[:donor][:order_number].gsub!(/\D/,'')
+    params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')    
   end
       
 end

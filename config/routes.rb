@@ -18,6 +18,13 @@ Bookdrive::Application.routes.draw do
         get 'download'
       end
     end
+    collection do
+      get 'register'
+      post 'submit_registration'
+    end
+    member do
+      get 'downloads'
+    end
   end
   
   resources :gifts do

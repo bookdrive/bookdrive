@@ -1,4 +1,4 @@
-<%= simple_form_for @donor do |f| %>
+<%= simple_form_for @donor, :url => submit_registration_donors_path do |f| %>
   <%= f.input :order_number, :label => 'Order Number', :required => false, :input_html => { :maxlength => 30, :size => 30, :style => 'width: 98%' } %>
   <%= f.submit 'Get Your Pomplamoose Christmas Album' %>
 <% end %>

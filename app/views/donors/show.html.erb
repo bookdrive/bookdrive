@@ -1,12 +1,17 @@
-<% title "Download" %>
+<% title "Donor Info" %>
 
-<h1>Thank You!</h1>
-
-<p>
-  <b>Download Pomplamoose's Christmas Album!</b>
-  <ul>
-  <% Gift.all.each do |gift| %>
-    <li><%= link_to gift.name, download_donor_gift_path( @donor, gift ) %></li>
+<table>
+  <tr><td>Id</td><td><%= @donor.id %></td></tr>
+  <tr><td>Order Number</td><td><%= @donor.order_number %></td></tr>
+  <tr><td>Registration Date</td><td><%= @donor.created_at.to_formatted_s(:long) %></td></tr>
+  <tr><td>Downloads</td><td>
+  <% @donor.download_events.each do |download| %>
+    <%= download.gift_id %>: <%= download.gift.name %><br />
   <% end %>
-  </ul>
-</p>
+  </td></tr>
+</table>
+
+<div class="links">
+  <%= link_to 'Edit', edit_donor_path(@donor) %> |
+  <%= link_to 'Back', donors_path %>
+</div>
