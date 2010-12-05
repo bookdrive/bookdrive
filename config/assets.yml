@@ -1,0 +1,27 @@
+package_assets:         on          # (on, off, always)
+embed_assets:           on          # (on, off, datauri)
+compress_assets:        on          # (on, off)
+gzip_assets:            on          # (on, off)
+template_function:      _.template  # (defaults to the built-in micro-templating)
+package_path:           assets      # (defaults to assets)
+javascript_compressor:  closure     # (yui, closure)
+compressor_options:
+  compilation_level: ADVANCED_OPTIMIZATIONS
+
+javascripts:
+  workspace:
+    - public/javascripts/jquery.js
+    - public/javascripts/rails.js
+    - public/javascripts/application.js
+
+stylesheets:
+  screen:
+    - public/stylesheets/blueprint/screen.css
+    - public/stylesheets/custom.css
+  print:
+    - public/stylesheets/blueprint/print.css
+    - public/stylesheets/custom.css
+  screenltie8:
+    - public/stylesheets/blueprint/ie.css
+    - public/stylesheets/custom.css
+    
