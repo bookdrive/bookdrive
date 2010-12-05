@@ -4,7 +4,7 @@
 #   helper :layout
 module LayoutHelper
   def title(page_title, show_title = true)
-    content_for(:title) { 'Richmond Book Drive &raquo; '.html_safe + page_title.to_s }
+    content_for(:title) { ' &raquo; '.html_safe + page_title.to_s.html_safe }
     @show_title = show_title
   end
   

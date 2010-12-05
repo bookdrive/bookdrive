@@ -10,7 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205033409) do
+ActiveRecord::Schema.define(:version => 20101205183617) do
+
+  create_table "books", :force => true do |t|
+    t.string   "title",                                                                 :null => false
+    t.string   "author",                                                                :null => false
+    t.decimal  "price",               :precision => 10, :scale => 0
+    t.integer  "copies_desired",                                     :default => 0
+    t.integer  "copies_received",                                    :default => 0
+    t.boolean  "copies_complete",                                    :default => false
+    t.string   "amazon_product_url"
+    t.string   "amazon_wl_cart_url"
+    t.string   "amazon_image_url"
+    t.integer  "amazon_image_width"
+    t.integer  "amazon_image_height"
+    t.string   "amazon_cover_type"
+    t.date     "amazon_wl_add_date"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "donors", :force => true do |t|
     t.string   "order_number"

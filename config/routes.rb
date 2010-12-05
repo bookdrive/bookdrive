@@ -1,5 +1,7 @@
 Bookdrive::Application.routes.draw do
   
+  resources :books
+
   resources :press
 
   resources :download_events
