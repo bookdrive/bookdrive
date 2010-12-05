@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  author: MyString
+  price: 9.99
+  copies_desired: 1
+  copies_received: 1
+  copies_complete: false
+  amazon_product_url: MyString
+  amazon_wl_cart_url: MyString
+  amazon_image_url: MyString
+  amazon_image_width: 1
+  amazon_image_height: 1
+  amazon_cover_type: MyString
+  amazon_wl_add_date: 2010-12-05
+
+two:
+  title: MyString
+  author: MyString
+  price: 9.99
+  copies_desired: 1
+  copies_received: 1
+  copies_complete: false
+  amazon_product_url: MyString
+  amazon_wl_cart_url: MyString
+  amazon_image_url: MyString
+  amazon_image_width: 1
+  amazon_image_height: 1
+  amazon_cover_type: MyString
+  amazon_wl_add_date: 2010-12-05

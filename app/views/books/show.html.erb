@@ -1,0 +1,70 @@
+<% title "Books &raquo; " + @book.title %>
+
+<p>
+  <b>Title:</b>
+  <%= @book.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @book.author %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @book.price %>
+</p>
+
+<p>
+  <b>Copies desired:</b>
+  <%= @book.copies_desired %>
+</p>
+
+<p>
+  <b>Copies received:</b>
+  <%= @book.copies_received %>
+</p>
+
+<p>
+  <b>Copies complete:</b>
+  <%= @book.copies_complete %>
+</p>
+
+<p>
+  <b>Amazon product url:</b>
+  <%= @book.amazon_product_url %>
+</p>
+
+<p>
+  <b>Amazon wl cart url:</b>
+  <%= @book.amazon_wl_cart_url %>
+</p>
+
+<p>
+  <b>Amazon image url:</b>
+  <%= @book.amazon_image_url %>
+</p>
+
+<p>
+  <b>Amazon image width:</b>
+  <%= @book.amazon_image_width %>
+</p>
+
+<p>
+  <b>Amazon image height:</b>
+  <%= @book.amazon_image_height %>
+</p>
+
+<p>
+  <b>Amazon cover type:</b>
+  <%= @book.amazon_cover_type %>
+</p>
+
+<p>
+  <b>Amazon wl add date:</b>
+  <%= @book.amazon_wl_add_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
