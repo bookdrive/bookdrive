@@ -1,5 +1,5 @@
 class DonorSweeper < ActionController::Caching::Sweeper
-  observe Donor # This sweeper is going to keep an eye on the Product model
+  observe Donor # This sweeper is going to keep an eye on the Donor model
  
   # If our sweeper detects that a Donor was created call this
   def after_create(donor)
