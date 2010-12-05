@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @press.title %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @press.source %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @press.url %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @press.date %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @press.author %>
+</p>
+
+<p>
+  <b>Embed:</b>
+  <%= @press.embed %>
+</p>
+
+
+<%= link_to 'Edit', edit_press_path(@press) %> |
+<%= link_to 'Back', press_index_path %>

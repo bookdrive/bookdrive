@@ -1,5 +1,7 @@
 Bookdrive::Application.routes.draw do
   
+  resources :press
+
   resources :download_events
 
   devise_for :users
