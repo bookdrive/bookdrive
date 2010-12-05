@@ -7,7 +7,7 @@ en:
 
   devise:
     failure:
-      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unauthenticated: "Oops! Looks like you're trying to go somewhere that doesn't exist. If you need assistance, please email us at richmondbookdrive@gmail.com.  "
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid email or password.'
