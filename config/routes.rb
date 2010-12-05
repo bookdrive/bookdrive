@@ -4,8 +4,8 @@ Bookdrive::Application.routes.draw do
 
   resources :download_events
 
-  devise_for :users
-
+  devise_for :users, :path => 'staff', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
   match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
   match 'schools' => 'pages#schools', :as => :schools

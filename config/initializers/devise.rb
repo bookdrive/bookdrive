@@ -1,3 +1,19 @@
+class CustomDeviseFailure < Devise::FailureApp
+  def redirect_url
+    root_path
+  end
+
+  # You need to override respond to eliminate recall
+  def respond
+    if http_auth?
+      http_auth
+    else
+      redirect
+    end
+  end
+end
+
+
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
@@ -139,4 +155,8 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+  
+  config.warden do |manager|
+    manager.failure_app = CustomDeviseFailure
+  end
 end
