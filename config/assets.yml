@@ -16,12 +16,8 @@ javascripts:
 
 stylesheets:
   screen:
-    - public/stylesheets/blueprint/screen.css
-    - public/stylesheets/custom.css
-  print:
-    - public/stylesheets/blueprint/print.css
-    - public/stylesheets/custom.css
-  screenltie8:
-    - public/stylesheets/blueprint/ie.css
+    - public/stylesheets/yui/reset.css
+    - public/stylesheets/yui/base.css
+    - public/stylesheets/yui/fonts.css
     - public/stylesheets/custom.css
     

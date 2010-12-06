@@ -1,17 +1,19 @@
 <% title "Home" %>
 
 <% content_for :video do %>
+<div id="video">
 <object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/wcVkb8kJLJE?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1<%- if ENV['RAILS_ENV'] == 'production' %>&amp;autoplay=1<%- end %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/wcVkb8kJLJE?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1<%- if ENV['RAILS_ENV'] == 'production' %>&amp;autoplay=1<%- end %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
+</div>
 <% end %>
 
 <div class="home">
 
-  <h3>Donors have given <%= number_with_delimiter Donor.count %> books and counting! Join the cause!</h3>
+  <h3>Donors have given <%= number_with_delimiter Donor.count %> books and counting!</h3>
 
 <ol>
-  <li><b><%= link_to "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8", :target => "_blank" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>
-  <li>Make sure to select Richmond Book Drive as the shipping address.</li>
-  <li>Once you&rsquo;ve completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></b> page to download Pomplamoose's Christmas Album.</li>
+  <li><span>Step 1</span><b><%= link_to "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8", :target => "_blank" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>
+  <li><span>Step 2</span>Make sure to select Richmond Book Drive as the shipping address.</li>
+  <li><span>Step 3</span>Once you&rsquo;ve completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></b> page to download Pomplamoose's Christmas Album.</li>
 </ol>
 
 <div class="wl_link">

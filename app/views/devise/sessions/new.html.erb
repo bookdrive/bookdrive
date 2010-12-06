@@ -1,6 +1,6 @@
-<h2>Staff Login</h2>
+<h1>Staff Login</h1>
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
   <%= f.input :email %>
   <%= f.input :password %>
   <% if devise_mapping.rememberable? -%>
@@ -9,7 +9,7 @@
 
   <br /><br />
 
-  <%= f.button :submit %>
+  <%= f.button :submit, :value => "Login" %>
   
 <% end %>
 <br />
