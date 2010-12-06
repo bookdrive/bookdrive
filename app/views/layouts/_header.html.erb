@@ -1,8 +1,9 @@
-<header class="round">
+<header>
 
-  <!-- <h1><%= link_to 'Richmond Book Drive', '/' %></h1> -->
-  <h1>Richmond Book Drive</h1>
-  <h2>Ignite a student's love of reading by donating great books!</h2>
+  <div class="transparent">
+    <%= link_to content_tag('h1', 'Richmond Book Drive'), '/' %>
+    <h2>Ignite a student's love of reading by donating great books!</h2>
+  </div>
 
   <nav>
     <%= tab_for "Home", root_path %>
