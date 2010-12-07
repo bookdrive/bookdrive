@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin catalog content support ambassador staff]
 
+  has_many :copies
+
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
   end

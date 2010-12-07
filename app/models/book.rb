@@ -13,6 +13,10 @@ class Book < ActiveRecord::Base
   validates_numericality_of :amazon_image_width, :greater_than => 0, :only_integer => true, :allow_blank => true
   validates_numericality_of :amazon_image_height, :greater_than => 0, :only_integer => true, :allow_blank => true
   
+  has_many :copies, :dependent => :destroy
+  
+  accepts_nested_attributes_for :copies, :allow_destroy => true
+  
   def update_from_wl_book(wl_book)
     wl_book.attribute_hash().each do |key,value|
       send(key+'=',value)

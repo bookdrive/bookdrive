@@ -502,85 +502,117 @@ blockquote {
   font-size: 167%;
 }
 
-.show_book h3 {
-  border-bottom: 1px solid #666;
-  font-size: 143%;
-  font-style: italic;
-  margin-bottom: 15px;
+
+.left {
+  float: left;
 }
 
-.copies {
-  width: 150px;
+.right {
   float: right;
+}
+
+.statbox {
+  width: 175px;
   padding: 10px;
-  margin-left: 50px;
+  margin-right: 25px;
+  margin-bottom: 20px;
   
   border-radius:         8px;
   -moz-border-radius:    8px;
   -webkit-border-radius: 8px;
 
-  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
-	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
-	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 6px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 6px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 6px;
 
   background-color: #fff;  
 }
 
-.copies h3 {
+.statbox h3 {
   text-transform: uppercase;
   color: #169;
   margin: 0;
   padding-bottom: 2px;
   border-bottom: 2px solid #631;
   font-size: 138%;
+  font-style: normal;
 }
 
-.copies ul {
+.statbox ul {
   margin: 0;
   font-size: 121.3%;
   font-weight: bold;
 }
 
-.copies ul li {
+.statbox ul li {
   display: block;
   padding: 5px;
   border-bottom: 1px dotted #631;
   overflow: hidden;
 }
 
-.copies ul li:last-child {
+.statbox ul li:last-child {
   border-bottom: none;
 }
 
-.copies ul li em {
+.statbox ul li em {
   float: right;
   font-style: normal;
   color: #666;
 }
 
-.copies ul li span {
+.statbox ul li span {
   float: left;
   font-style: normal;
   font-weight: bold;
+}
+
+
+.copies ul {
+  font-size: 85%;
+  font-weight: normal;
+}
+
+.copies form {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.copies ul li span {
+  font-weight: normal;
 }
 
 img.book_cover {
   margin-left: 50px;
   margin-bottom: 50px;
   float: right;
+  min-width: 300px;
 }
 
 .book_info {
-  font-size: 121.3%;
   float: left;
 }
 
+.book_info .section {
+  margin-bottom: 30px;
+  font-size: 125%;
+}
+
+.book_info .section h3 {
+  border-bottom: 2px solid #666;
+  font-size: 125%;
+}
+
 .book_info .price {
-  font-weight: bold;
-  color: #c00;
+  color: #900;
 }
 
 .book_info .strike_price {
   color: #888;
-  font-size: 100%;
+  font-size: 85%;
+}
+
+.book_info .statbox {
+  width: 250px;
 }
