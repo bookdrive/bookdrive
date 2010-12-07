@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   filter_resource_access
-  filter_access_to :profile, :update_profile, :attribute_check => false
 
   def new
     @user = User.new

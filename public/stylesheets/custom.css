@@ -167,8 +167,9 @@ header nav span {
   font-size: 138%;
   margin-right: 10px;
   padding-right: 15px;
-  border-right: 2px solid #333;
+  border-right: 2px solid #505050;
   height: 100%;
+  color: #505050;
 }
 
 .admin nav {
@@ -176,7 +177,7 @@ header nav span {
 }
 
 .admin nav span, .admin nav a, .admin nav a:link, .admin nav a:visited, .admin nav a:active {
-  margin-right: 5px;
+  margin-right: 2px;
   font-size: 123.1%;
   color: #333;
   padding: 5px 10px;
@@ -207,7 +208,8 @@ header nav span {
 
 .admin strong {
   float: right;
-  margin-right: 25px;
+  margin-right: 10px;
+  margin-top: 2px;
 }
 
 

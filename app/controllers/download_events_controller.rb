@@ -1,6 +1,8 @@
 class DownloadEventsController < ApplicationController
-  before_filter :authenticate_user!
-  filter_resource_access
+
+#  before_filter :authenticate_user!
+
+#  filter_resource_access
   
   # GET /download_events
   # GET /download_events.xml

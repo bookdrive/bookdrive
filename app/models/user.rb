@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
 
-  ROLES = %w[admin catolgger editor support ambassador staff]
+  ROLES = %w[admin catalog content support ambassador staff]
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%")
+      where('username LIKE ?', "%#{search}%")
     else
       scoped
     end

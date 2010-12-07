@@ -1,8 +1,9 @@
 class GiftsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:download]
+
+  filter_resource_access
+
   before_filter :confirm_donor, :only => [:download]
   
-  filter_resource_access
   
   
   # GET /gifts
