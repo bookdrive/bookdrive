@@ -329,15 +329,15 @@ footer {
   margin-bottom: 10px;
 }
 
-.simple_form div.input {
+div.input {
   margin-bottom: 15px;
 }
 
-.simple_form input {
+input {
   margin: 0;
 }
 
-.simple_form input[type='text'], input[type='email'], input[type='password'], input[type='number'], input[type='url'] {
+input[type='text'], input[type='email'], input[type='password'], input[type='number'], input[type='url'] {
   padding: 8px 5px;
   margin: 0;
   border-width: 0;
@@ -356,11 +356,11 @@ footer {
 
 }
 
-.simple_form input[type='text']:focus, input[type='email']:focus, input[type='password']:focus,  input[type='number']:focus, input[type='url']:focus {
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus,  input[type='number']:focus, input[type='url']:focus {
   background-color: #aaaaaa;
 }
 
-.simple_form input[type='checkbox'] {
+input[type='checkbox'] {
   margin-left: 0;
 }
 
@@ -369,30 +369,30 @@ div.submit {
 }
 
 
-.simple_form label {
+label {
   display: block;
   margin: 0 5px 5px;
   padding: 0;
 }
 
-.simple_form label abbr {
+label abbr {
   display: none;
 }
 
 
-.simple_form .error {
+.error {
   display: block;
   font-size: 12px;
   color: #D00;
 }
 
-.simple_form .field_with_errors input {
+.field_with_errors input {
   border-color: #D00;
   background-color: #D99;
   border-width: 2px;
 }
 
-.simple_form .hint {
+``.hint {
   display: block;
   margin-left: 5px;
 
@@ -445,11 +445,23 @@ div.submit {
   cursor: pointer;
 }
 
+table.index {
+  width: 100%;
+}
+
 thead th {
   background-color: #999999;
   color: #dddddd;
   font-size: 123.1%;
   font-weight: bold;
+}
+
+tfoot tr td {
+  border-top: 2px solid #666;
+}
+
+.pagination {
+  float: right;
 }
 
 p.mission {
