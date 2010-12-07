@@ -4,12 +4,24 @@
   <em>Admin Bar</em>
   
   <nav>
-    <%= tab_for "Books", books_path %>
-    <%= tab_for "FAQs", users_path %>
-    <%= tab_for "Schools", users_path %>
-    <%= tab_for "Press", press_index_path %>
-    <%= tab_for "Donors", donors_path %>
-    <%= tab_for "Users", users_path %>
+    <% if permitted_to? :manage, :books %>
+      <%= tab_for "Books", books_path %>
+    <% end %>
+    <% if permitted_to? :manage, :faqs %>
+      <%= tab_for "FAQs", users_path %>
+    <% end %>
+    <% if permitted_to? :manage, :schools %>
+      <%= tab_for "Schools", users_path %>
+    <% end %>
+    <% if permitted_to? :manage, :press %>
+      <%= tab_for "Press", press_index_path %>
+    <% end %>
+    <% if permitted_to? :manage, :donors %>
+      <%= tab_for "Donors", donors_path %>
+    <% end %>
+    <% if permitted_to? :manage, :users %>
+      <%= tab_for "Users", users_path %>
+    <% end %>
     <strong>
       <%= tab_for "Logout", destroy_user_session_path %>
     </strong>

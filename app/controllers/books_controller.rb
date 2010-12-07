@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   require 'update_wishlist.rb'
   
-  filter_resource_access
+  filter_access_to :all
 
   helper_method :sort_column, :sort_direction
     
