@@ -8,7 +8,7 @@
 
 <div class="home">
 
-  <h3>Donors have given <%= number_with_delimiter Donor.count %> books and counting!</h3>
+  <h3><%= number_with_delimiter Donor.count %> donors have given <%= number_with_delimiter Book.sum(:copies_received) %> books and counting!</h3>
 
 <ol>
   <li><span>Step 1</span><b><%= link_to "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8", :target => "_blank" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>

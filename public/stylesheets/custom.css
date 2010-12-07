@@ -33,6 +33,12 @@ html, body {
   margin-right: auto;
 }
 
+.admin_container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 a, a:link, a:visited, a:active {
   color: #006611;
@@ -159,7 +165,8 @@ section {
 
   padding: 15px 20px;
   margin-bottom: 10px;
-
+  overflow: hidden;
+  
   box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
 	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -0px 3px 6px;
 	-moz-box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;  
@@ -233,9 +240,9 @@ footer {
 .wl_link a {
   padding: 7px 20px;
 
-  box-shadow: rgba(0,0,0, 0.4) -0px 3px 3px;
-	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -0px 3px 3px;
-	-moz-box-shadow: rgba(0,0,0, 0.4) -0px 3px 3px;
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
   
   -webkit-transition-property: background-color;
   -webkit-transition-duration: 0.1s;
@@ -380,9 +387,6 @@ div.submit {
 .index tbody tr:hover {
   background-color: #779977;
   cursor: pointer;
-  -webkit-transition-property: background-color;
-  -webkit-transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease;
 }
 
 .index thead tr:nth-child(even), thead tr.even, thead th {
@@ -412,3 +416,99 @@ blockquote {
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
+
+
+
+/* Book */
+
+.show_book h1 {
+  margin-bottom: 5px;
+}
+
+.show_book h2 {
+  margin-top: 0;
+  font-size: 167%;
+}
+
+.show_book h3 {
+  border-bottom: 1px solid #666;
+  font-size: 143%;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.copies {
+  width: 150px;
+  float: right;
+  padding: 10px;
+  margin-left: 50px;
+  
+  border-radius:         8px;
+  -moz-border-radius:    8px;
+  -webkit-border-radius: 8px;
+
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+
+  background-color: #fff;  
+}
+
+.copies h3 {
+  text-transform: uppercase;
+  color: #169;
+  margin: 0;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #631;
+  font-size: 138%;
+}
+
+.copies ul {
+  margin: 0;
+  font-size: 121.3%;
+  font-weight: bold;
+}
+
+.copies ul li {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px dotted #631;
+  overflow: hidden;
+}
+
+.copies ul li:last-child {
+  border-bottom: none;
+}
+
+.copies ul li em {
+  float: right;
+  font-style: normal;
+  color: #666;
+}
+
+.copies ul li span {
+  float: left;
+  font-style: normal;
+  font-weight: bold;
+}
+
+img.book_cover {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  float: right;
+}
+
+.book_info {
+  font-size: 121.3%;
+  float: left;
+}
+
+.book_info .price {
+  font-weight: bold;
+  color: #c00;
+}
+
+.book_info .strike_price {
+  color: #888;
+  font-size: 100%;
+}

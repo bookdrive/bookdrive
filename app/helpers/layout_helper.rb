@@ -11,6 +11,16 @@ module LayoutHelper
   def show_title?
     @show_title
   end
+
+  def admin_page
+    @is_admin_page = true
+  end
+  
+  def admin_page?
+    @is_admin_page
+  end
+  
+  
   
   def sortable(column, title = nil)
     title ||= column.titleize

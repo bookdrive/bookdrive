@@ -1,70 +1,61 @@
 <% title "Books &raquo; " + @book.title %>
-
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @book.author %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @book.price %>
-</p>
-
-<p>
-  <b>Copies desired:</b>
-  <%= @book.copies_desired %>
-</p>
-
-<p>
-  <b>Copies received:</b>
-  <%= @book.copies_received %>
-</p>
-
-<p>
-  <b>Copies complete:</b>
-  <%= @book.copies_complete %>
-</p>
-
-<p>
-  <b>Amazon product url:</b>
-  <%= @book.amazon_product_url %>
-</p>
-
-<p>
-  <b>Amazon wl cart url:</b>
-  <%= @book.amazon_wl_cart_url %>
-</p>
-
-<p>
-  <b>Amazon image url:</b>
-  <%= @book.amazon_image_url %>
-</p>
-
-<p>
-  <b>Amazon image width:</b>
-  <%= @book.amazon_image_width %>
-</p>
-
-<p>
-  <b>Amazon image height:</b>
-  <%= @book.amazon_image_height %>
-</p>
-
-<p>
-  <b>Amazon cover type:</b>
-  <%= @book.amazon_cover_type %>
-</p>
-
-<p>
-  <b>Amazon wl add date:</b>
-  <%= @book.amazon_wl_add_date %>
-</p>
+<% admin_page %>
 
 
+<div class="links">
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+</div>
+
+<div class="show_book">
+
+<% if @book.amazon_image_original_url != nil %>
+  <%= image_tag @book.amazon_image_original_url, :class => 'book_cover', :alt => @book.title %>
+<% end %>
+
+
+<h1><%= @book.title %></h1>
+<% if @book.author != nil %>
+<h2><%= @book.author %></h2>
+<% end %>
+
+<div class="copies">
+  <h3>Book Copies</h3>
+  <ul class="list">
+    <li><span>Complete</span> <em><%= @book.copies_received >= @book.copies_desired  ? "Yes" : "No" %></em></li>
+    <li><span>Desired</span> <em><%= @book.copies_desired %></em></li>
+    <li><span>Received</span> <em><%= @book.copies_received %></em></li>
+    <li><span>Delivered</span> <em><%= @book.copies_delivered %></em></li>
+    <li><span>Dollars</span> <em><%= number_to_currency @book.dollars_donated %></em></li>
+  </ul>
+</div>
+
+
+
+<div class="book_info">
+  <h3>Amazon Info</h3>
+<p>
+  <% if @book.amazon_merchant != nil %>
+    <%= @book.amazon_merchant %>
+  <% end %>
+  Price
+  <span class="price"><%= number_to_currency @book.amazon_price %></span>
+  <% if @book.amazon_strike_price != nil %>
+    <span class="strike_price">(<strike><%= number_to_currency @book.amazon_strike_price %></strike>)</span>
+  <% end %>
+</p>
+<p><%= @book.amazon_cover_type %></p>
+<p><b>Availability: </b><%= @book.amazon_availability %></p>
+
+<h3>Wish List</h3>
+
+<p>Added: <b><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></b></p>
+<p>Priority: <b><%= @book.amazon_wl_priority %></b></p>
+
+<h3>Amazon URLs</h3>
+
+<p><% if @book.amazon_product_url != nil %><%= link_to 'Amazon Product Page', @book.amazon_product_url %><% end %></p>
+<p><% if @book.amazon_wl_cart_url != nil %><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %><% end %></p>
+</div>
+
+</div>

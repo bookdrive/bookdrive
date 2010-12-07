@@ -1,34 +1,18 @@
 <% title "Books" %>
+<% admin_page %>
+
+<div class="links">
+  <%= link_to 'New Book', new_book_path %>
+</div>
 
 <h1>Listing books</h1>
 
-<table class="index">
-  <thead>
-  <tr>
-    <th>Book</th>
-    <th>Price</th>
-    <th>Desired</th>
-    <th>Received</th>
-    <th>WL Date</th>
-  </tr>
-  </thead>
 
-  <tbody>
-<% @books.each do |book| %>
-  <tr onclick="document.location = '<%= book_path(book) %>';return false;"> 
-    <td>
-      <% unless book.amazon_image_url.nil? || book.amazon_image_url.empty? %><%= image_tag book.amazon_image_url, :alt => book.title, :size => "#{book.amazon_image_width}x#{book.amazon_image_height}" %><% end %>
-      <%= book.title %><br />
-      by <%= book.author %>
-    </td>
-    <td><%= book.price %></td>
-    <td><%= book.copies_desired %></td>
-    <td><%= book.copies_received %></td>
-    <td><%= book.amazon_wl_add_date %></td>
-  </tr>
+<%= form_tag books_path, :method => 'get', :id => "books_search", :class => "search_form" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="books"><%= render 'books' %></div>
 <% end %>
-</tbody>
-</table>
-<br />
 
-<%= link_to 'New Book', new_book_path %>
