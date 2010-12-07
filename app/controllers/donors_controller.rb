@@ -1,11 +1,13 @@
 class DonorsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:register, :submit_registration, :downloads]
+  filter_access_to :all
+
   before_filter :confirm_donor, :only => [:downloads]
+
   before_filter :cleanse_order_number, :only => [:submit_registration, :create]
-  helper_method :sort_column, :sort_direction
+
   cache_sweeper :donor_sweeper
   
-  filter_resource_access
+  helper_method :sort_column, :sort_direction
   
   
   # GET /donors
@@ -65,7 +67,7 @@ class DonorsController < ApplicationController
       
       if cookies['donor_' + @donor.order_number] && existing_donor = Donor.find_by_order_number( @donor.order_number )
       
-        format.html { redirect_to donor_path( existing_donor ) }
+        format.html { redirect_to downloads_donor_path( existing_donor ) }
       
       elsif @donor.save
         cookies['donor_' + @donor.order_number] = {

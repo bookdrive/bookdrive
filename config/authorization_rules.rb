@@ -1,6 +1,5 @@
 authorization do
   role :admin do
-    includes :support, :editor, :catalogger
     has_permission_on :users, :to => [:dominate]
     has_permission_on :books, :to => [:dominate]
     has_permission_on :press, :to => [:dominate]
@@ -13,16 +12,18 @@ authorization do
     has_permission_on :donors, :to => [:dominate]
   end
 
-  role :editor do
+  role :content do
     has_permission_on :press, :to => [:manage]
   end
 
-  role :catalogger do
+  role :catalog do
     has_permission_on :books, :to => [:manage]
   end
   
   role :guest do
     has_permission_on :press, :to => [:browse]
+    has_permission_on :donors, :to => [:submit_registration, :downloads]
+    has_permission_on :gifts, :to => [:download]
   end
   
 end

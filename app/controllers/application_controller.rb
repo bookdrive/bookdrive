@@ -1,14 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  #before_filter { |c| Authorization.current_user = c.current_user }
-  
+
+  before_filter :set_current_user
+     
   protected
+
+  def set_current_user
+    Authorization.current_user = current_user
+  end
 
   def permission_denied
     redirect_to root_url, :alert => "Sorry, you are not allowed to access that page."
   end
-  
-  private
   
   def confirm_donor
     order_number = params[:donor_id] || params[:id]
