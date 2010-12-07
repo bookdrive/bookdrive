@@ -64,20 +64,20 @@ class AmazonWishListFetcher
 
   def get_remote(page)
     url = "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO/?_encoding=UTF8&filter=all&sort=universal-title&layout=standard&reveal=all&page=" + page.to_s
-    puts 'Getting Remote URL: ' + url
+    #@@logger.debug 'Getting Remote URL: ' + url
     html = Net::HTTP.get_response(URI.parse(url)).body.force_encoding("ISO-8859-1").encode('UTF-8')
-    file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
-    file.puts html
-    file.close
+    #file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
+    #file.puts html
+    #file.close
     html
   end
 
   def parse_wl_page(page = 1)
   
-    html = get_local(page)
-    if html =~ /No route matches/
+    #html = get_local(page)
+    #if html =~ /No route matches/
       html = get_remote(page)
-    end
+    #end
     
     parse_items(html.force_encoding('UTF-8'))
 
