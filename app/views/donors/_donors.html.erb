@@ -1,18 +1,31 @@
-<table id="donors_table">
+<table id="donors_table" class="index">
+  <caption style="overflow:hidden;">
+  <span style="float:left;"><%= page_entries_info( @donors ).html_safe %></span>
+  <%= will_paginate @donors %></catption>
+  
   <thead>
   <tr>
     <th><%= sortable "order_number" %></th>
     <th><%= sortable "created_at" %></th>
+    <th><%= sortable "downloads" %></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
   </thead>
+  
+  <tfoot>
+  	<tr>
+  		<td colspan="8"><%= will_paginate @donors %></td>
+  	</tr>
+  </tfoot>
+  
   <tbody>
 <% @donors.each do |donor| %>
   <tr>
     <td><%= donor.order_number %></td>
-    <td><%= donor.created_at.to_formatted_s(:short) %></td>
+    <td><%= donor.created_at.to_formatted_s(:long) %></td>
+    <td><%= donor.download_events.count %></td>
     <td><%= link_to 'Show', donor %></td>
     <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
     <td><%= link_to 'Destroy', donor, :confirm => 'Are you sure?', :method => :delete %></td>
