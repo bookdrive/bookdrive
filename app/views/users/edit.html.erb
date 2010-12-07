@@ -1,0 +1,11 @@
+<% title "Users &raquo; " + @user.email + " &raquo; Edit" %>
+<% admin_page %>
+
+<h1>Editing User</h1>
+
+<%= render 'form' %>
+
+<div class="links">
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
+</div>

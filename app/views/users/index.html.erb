@@ -1,0 +1,40 @@
+<% title "Users" %>
+
+<% admin_page %>
+
+<h1>Site Users</h1>
+
+<table class="index">
+	<caption><%= page_entries_info( @users ).html_safe %></caption>
+	<thead>
+  <tr>
+	<th>#</th>
+  <th>Email</th>
+	<th>Roles</th>
+	<th>Last Login</th>
+	<th>Actions</th>
+  </tr>
+</thead>
+<tfoot>
+	<tr><th colspan="6"><%= will_paginate @users %></th></tr>
+</tfoot>
+<tbody>
+<% @users.each_with_index do |user,index| %>
+  <tr>
+	<td class="center"><%= prev_entries = 0
+		prev_entries = (@users.current_page - 1) * @users.per_page if params[:page]
+		(1 + index.to_i + prev_entries).to_s
+	%></td>
+    <td><%= user.email %></td>
+    <td class="center"><%= user.roles %></td>
+    <td class="nowrap"><% if user.current_sign_in_at %>
+	<%= time_ago_in_words(user.current_sign_in_at) %> ago
+	<% else %>
+	never
+	<% end %>
+	</td>
+    <td class="nowrap"><%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Remove', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</tbody>

@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!  
   helper_method :sort_column, :sort_direction
+  
+  filter_resource_access
+  
   
   require 'update_wishlist.rb'
   

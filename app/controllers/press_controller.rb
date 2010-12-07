@@ -3,6 +3,8 @@ class PressController < ApplicationController
   caches_page :index
   cache_sweeper :press_sweeper
   
+  filter_resource_access
+  
   # GET /press
   # GET /press.xml
   def index
