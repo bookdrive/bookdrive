@@ -1,0 +1,36 @@
+<% title "Books &raquo; " + @book.title + "  &raquo; Copies" %>
+
+<% admin_page %>
+
+<h1>Copies</h1>
+
+<table class="index">
+
+  <thead>
+  <tr>
+    <th>Copy Id</th>
+    <th>Book</th>
+    <th>Catalogged by</th>
+    <th>Added At</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  
+<% @copies.each do |copy| %>
+  <tr>
+    <td><%= copy.id %></td>
+    <td><%= copy.book.title %></td>
+    <td><%= copy.catalogger_id %></td>
+    <td><%= copy.created_at.to_formatted_s(:long) %></td>
+    <td><%= link_to 'Show', copy %></td>
+    <td><%= link_to 'Edit', edit_book_copy_path(copy) %></td>
+    <td><%= link_to 'Destroy', copy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Copy', new_book_copy_path(@book) %>

@@ -19,8 +19,11 @@
 <h2><%= @book.author %></h2>
 <% end %>
 
-<div class="copies">
-  <h3>Book Copies</h3>
+
+<div class="left">
+
+<div class="statbox wishlist">
+  <h3>Wish List Status</h3>
   <ul class="list">
     <li><span>Complete</span> <em><%= @book.copies_received >= @book.copies_desired  ? "Yes" : "No" %></em></li>
     <li><span>Desired</span> <em><%= @book.copies_desired %></em></li>
@@ -30,32 +33,54 @@
   </ul>
 </div>
 
+<div class="statbox copies">
+  <h3>Copies Delivered</h3>
+  <%= simple_form_for @copy, :url => book_copies_path(@book) do |f| %>
+    <div class="actions">
+      <%= f.button :submit, :value => "Add New Copy Delivered" %>
+    </div>
+  <% end %>
+  <ul class="list">
+    <% @book.copies.includes(:user).order("created_at DESC").each do |copy| %>
+    <li><span><%= copy.created_at.to_formatted_s(:mdhm) %></span> <em><%= @copy.user.email.sub(/\@.+/,'') %></em></li>
+    <% end %>
+  </ul>
+</div>
+
+</div>
+
 
 
 <div class="book_info">
+  <div class="statbox">
   <h3>Amazon Info</h3>
-<p>
-  <% if @book.amazon_merchant != nil %>
-    <%= @book.amazon_merchant %>
-  <% end %>
-  Price
-  <span class="price"><%= number_to_currency @book.amazon_price %></span>
-  <% if @book.amazon_strike_price != nil %>
-    <span class="strike_price">(<strike><%= number_to_currency @book.amazon_strike_price %></strike>)</span>
-  <% end %>
-</p>
-<p><%= @book.amazon_cover_type %></p>
-<p><b>Availability: </b><%= @book.amazon_availability %></p>
 
-<h3>Wish List</h3>
+  <ul class="list">
+    <li><span>Merchant</span> <em><%= @book.amazon_merchant %></em></li>
+    <li><span>Price</span> <em class="price"><%= number_to_currency @book.amazon_price %>
+    <% if @book.amazon_strike_price != nil %>
+      <strong class="strike_price">(<strike><%= number_to_currency @book.amazon_strike_price %></strike>)</strong></em>
+    <% end %>
+    </li>
+    <li><span>Cover</span> <em><%= @book.amazon_cover_type %></em></li>
+    <li><span>Availability</span> <em><%= @book.amazon_availability %></em></li>
+    <% if @book.amazon_product_url != nil %><li><%= link_to 'Amazon Product Page', @book.amazon_product_url %></li><% end %>
+    <% if @book.amazon_wl_cart_url != nil %><li><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %></li><% end %>
 
-<p>Added: <b><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></b></p>
-<p>Priority: <b><%= @book.amazon_wl_priority %></b></p>
+  </ul>
 
-<h3>Amazon URLs</h3>
+  </div>
 
-<p><% if @book.amazon_product_url != nil %><%= link_to 'Amazon Product Page', @book.amazon_product_url %><% end %></p>
-<p><% if @book.amazon_wl_cart_url != nil %><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %><% end %></p>
+
+
+  <div class="statbox">
+  <h3>Wish List</h3>
+  <ul>
+  <li><span>Added</span> <em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em></li>
+  <li><span>Priority</span> <em><%= @book.amazon_wl_priority %></em></li>
+  </div>
+
 </div>
+
 
 </div>

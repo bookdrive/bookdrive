@@ -1,8 +1,7 @@
 Bookdrive::Application.routes.draw do
   
-  resources :copies
-
   resources :books do
+    resources :copies
     collection do
       get 'update_wishlist'
     end

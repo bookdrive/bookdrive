@@ -3,9 +3,10 @@ authorization do
     includes :guest
     has_permission_on :users, :to => [:dominate]
     has_permission_on :books, :to => [:dominate]
+    has_permission_on :copies, :to => [:dominate]
     has_permission_on :press, :to => [:dominate]
-    has_permission_on :gifts, :to => [:dominate]
     has_permission_on :donors, :to => [:dominate]
+    has_permission_on :gifts, :to => [:dominate]
     has_permission_on :download_events, :to => [:dominate]
   end
 
@@ -22,6 +23,7 @@ authorization do
   role :catalog do
     includes :guest
     has_permission_on :books, :to => [:manage]
+    has_permission_on :copies, :to => [:manage]
   end
   
   role :guest do
