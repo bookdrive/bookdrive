@@ -14,7 +14,11 @@
   <div class="container <% if admin_page? %>admin_container<% end %>">
 
     <%= render 'layouts/header' %>
-
+    
+    <% if user_signed_in? %>
+      <%= render 'layouts/adminbar' %>
+    <% end %>
+    
     <%= yield :video %>
 
     <section>

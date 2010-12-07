@@ -120,7 +120,7 @@ header nav {
   text-align: center;
 }
 
-header nav span, nav a, nav a:link, nav a:visited, nav a:active {
+header nav span, header nav a, header nav a:link, header nav a:visited, header nav a:active {
   display: inline;
   margin-right: 10px;
   padding: 5px 10px;
@@ -154,6 +154,62 @@ header nav a:hover {
 header nav span {
   background-color: #555555;
 }
+
+
+.admin {
+  display: block;
+  float: none;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+.admin em {
+  font-size: 138%;
+  margin-right: 10px;
+  padding-right: 15px;
+  border-right: 2px solid #333;
+  height: 100%;
+}
+
+.admin nav {
+  display: inline;
+}
+
+.admin nav span, .admin nav a, .admin nav a:link, .admin nav a:visited, .admin nav a:active {
+  margin-right: 5px;
+  font-size: 123.1%;
+  color: #333;
+  padding: 5px 10px;
+  
+  border-radius:         5px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+
+  font-weight: bold;
+  
+}
+
+
+.admin nav a {
+  background-color: transparent;
+}
+
+.admin nav a:hover {
+  background-color: #333;
+  color: #999;
+  text-decoration: none;
+}
+
+.admin nav span {
+  background-color: #333;
+  color: #999;
+}
+
+.admin strong {
+  float: right;
+  margin-right: 25px;
+}
+
 
 
 div#video {
