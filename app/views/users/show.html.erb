@@ -1,0 +1,13 @@
+<% title "Users &raquo; " + @user.email %>
+<% admin_page %>
+
+
+<h1>User: <%= @user.email %></h1>
+
+
+
+
+<div class="links">
+<%= link_to 'Edit', edit_user_path(@users) %> |
+<%= link_to 'Back', users_path %>
+</div>

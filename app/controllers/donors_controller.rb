@@ -5,6 +5,9 @@ class DonorsController < ApplicationController
   helper_method :sort_column, :sort_direction
   cache_sweeper :donor_sweeper
   
+  filter_resource_access
+  
+  
   # GET /donors
   # GET /donors.xml
   def index

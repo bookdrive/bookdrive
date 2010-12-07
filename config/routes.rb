@@ -9,7 +9,8 @@ Bookdrive::Application.routes.draw do
   resources :press
 
   resources :download_events
-
+  resources :users
+  
   devise_for :users, :path => 'staff', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
