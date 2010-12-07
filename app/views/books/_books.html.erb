@@ -1,0 +1,43 @@
+<table id="books_table" class="index">
+  <thead>
+  <tr>
+    <th><%= sortable 'title' %></th>
+    <th><%= sortable 'author' %></th>
+    <th><%= sortable 'amazon_price', 'Price' %></th>
+    <th><%= sortable 'copies_desired', 'Desired' %></th>
+    <th><%= sortable 'copies_received', 'Received' %></th>
+    <th><%= sortable 'amazon_cover_type', 'Cover' %></th>
+    <th><%= sortable 'amazon_wl_add_date', 'Added' %></th>
+    <th><%= sortable 'amazon_wl_priority', 'Priority' %></th>
+    <th><%= sortable 'amazon_merchant', 'Merchant' %></th>
+    <th><%= sortable 'amazon_availability', 'Availability' %></th>
+    <th><%= sortable 'amazon_wl_cart_url', 'Cart URL' %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @books.each do |book| %>
+  <tr onclick="document.location = '<%= book_path(book) %>';return false;"> 
+
+    <!--<td><% unless book.amazon_image_url.nil? || book.amazon_image_url.empty? %><%= image_tag book.amazon_image_url, :alt => book.title, :size => "#{book.amazon_image_width}x#{book.amazon_image_height}" %><% end %></td>-->
+    
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.amazon_price %></td>
+    <td><%= book.copies_desired %></td>
+    <td><%= book.copies_received %></td>
+    <td><%= book.amazon_cover_type %></td>
+    <td><%= book.amazon_wl_add_date.to_formatted_s(:month_and_day) %></td>
+    <td><%= book.amazon_wl_priority %></td>
+    <td><%= book.amazon_merchant %></td>
+    <td><%= book.amazon_availability %></td>
+    <td><% if book.amazon_wl_cart_url != nil %><%= link_to 'Add', book.amazon_wl_cart_url, :target => "_blank" %><% end %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<%= will_paginate @books %>

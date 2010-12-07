@@ -10,15 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205183617) do
+ActiveRecord::Schema.define(:version => 20101207040418) do
 
   create_table "books", :force => true do |t|
-    t.string   "title",                                                                 :null => false
-    t.string   "author",                                                                :null => false
-    t.decimal  "price",               :precision => 10, :scale => 0
-    t.integer  "copies_desired",                                     :default => 0
-    t.integer  "copies_received",                                    :default => 0
-    t.boolean  "copies_complete",                                    :default => false
+    t.string   "title",                                                                       :null => false
+    t.string   "author",                                                                      :null => false
+    t.decimal  "amazon_price",              :precision => 10, :scale => 2
+    t.integer  "copies_desired",                                           :default => 0
+    t.integer  "copies_received",                                          :default => 0
+    t.boolean  "copies_complete",                                          :default => false
     t.string   "amazon_product_url"
     t.string   "amazon_wl_cart_url"
     t.string   "amazon_image_url"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20101205183617) do
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "amazon_strike_price",       :precision => 10, :scale => 2
+    t.string   "amazon_availability"
+    t.string   "amazon_merchant"
+    t.string   "amazon_wl_priority"
+    t.decimal  "dollars_donated",           :precision => 10, :scale => 2
+    t.integer  "copies_delivered",                                         :default => 0
+    t.string   "amazon_image_original_url"
   end
 
   create_table "donors", :force => true do |t|

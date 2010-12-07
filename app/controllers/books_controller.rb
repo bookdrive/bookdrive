@@ -1,15 +1,42 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :sort_column, :sort_direction
+  
+  require 'update_wishlist.rb'
+  
+  def update_wishlist
+    @wl_books = AmazonWishListFetcher.new.get_updated_wl_books()
+    
+    @books = Book.all
+    @books_map = Hash.new
+    @books.each do |b|
+      @books_map[b.author + '-' + b.title] = b
+    end
+    
+    @wl_books.each do |wl_book|
+
+      book_identifier = wl_book.title
+
+      if wl_book.author != nil
+        book_identifier = wl_book.author + '-' + book_identifier
+      end
+      
+      if @books_map.include?(book_identifier)
+        book = @books_map[book_identifier]
+        book.update_from_wl_book(wl_book)
+        book.save
+      else
+        create_book_from_wl(wl_book)
+      end
+    end
+    
+    redirect_to books_path, :notice => 'Updated books from Amazon Wish List'
+  end
 
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
-    end
+    @books = Book.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 25, :page => params[:page])
   end
 
   # GET /books/1
@@ -81,5 +108,21 @@ class BooksController < ApplicationController
       format.html { redirect_to(books_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def sort_column
+    Book.column_names.include?(params[:sort]) ? params[:sort] : "title"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  
+  def create_book_from_wl(wl_book)    
+    new_book = Book.new( wl_book.attribute_hash() )
+    new_book.save
   end
 end
