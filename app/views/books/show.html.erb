@@ -41,8 +41,8 @@
     </div>
   <% end %>
   <ul class="list">
-    <% @book.copies.includes(:user).order("created_at DESC").each do |copy| %>
-    <li><span><%= copy.created_at.to_formatted_s(:mdhm) %></span> <em><%= @copy.user.email.sub(/\@.+/,'') %></em></li>
+    <% @book.copies.joins(:user).order("created_at DESC").each do |copy| %>
+    <li><span><%= copy.created_at.to_formatted_s(:mdhm) %></span> <em><%= copy.user.email.sub(/\@.+/,'') %></em></li>
     <% end %>
   </ul>
 </div>
