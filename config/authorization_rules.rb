@@ -22,7 +22,7 @@ authorization do
   end
   
   role :guest do
-    has_permission_on :users, :to => [:manage]
+    has_permission_on :press, :to => [:browse]
   end
   
 end
