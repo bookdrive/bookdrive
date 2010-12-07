@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
 
-  filter_resource_access
+  filter_access_to :all
 
   before_filter :confirm_donor, :only => [:download]
   

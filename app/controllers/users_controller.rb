@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  filter_resource_access
+  filter_access_to :all
 
   def new
     @user = User.new

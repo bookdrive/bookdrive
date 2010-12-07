@@ -1,5 +1,6 @@
 authorization do
   role :admin do
+    includes :guest
     has_permission_on :users, :to => [:dominate]
     has_permission_on :books, :to => [:dominate]
     has_permission_on :press, :to => [:dominate]
@@ -9,14 +10,17 @@ authorization do
   end
 
   role :support do
+    includes :guest
     has_permission_on :donors, :to => [:dominate]
   end
 
   role :content do
+    includes :guest
     has_permission_on :press, :to => [:manage]
   end
 
   role :catalog do
+    includes :guest
     has_permission_on :books, :to => [:manage]
   end
   
@@ -24,6 +28,7 @@ authorization do
     has_permission_on :press, :to => [:browse]
     has_permission_on :donors, :to => [:submit_registration, :downloads]
     has_permission_on :gifts, :to => [:download]
+    has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about]
   end
   
 end

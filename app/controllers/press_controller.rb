@@ -1,5 +1,5 @@
 class PressController < ApplicationController
-  filter_resource_access
+  filter_access_to :all
 
   caches_page :index
 
