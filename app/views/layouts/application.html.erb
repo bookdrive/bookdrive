@@ -25,7 +25,7 @@
     
   </div>
 
-  <% if ENV['RAILS_ENV'] == 'production' %>
+  <% if ENV['RAILS_ENV'] == 'production' && !user_signed_in? %>
     <%= render 'layouts/analytics' %>
   <% end %>
   
