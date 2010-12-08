@@ -588,7 +588,7 @@ img.book_cover {
   margin-left: 50px;
   margin-bottom: 50px;
   float: right;
-  min-width: 300px;
+  max-width: 300px;
 }
 
 .book_info {
