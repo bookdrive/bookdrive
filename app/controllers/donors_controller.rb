@@ -57,6 +57,7 @@ class DonorsController < ApplicationController
 
   # GET /donors/1/edit
   def edit
+    @donor = Donor.find_by_order_number(params[:id])
   end
 
 
@@ -111,6 +112,7 @@ class DonorsController < ApplicationController
   # PUT /donors/1
   # PUT /donors/1.xml
   def update
+    @donor = Donor.find_by_order_number(params[:id])
 
 #    @donor.saving_address = true
     
@@ -128,6 +130,8 @@ class DonorsController < ApplicationController
   # DELETE /donors/1
   # DELETE /donors/1.xml
   def destroy
+    @donor = Donor.find_by_order_number(params[:id])
+    
     @donor.destroy
 
     respond_to do |format|
