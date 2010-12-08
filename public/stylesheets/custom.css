@@ -343,6 +343,7 @@ input[type='text'], input[type='email'], input[type='password'], input[type='num
   padding: 8px 5px;
   margin: 0;
   border-width: 0;
+  width: auto;
   
   border-radius:         10px;
   -moz-border-radius:    10px;
@@ -394,7 +395,7 @@ label abbr {
   border-width: 2px;
 }
 
-``.hint {
+.hint {
   display: block;
   margin-left: 5px;
 

@@ -25,7 +25,7 @@
 <div class="statbox wishlist">
   <h3>Wish List Status</h3>
   <ul class="list">
-    <li><span>Complete</span> <em><%= @book.copies_received >= @book.copies_desired  ? "Yes" : "No" %></em></li>
+    <li><span>Complete</span> <em><%= @book.copies_desired > 0 && @book.copies_received >= @book.copies_desired  ? "Yes" : "No" %></em></li>
     <li><span>Desired</span> <em><%= @book.copies_desired %></em></li>
     <li><span>Received</span> <em><%= @book.copies_received %></em></li>
     <li><span>Delivered</span> <em><%= @book.copies_delivered %></em></li>
@@ -76,8 +76,8 @@
   <div class="statbox">
   <h3>Wish List</h3>
   <ul>
-  <li><span>Added</span> <em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em></li>
-  <li><span>Priority</span> <em><%= @book.amazon_wl_priority %></em></li>
+  <li><span>Added</span> <% if @book.amazon_wl_add_date != nil %><em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em><% end %></li>
+  <li><span>Priority</span> <% if @book.amazon_wl_priority != nil %><em><%= @book.amazon_wl_priority %></em><% end %></li>
   </div>
 
 </div>
