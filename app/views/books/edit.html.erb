@@ -1,11 +1,12 @@
 <% title "Books &raquo; " + @book.title + " &raquo; Edit" %>
 <% admin_page %>
 
-<h1>Editing book</h1>
-
-<%= render 'form' %>
 
 <div class="links">
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
 </div>
+
+<h1>Editing book</h1>
+
+<%= render 'form' %>

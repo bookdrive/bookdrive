@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101207214232) do
+ActiveRecord::Schema.define(:version => 20101208001611) do
 
   create_table "books", :force => true do |t|
     t.string   "title",                                                                       :null => false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20101207214232) do
     t.decimal  "dollars_donated",           :precision => 10, :scale => 2
     t.integer  "copies_delivered",                                         :default => 0
     t.string   "amazon_image_original_url"
+    t.integer  "user_id"
   end
 
   create_table "copies", :force => true do |t|

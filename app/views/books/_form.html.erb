@@ -12,25 +12,41 @@
   <% end %>
 
   <div class="inputs">
-    <%= f.input :title %>
+    <%= f.input :title, :hint => "Will be extracted from Amazon if left blank" %>
 
-    <%= f.input :author %>
+    <%= f.input :author, :hint => "Full name in regular order (first-name last-name)" %>
 
-    <div style="float:left;width:30%;">
-    <%= f.input :amazon_price, :hint => "In US Dollars", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 0.01, :maxlength => 6, :size => 10,  } %>
+    <%= f.input :amazon_cover_type, :label => "Cover Type", :hint => "(e.g. Paperback, Hardcover, etc.)" %>
+
+
+    <div style="overflow:hidden;">
+    <div style="float:left;width:23%;">
+    <%= f.input :amazon_price, :hint => "In US Dollars", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 0.01, :maxlength => 6, :size => 10  } %>
     </div>
-    
-    <div style="float:left;width:30%;margin-right: 5%">
+
+    <div style="float:left;width:23%;margin-right: 5%">
+    <%= f.input :amazon_strike_price, :hint => "In US Dollars. This is the original price.", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 0.01, :maxlength => 6, :size => 10  } %>
+    </div>
+    </div>
+    <!--
+    <div style="overflow:hidden;">
+    <div style="float:left;width:20%;margin-right: 5%">
     <%= f.input :copies_desired, :label => "Copies Desired", :hint => "Requested on the Wish List", :input_html => { :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 5 } %>
     </div>
     
-    <div style="float:left;clear:right;width:30%;">
+    <div style="float:left;clear:right;width:20%;">
     <%= f.input :copies_received, :label => "Copies Received", :hint => "Donated per the Wish List (not shipments received)", :input_html => { :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 5 } %>
     </div>
+    </div>
+  -->
+  
+    <%= f.input :amazon_product_url, :label => "Amazon Product URL", :hint => "Must be the URL linked from the wish list" %>
 
-    <%= f.input :amazon_product_url, :label => "Product URL", :hint => "Must be the URL linked from the wish list" %>
+    <%= f.input :amazon_wl_cart_url, :label => "Amazon Add to Cart URL", :hint => "Must be the URL linked from the wish list" %>
 
-    <%= f.input :amazon_cover_type, :label => "Cover", :collection => ['any','paperback','hardcover','other'], :default => 'any', :hint => "What is the type of cover of the book?" %>
+    <%= f.input :amazon_image_url, :label => "Amazon Image URL", :hint => "Copy from the image on the product page" %>
+
+
   </div>
 
   <div class="actions">

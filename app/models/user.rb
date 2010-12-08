@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin catalog content support ambassador staff]
 
+  has_many :books
   has_many :copies
 
   def roles=(roles)
