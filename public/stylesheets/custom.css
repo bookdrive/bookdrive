@@ -621,4 +621,6 @@ img.book_cover {
 .bookstats {
   float: right;
   font-size: 75%;
+  margin-right: 0;
+  margin-left: 25px;
 }
