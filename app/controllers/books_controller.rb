@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   before_filter :load_book_from_amazon, :only => :create
   
   helper_method :sort_column, :sort_direction
-    
+
   
   def update_wishlist
     @wl_books = AmazonWishListFetcher.new.get_updated_wl_books()
@@ -15,19 +15,24 @@ class BooksController < ApplicationController
     @books = Book.all
     @books_map = Hash.new
     @books.each do |b|
-      @books_map[b.author + '-' + b.title] = b
+      book_identifier = b.title
+
+      if b.author != nil
+        book_identifier = b.author + '-' + book_identifier
+      end
+      
+      @books_map[book_identifier] = b
     end
     
     @wl_books.each do |wl_book|
-
-      book_identifier = wl_book.title
+      wl_book_identifier = wl_book.title
 
       if wl_book.author != nil
-        book_identifier = wl_book.author + '-' + book_identifier
+        wl_book_identifier = wl_book.author + '-' + wl_book_identifier
       end
       
-      if @books_map.include?(book_identifier)
-        book = @books_map[book_identifier]
+      if @books_map.include?(wl_book_identifier)
+        book = @books_map[wl_book_identifier]
         book.update_from_wl_book(wl_book)
         book.save
       else
