@@ -1,20 +1,20 @@
-<header>
+<div id="header">
 
   <div class="transparent">
     <%= link_to content_tag('h1', 'Richmond Book Drive'), '/' %>
     <h2>Ignite a student's love of reading by donating great books!</h2>
   </div>
 
-  <nav>
+  <div id="nav">
     <%= tab_for "Home", root_path %>
     <%= tab_for "About", about_path %>
     <%= tab_for "FAQ", faq_path %>
     <%= tab_for "Press", press_index_path %>
     <%= tab_for "Used Books", usedbooks_path %>
     <%= tab_for "Thank You", thankyou_path %>
-  </nav>
+  </div>
 
-</header>
+</div>
 
 <% if user_signed_in? && admin_page? %>
   <%= render 'layouts/adminbar' %>
