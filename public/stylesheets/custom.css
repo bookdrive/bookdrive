@@ -93,6 +93,7 @@ a:hover {
 
 #header .transparent a, #header .transparent a:link, #header .transparent a:active, #header .transparent a:visited {
   color: transparent;
+  display: none;
 }
 
 #header .transparent a:hover {
