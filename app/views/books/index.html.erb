@@ -1,6 +1,23 @@
 <% title "Books" %>
 <% admin_page %>
 
+<div class="statbox bookstats">
+  <h3>Donated Copies</h3>
+  <ul class="list">
+    <li><span>Copies Received</span> <em><%= number_with_delimiter Book.sum(:copies_received) %></em></li>
+    <li><span>Copies Delivered</span> <em><%= number_with_delimiter Book.sum(:copies_delivered) %></em></li>
+  </ul>
+</div>
+
+<div class="statbox bookstats">
+  <h3>Book List</h3>
+  <ul class="list">
+    <li><span>Total Books</span> <em><%= Book.count %></em></li>
+    <li><span>Copies Desired</span> <em><%= number_with_delimiter Book.sum(:copies_desired) %></em></li>
+  </ul>
+</div>
+
+
 <div class="links">
   <%= link_to 'New Book', new_book_path %>
 </div>
