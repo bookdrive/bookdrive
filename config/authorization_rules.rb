@@ -31,6 +31,7 @@ authorization do
     has_permission_on :donors, :to => [:submit_registration, :downloads]
     has_permission_on :gifts, :to => [:download]
     has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about]
+    has_permission_on :books, :to => [:update_wishlist]
   end
   
 end
