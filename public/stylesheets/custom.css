@@ -617,3 +617,10 @@ img.book_cover {
 .book_info .statbox {
   width: 250px;
 }
+
+.bookstats {
+  float: right;
+  font-size: 75%;
+  margin-right: 0;
+  margin-left: 25px;
+}
