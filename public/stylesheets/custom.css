@@ -52,7 +52,7 @@ a:hover {
 }
 
 
-header {
+#header {
   position: relative;
   top: 0;
   left: 0;
@@ -63,7 +63,7 @@ header {
   padding: 10px;
   height: 100px;
 
-  background-image: url('/images/title-banner.png');
+  background-image: url('/images/title-banner.gif');
   background-color: #eeeeee;
 
   box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
@@ -78,7 +78,7 @@ header {
 }
 
 
-header h1 {
+#header h1 {
   margin: 0;
   padding: 0;
 
@@ -91,36 +91,39 @@ header h1 {
   letter-spacing: 4px;
 }
 
-header .transparent a, header .transparent a:link, header .transparent a:active, header .transparent a:visited {
+#header .transparent a, #header .transparent a:link, #header .transparent a:active, #header .transparent a:visited {
   color: transparent;
+  display: none;
 }
 
-header .transparent a:hover {
+#header .transparent a:hover {
   text-decoration: none;
   color: transparent;
+  display: none;
 }
 
 
-header h2 {
+#header h2 {
   margin: 0;
   padding: 0;
   font-style: italic;
   font-size: 2em;
 }
 
-header .transparent h2 {
-  color: transparent;  
+#header .transparent h2 {
+  color: transparent;
+  display: none;
 }
 
 
-header nav {
+#header #nav {
   position: absolute;
   bottom: 10px;
   width: 100%;
   text-align: center;
 }
 
-header nav span, header nav a, header nav a:link, header nav a:visited, header nav a:active {
+#header #nav span, #header #nav a, #header #nav a:link, #header #nav a:visited, #header #nav a:active {
   display: inline;
   margin-right: 10px;
   padding: 5px 10px;
@@ -142,16 +145,16 @@ header nav span, header nav a, header nav a:link, header nav a:visited, header n
   font-weight: bold;
 }
 
-header nav a {
+#header #nav a {
   background-color: #004411;
 }
 
-header nav a:hover {
+#header #nav a:hover {
   background-color: #403020;
   text-decoration: none;
 }
 
-header nav span {
+#header #nav span {
   background-color: #555555;
 }
 
@@ -172,11 +175,11 @@ header nav span {
   color: #505050;
 }
 
-.admin nav {
+.admin #nav {
   display: inline;
 }
 
-.admin nav span, .admin nav a, .admin nav a:link, .admin nav a:visited, .admin nav a:active {
+.admin #nav span, .admin #nav a, .admin #nav a:link, .admin #nav a:visited, .admin #nav a:active {
   margin-right: 2px;
   font-size: 123.1%;
   color: #333;
@@ -191,17 +194,17 @@ header nav span {
 }
 
 
-.admin nav a {
+.admin #nav a {
   background-color: transparent;
 }
 
-.admin nav a:hover {
+.admin #nav a:hover {
   background-color: #333;
   color: #999;
   text-decoration: none;
 }
 
-.admin nav span {
+.admin #nav span {
   background-color: #333;
   color: #999;
 }
@@ -219,7 +222,7 @@ div#video {
 }
 
 
-section {
+#section {
 
   padding: 15px 20px;
   margin-bottom: 10px;
@@ -237,14 +240,14 @@ section {
 
 }
 
-section h1 {
+#section h1 {
   font-size: 182%;
   font-weight: bold;
   color: #333;
   margin: 0 0 10px;
 }
 
-footer {
+#footer {
   text-align: center;
   margin-top: 10px;
   letter-spacing: 1px;
