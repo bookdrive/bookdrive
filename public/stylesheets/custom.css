@@ -98,6 +98,7 @@ a:hover {
 #header .transparent a:hover {
   text-decoration: none;
   color: transparent;
+  display: none;
 }
 
 
@@ -109,7 +110,8 @@ a:hover {
 }
 
 #header .transparent h2 {
-  color: transparent;  
+  color: transparent;
+  display: none;
 }
 
 
