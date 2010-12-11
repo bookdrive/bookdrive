@@ -1,27 +1,23 @@
 Bookdrive::Application.routes.draw do
-  
-  resources :schools
 
-  resources :books do
-    resources :copies
-    collection do
-      get 'update_wishlist'
+  scope "/staff" do
+    resources :schools
+    resources :books do
+      resources :copies
+      collection do
+        get 'update_wishlist'
+      end
     end
+
+    devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+    resources :users
+  
+    resources :gifts
+    resources :download_events
+    resources :donors
+  
   end
 
-  resources :press
-
-  resources :download_events
-  resources :users
-  
-  devise_for :users, :path => 'staff', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
-  
-  match 'thankyou' => 'pages#thankyou', :as => :thankyou
-  match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
-  match 'about' => 'pages#about', :as => :about
-  match 'faq' => 'pages#faq', :as => :faq
-  match '' => 'pages#home', :as => :home
-  
   resources :donors do
     resources :gifts do
       member do
@@ -32,17 +28,15 @@ Bookdrive::Application.routes.draw do
       get 'register'
       post 'submit_registration'
     end
-    member do
-      get 'downloads'
-    end
-  end
-  
-  resources :gifts do
-    member do
-      get 'download'
-    end
   end
 
+  resources :press
+
+  match 'thankyou' => 'pages#thankyou', :as => :thankyou
+  match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
+  match 'about' => 'pages#about', :as => :about
+  match 'faq' => 'pages#faq', :as => :faq
+  match '' => 'pages#home', :as => :home
   root :to => 'pages#home'
   
   # The priority is based upon order of creation:
