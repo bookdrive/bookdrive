@@ -10,11 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101208001611) do
+ActiveRecord::Schema.define(:version => 20101211055547) do
 
   create_table "books", :force => true do |t|
     t.string   "title",                                                                       :null => false
-    t.string   "author",                                                                      :null => false
+    t.string   "author"
     t.decimal  "amazon_price",              :precision => 10, :scale => 2
     t.integer  "copies_desired",                                           :default => 0
     t.integer  "copies_received",                                          :default => 0
