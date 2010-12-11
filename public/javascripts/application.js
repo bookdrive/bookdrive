@@ -22,4 +22,8 @@ $(function() {
     $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
     return false;
   });
+  $("#questions_search input").keyup(function() {
+    $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
+    return false;
+  });
 });

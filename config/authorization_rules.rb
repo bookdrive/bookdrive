@@ -9,6 +9,7 @@ authorization do
     has_permission_on :download_events, :to => [:dominate]
     has_permission_on :schools, :to => [:dominate]
     has_permission_on :articles, :to => [:dominate]
+    has_permission_on :questions, :to => [:dominate]
     
   end
 
@@ -22,6 +23,7 @@ authorization do
     has_permission_on :press, :to => [:manage]
     has_permission_on :schools, :to => [:manage]
     has_permission_on :articles, :to => [:manage]
+    has_permission_on :questions, :to => [:manage]
   end
 
   role :catalog do

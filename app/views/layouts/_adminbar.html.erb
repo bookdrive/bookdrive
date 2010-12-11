@@ -14,8 +14,8 @@
     <% if permitted_to? :manage, :schools %>
       <%= tab_for "Schools", schools_path %>
     <% end %>
-    <% if permitted_to? :manage, :faqs %>
-      <%= tab_for "Questions", users_path %>
+    <% if permitted_to? :manage, :questions %>
+      <%= tab_for "Questions", questions_path %>
     <% end %>
     <% if permitted_to? :manage, :donors %>
       <%= tab_for "Donors", donors_path %>

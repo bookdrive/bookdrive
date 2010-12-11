@@ -1,5 +1,6 @@
 Bookdrive::Application.routes.draw do
 
+
   match 'staff' => 'pages#staff', :as => :staff
 
   match 'staff' => 'pages#staff', :as => 'user_root'
@@ -20,6 +21,7 @@ Bookdrive::Application.routes.draw do
     resources :download_events
     resources :donors
     resources :articles
+    resources :questions
   
   end
 
