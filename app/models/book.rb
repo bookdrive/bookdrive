@@ -18,6 +18,9 @@ class Book < ActiveRecord::Base
   
   accepts_nested_attributes_for :copies, :allow_destroy => true
   
+  before_save :calculate_dollars
+  before_create :calculate_dollars
+  
   def update_from_wl_book(wl_book)
     wl_book.attribute_hash().each do |key,value|
       send(key+'=',value)
@@ -30,6 +33,14 @@ class Book < ActiveRecord::Base
     else
       scoped
     end
+  end
+  
+  private
+  
+  def calculate_dollars  
+    copies = self.copies_delivered > self.copies_received ? self.copies_delivered : self.copies_received
+    price = self.amazon_price && self.amazon_price > 0.00 ? self.amazon_price : 0.00
+    self.dollars_donated = self.amazon_price.to_f * copies.to_i
   end
 
   
