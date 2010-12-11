@@ -14,7 +14,7 @@
       <%= tab_for "Schools", schools_path %>
     <% end %>
     <% if permitted_to? :manage, :press %>
-      <%= tab_for "Press", press_index_path %>
+      <%= tab_for "Articles", articles_path %>
     <% end %>
     <% if permitted_to? :manage, :donors %>
       <%= tab_for "Donors", donors_path %>

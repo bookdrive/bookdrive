@@ -9,6 +9,7 @@ authorization do
     has_permission_on :gifts, :to => [:dominate]
     has_permission_on :download_events, :to => [:dominate]
     has_permission_on :schools, :to => [:dominate]
+    has_permission_on :articles, :to => [:dominate]
     
   end
 
@@ -21,6 +22,7 @@ authorization do
     includes :guest
     has_permission_on :press, :to => [:manage]
     has_permission_on :schools, :to => [:manage]
+    has_permission_on :articles, :to => [:manage]
   end
 
   role :catalog do
@@ -30,10 +32,9 @@ authorization do
   end
   
   role :guest do
-    has_permission_on :press, :to => [:browse]
     has_permission_on :donors, :to => [:submit_registration, :downloads]
     has_permission_on :gifts, :to => [:download]
-    has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about]
+    has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about, :press]
     has_permission_on :books, :to => [:update_wishlist]
   end
   
