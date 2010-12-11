@@ -3,7 +3,7 @@
   
   <em>Admin Bar</em>
   
-  <nav>
+  <div class="nav">
     <% if permitted_to? :manage, :books %>
       <%= tab_for "Books", books_path %>
     <% end %>
@@ -25,7 +25,7 @@
     <strong>
       <%= tab_for "Logout", destroy_user_session_path %>
     </strong>
-  </nav>
+  </div>
 
   
 </div>
