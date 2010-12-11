@@ -117,14 +117,14 @@ a:hover {
 }
 
 
-#header #nav {
+#header .nav {
   position: absolute;
   bottom: 10px;
   width: 100%;
   text-align: center;
 }
 
-#header #nav span, #header #nav a, #header #nav a:link, #header #nav a:visited, #header #nav a:active {
+#header .nav span, #header .nav a, #header .nav a:link, #header .nav a:visited, #header .nav a:active {
   display: inline;
   margin-right: 10px;
   padding: 5px 10px;
@@ -146,16 +146,16 @@ a:hover {
   font-weight: bold;
 }
 
-#header #nav a {
+#header .nav a {
   background-color: #004411;
 }
 
-#header #nav a:hover {
+#header .nav a:hover {
   background-color: #403020;
   text-decoration: none;
 }
 
-#header #nav span {
+#header .nav span {
   background-color: #555555;
 }
 
@@ -182,11 +182,11 @@ a:hover {
   color: #505050;
 }
 
-.admin #nav {
+.admin .nav {
   display: inline;
 }
 
-.admin #nav span, .admin #nav a, .admin #nav a:link, .admin #nav a:visited, .admin #nav a:active {
+.admin .nav span, .admin .nav a, .admin .nav a:link, .admin .nav a:visited, .admin .nav a:active {
   margin-right: 2px;
   font-size: 123.1%;
   color: #333;
@@ -201,17 +201,17 @@ a:hover {
 }
 
 
-.admin #nav a {
+.admin .nav a {
   background-color: transparent;
 }
 
-.admin #nav a:hover {
+.admin .nav a:hover {
   background-color: #333;
   color: #999;
   text-decoration: none;
 }
 
-.admin #nav span {
+.admin .nav span {
   background-color: #333;
   color: #999;
 }
