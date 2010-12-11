@@ -21,6 +21,10 @@
   <% if permitted_to? :manage, :schools %>
   <li><%= link_to "Edit Schools", schools_path %><br />Edit school information and add new schools to be displayed on the about page</li>
   <% end %>
+
+  <% if permitted_to? :manage, :schools %>
+  <li><%= link_to "Edit Questions for the FAQ", questions_path %><br />Edit content for the FAQ and reorder them</li>
+  <% end %>
   
   <% if permitted_to? :manage, :donors %>
   <li><%= link_to "Support Donors", donors_path %><br />Reset order numbers when a donor has accidentally registered from another computer or mobile devise.</li>

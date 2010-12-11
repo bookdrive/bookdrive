@@ -1,0 +1,35 @@
+<table id="questions_table" class="index">
+  <caption style="overflow:hidden;">
+  <span style="float:left;"><%= page_entries_info( @questions ).html_safe %></span>
+  <%= will_paginate @questions %></caption>
+	
+  <thead>
+  <tr>
+    <th><%= sortable 'id' %></th>
+    <th><%= sortable 'category' %></th>
+    <th><%= sortable 'position' %></th>
+    <th><%= sortable 'question' %></th>
+  </tr>
+  </thead>
+
+  <tfoot>
+  	<tr>
+  		<td colspan="8"><%= will_paginate @questions %></td>
+  	</tr>
+  </tfoot>
+
+  <tbody>
+<% @questions.each do |question| %>
+  <tr onclick="document.location='<%= question_path(question) %>';return false;">     
+    <td><%= question.id %></td>
+    <td><%= question.category %></td>
+    <td><%= question.position%></td>
+    <td><%= question.question %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
