@@ -1,0 +1,33 @@
+<table id="articles_table" class="index">
+  <caption style="overflow:hidden;">
+  <span style="float:left;"><%= page_entries_info( @articles ).html_safe %></span>
+  <%= will_paginate @articles %></caption>
+	
+  <thead>
+  <tr>
+    <th><%= sortable 'title' %></th>
+    <th><%= sortable 'source' %></th>
+    <th><%= sortable 'date' %></th>
+  </tr>
+  </thead>
+
+  <tfoot>
+  	<tr>
+  		<td colspan="8"><%= will_paginate @articles %></td>
+  	</tr>
+  </tfoot>
+
+  <tbody>
+<% @articles.each do |article| %>
+  <tr onclick="document.location='<%= article_path(article) %>';return false;">     
+    <td><%= article.title %></td>
+    <td><%= article.source %></td>
+    <td><%= article.date.to_formatted_s(:month_and_day) %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>

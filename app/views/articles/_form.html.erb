@@ -1,0 +1,27 @@
+<%= simple_form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+    <%= f.input :date %>
+    <%= f.input :url %>
+    <%= f.input :source %>
+    <%= f.input :author %>
+    <%= f.input :summary, :input_html => { :style => "width: 100%", :rows => 5 } %>
+    <%= f.input :embed, :input_html => { :style => "width: 100%", :rows => 15 } %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

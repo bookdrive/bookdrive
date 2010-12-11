@@ -18,4 +18,8 @@ $(function() {
     $.get($("#schools_search").attr("action"), $("#schools_search").serialize(), null, "script");
     return false;
   });
+  $("#articles_search input").keyup(function() {
+    $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
+    return false;
+  });
 });

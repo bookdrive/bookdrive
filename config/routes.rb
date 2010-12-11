@@ -15,8 +15,10 @@ Bookdrive::Application.routes.draw do
     resources :gifts
     resources :download_events
     resources :donors
+    resources :articles
   
   end
+
 
   resources :donors do
     resources :gifts do
@@ -30,8 +32,8 @@ Bookdrive::Application.routes.draw do
     end
   end
 
-  resources :press
 
+  match 'press' => 'pages#press', :as => :press
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
   match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
   match 'about' => 'pages#about', :as => :about
