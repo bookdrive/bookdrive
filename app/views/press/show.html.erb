@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="links">
+<%= link_to 'Edit', edit_press_path(@press) %> |
+<%= link_to 'Back', press_index_path %>
+</div>
+
 <p>
   <b>Title:</b>
   <%= @press.title %>
@@ -29,7 +35,3 @@
   <b>Embed:</b>
   <%= @press.embed %>
 </p>
-
-
-<%= link_to 'Edit', edit_press_path(@press) %> |
-<%= link_to 'Back', press_index_path %>
