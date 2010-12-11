@@ -425,24 +425,61 @@ label abbr {
 }
 
 .school {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  margin-left: 50px;
 }
 
 .school h3 {
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   font-size: 138.5%;
 }
 
+.school p {
+  margin-bottom: 5px;
+}
+
 .school ul {
-  margin: 0 0 0 40px;
+  margin: 0 0 5px 30px;
   padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .school ul li {
-  margin: 0 0 6px;
-  padding: 0;
+  margin-bottom: 5px;
 }
+
+.school ul li span {
+  font-weight: bold;
+  font-size: 121%;
+  margin-right: 5px;
+}
+
+.schoolstats {
+  background-color: #aaa;
+  margin: 35px 0 15px;
+}
+
+.schoolstats caption {
+  background-color: #999;
+  font-style: italic;
+  margin: 0;
+  padding: 7px;
+}
+
+.schoolstats td {
+  padding: 7px 25px;
+}
+
+.schoolstats tr {
+  border-bottom: 1px dotted #444;
+}
+
+.schoolstats tr:last-child {
+  border-bottom: none;
+}
+
 
 .index tbody tr:nth-child(even) td, tbody tr.even td {
   background-color: transparent;

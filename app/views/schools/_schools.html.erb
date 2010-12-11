@@ -1,0 +1,37 @@
+<table id="schools_table" class="index">
+  <caption style="overflow:hidden;">
+  <span style="float:left;"><%= page_entries_info( @schools ).html_safe %></span>
+  <%= will_paginate @schools %></caption>
+	
+  <thead>
+  <tr>
+    <th><%= sortable 'name' %></th>
+    <th><%= sortable 'level' %></th>
+    <th><%= sortable 'students' %></th>
+    <th><%= sortable 'proficiency' %></th>
+    <th><%= sortable 'lunch_eligibility', 'Reduced Lunch' %></th>
+  </tr>
+  </thead>
+
+  <tfoot>
+  	<tr>
+  		<td colspan="8"><%= will_paginate @schools %></td>
+  	</tr>
+  </tfoot>
+
+  <tbody>
+<% @schools.each do |school| %>
+  <tr onclick="document.location='<%= school_path(school) %>';return false;">     
+    <td><%= school.name %></td>
+    <td><%= school.level %></td>
+    <td><%= school.students %></td>
+    <td><%= number_to_percentage school.proficiency, :precision => 0 %></td>
+    <td><%= number_to_percentage school.lunch_eligibility, :precision => 0 %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>

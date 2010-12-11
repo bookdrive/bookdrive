@@ -14,4 +14,8 @@ $(function() {
     $.get($("#books_search").attr("action"), $("#books_search").serialize(), null, "script");
     return false;
   });
+  $("#schools_search input").keyup(function() {
+    $.get($("#schools_search").attr("action"), $("#schools_search").serialize(), null, "script");
+    return false;
+  });
 });

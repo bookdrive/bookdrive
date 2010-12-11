@@ -1,0 +1,28 @@
+<% title "Schools" %>
+<% admin_page %>
+
+<div class="statbox bookstats">
+  <h3>Schools</h3>
+  <ul class="list">
+    <li><span>Total Schools</span> <em><%= School.count %></em></li>
+    <li><span>Total Students</span> <em><%= number_with_delimiter School.sum(:students) %></em></li>
+    <li><span>Average Proficiency</span> <em><%= number_to_percentage School.average(:proficiency), :precision => 0 %></em></li>
+  </ul>
+</div>
+
+
+<div class="links">
+  <%= link_to 'New School', new_school_path %>
+</div>
+
+<h1>Schools</h1>
+
+
+<%= form_tag schools_path, :method => 'get', :id => "schools_search", :class => "search_form" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="schools"><%= render 'schools' %></div>
+<% end %>
+

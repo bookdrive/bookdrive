@@ -1,5 +1,7 @@
 Bookdrive::Application.routes.draw do
   
+  resources :schools
+
   resources :books do
     resources :copies
     collection do
