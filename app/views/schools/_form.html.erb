@@ -12,13 +12,76 @@
   <% end %>
 
   <div class="inputs">
-    <%= f.input :name %>
-    <%= f.input :level, :collection => ['Elementary School', 'Middle School', 'High School'] %>
-    <%= f.input :students, :hint => "The size of the student body (generally available on greaterschools.org)", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
-    <%= f.input :proficiency, :hint => "As a percentage", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
-    <%= f.input :lunch_eligibility,  :hint => "Percentage of student body eligible for free or reduced price lunches", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
-    <%= f.input :website_url %>
-    <%= f.input :greatschools_url %>
+    <%= f.input :name,
+        :hint => "Full name of the school"
+    %>
+
+    <%= f.input :level,
+        :collection => ['Elementary School', 'Middle School', 'High School'],
+        :hint => "Which grade levels does this school include?"
+    %>
+
+    <div style="overflow:hidden;">
+      
+      <div style="width: 30%;float:left;;margin-right:4%;">
+      <%= f.input :students,
+          :hint => "The size of the student body (generally available on greaterschools.org)",
+          :input_html => { 
+              :default => 0,
+              :min => 0,
+              :max => 9999,
+              :step => 1,
+              :maxlength => 4,
+              :size => 10
+          }
+      %>
+      </div>
+    
+      <div style="width: 30%;float:left;margin-right:4%;">
+      <%= f.input :proficiency,
+          :hint => "Percentage of student body testing at proficient or advanced level for the English language arts state tests",
+          :input_html => {
+              :default => 0,
+              :min => 0,
+              :max => 9999,
+              :step => 1,
+              :maxlength => 4,
+              :size => 10
+          }
+      %>
+      </div>
+    
+      <div style="width: 30%;float:left;">
+      <%= f.input :lunch_eligibility,
+          :hint => "Percentage of student body eligible for free or reduced price lunches",
+          :input_html => {
+              :default => 0,
+              :min => 0,
+              :max => 9999,
+              :step => 1,
+              :maxlength => 4,
+              :size => 10 
+          }
+      %>
+      </div>
+    
+    </div>
+    
+    <%= f.input :website_url,
+        :hint => "URL to the school's website",
+        :input_html => {
+            :style => "width: 100%;"
+        }
+    %>
+
+    <%= f.input :greatschools_url,
+        :hint => "URL to the school's profile on GreatSchools.org",
+        :input_html => {
+            :style => "width: 100%;"
+        }
+    %>
+        
+        
   </div>
 
   <div class="actions">
