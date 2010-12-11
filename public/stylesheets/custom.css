@@ -91,17 +91,18 @@ a:hover {
   letter-spacing: 4px;
 }
 
-#header .transparent a, #header .transparent a:link, #header .transparent a:active, #header .transparent a:visited {
+#header .transparent, #header .transparent a:link, #header .transparent a:active, #header .transparent a:visited {
   color: transparent;
-  display: none;
 }
 
 #header .transparent a:hover {
   text-decoration: none;
   color: transparent;
-  display: none;
 }
 
+#header .transparent h1, #header .transparent h2 {
+  display: none;
+}
 
 #header h2 {
   margin: 0;
@@ -156,6 +157,12 @@ a:hover {
 
 #header #nav span {
   background-color: #555555;
+}
+
+#header .title a {
+  display: block;
+  height: 45px;
+  width: 100%;
 }
 
 
