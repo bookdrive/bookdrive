@@ -672,23 +672,23 @@ img.book_cover {
 }
 
 .staff_overview p {
-  font-size: 138%;
+  font-size: 121%;
   
 }
 
 .staff_overview ul {
-  margin-left: 0;
+  margin-left: 100px;
 }
 
 .staff_overview ul li {
   margin-bottom: 20px;
   list-style: none;
-  font-size: 138%;
+  font-size: 121%;
   
 }
 
 .staff_overview ul li a {
-  font-size: 153%;
+  font-size: 138%;
   font-weight: bold;
 }
 
