@@ -1,0 +1,36 @@
+<% title "Staff Overview" %>
+
+<% admin_page %>
+
+<h1>Staff Overview</h1>
+
+<div class="staff_overview">
+
+<p>Welcome to the secret staff section. You can:</p>
+
+<ul>
+
+  <% if permitted_to? :manage, :books %>
+  <li><%= link_to "Catalog Books", books_path %><br />Manually add used books and catalog delivered copies</li>
+  <% end %>
+
+  <% if permitted_to? :manage, :articles %>
+  <li><%= link_to "Enter Press Articles", articles_path %><br />Add new press articles to be displayed on the press page</li>
+  <% end %>
+  
+  <% if permitted_to? :manage, :schools %>
+  <li><%= link_to "Edit Schools", schools_path %><br />Edit school information and add new schools to be displayed on the about page</li>
+  <% end %>
+  
+  <% if permitted_to? :manage, :donors %>
+  <li><%= link_to "Support Donors", donors_path %><br />Reset order numbers when a donor has accidentally registered from another computer or mobile devise.</li>
+  <% end %>
+  
+  <% if permitted_to? :manage, :users %>
+  <li><%= link_to "Manage Users", users_path %><br />Add new users to the system and assign roles</li>
+  <% end %>
+  
+</ul>
+  
+  
+</div>
