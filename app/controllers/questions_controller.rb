@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  filter_access_to :all
+
   cache_sweeper :questions_sweeper
 
   helper_method :sort_column, :sort_direction
