@@ -2,18 +2,20 @@
 <% admin_page %>
 
 <div class="statbox bookstats">
-  <h3>Donated Copies</h3>
+  <h3>Copies</h3>
   <ul class="list">
+    <li><span>Copies Desired</span> <em><%= number_with_delimiter Book.sum(:copies_desired) %></em></li>
     <li><span>Copies Received</span> <em><%= number_with_delimiter Book.sum(:copies_received) %></em></li>
     <li><span>Copies Delivered</span> <em><%= number_with_delimiter Book.sum(:copies_delivered) %></em></li>
   </ul>
 </div>
 
 <div class="statbox bookstats">
-  <h3>Book List</h3>
+  <h3>Books and Dollars</h3>
   <ul class="list">
     <li><span>Total Books</span> <em><%= Book.count %></em></li>
-    <li><span>Copies Desired</span> <em><%= number_with_delimiter Book.sum(:copies_desired) %></em></li>
+    <li><span>Total Dollars</span> <em><%= number_to_currency Book.sum(:dollars_donated) %></em></li>
+    <li><span>Dollars per Donor</span> <em><%= number_to_currency( Book.sum(:dollars_donated) / Donor.count ) %></em></li>
   </ul>
 </div>
 
