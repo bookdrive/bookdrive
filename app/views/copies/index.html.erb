@@ -2,6 +2,11 @@
 
 <% admin_page %>
 
+<div class="links">
+<%= link_to 'New Copy', new_book_copy_path(@book) %>
+</div>
+
+
 <h1>Copies</h1>
 
 <table class="index">
@@ -33,4 +38,3 @@
 
 <br />
 
-<%= link_to 'New Copy', new_book_copy_path(@book) %>

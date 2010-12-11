@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<div class="links">
+<%= link_to 'Edit', edit_copy_path(@copy) %> |
+<%= link_to 'Back', copies_path %>
+</div>
+
 <p>
   <b>Book:</b>
   <%= @copy.book_id %>
@@ -10,6 +15,3 @@
   <%= @copy.catalogger_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_copy_path(@copy) %> |
-<%= link_to 'Back', copies_path %>
