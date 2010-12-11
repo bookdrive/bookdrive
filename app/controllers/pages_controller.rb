@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   filter_access_to :all
 
-  caches_page :about, :faq, :usedbooks, :press, :thankyou
+  caches_page :home, :about, :faq, :usedbooks, :press, :thankyou
   
   def home
   end
@@ -23,6 +23,9 @@ class PagesController < ApplicationController
   end
   
   def staff
+  end
+
+  def oops
   end
   
 end

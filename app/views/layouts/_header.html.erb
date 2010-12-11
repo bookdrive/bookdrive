@@ -20,11 +20,12 @@
   <%= render 'layouts/adminbar' %>
 <% end %>
 
-<% if notice %>
-<p class="notice"><%= notice %></p>
-<% end %>
+<% unless hold_flash_notices? %>
+  <% if notice %>
+  <p class="notice"><%= notice %></p>
+  <% end %>
 
-<% if alert %>
-<p class="alert"><%= alert %></p>
+  <% if alert %>
+  <p class="alert"><%= alert %></p>
+  <% end %>
 <% end %>
-

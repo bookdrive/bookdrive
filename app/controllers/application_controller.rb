@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def permission_denied
-    redirect_to root_url, :alert => "Sorry, you are not allowed to access that page."
+    redirect_to oops_path, :alert => "Nothing for you to do there. Try something else!"
   end
   
   def confirm_donor
