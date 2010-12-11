@@ -710,3 +710,31 @@ img.book_cover {
   font-size: 138%;
   margin-bottom: 25px;
 }
+
+.article {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #999;
+}
+
+.article h3 {
+  font-size: 138%;
+  margin-bottom: 5px;
+}
+
+.article h3 span {
+  float: right;
+}
+
+.article .summary {
+  margin-bottom: 0;
+}
+
+.article .source {
+  font-style: italic;
+  font-size: 108%;
+}
+
+.article .embed {
+  margin-top: 20px;
+}
