@@ -2,6 +2,11 @@
 <% admin_page %>
 
 
+<div class="links">
+  <%= link_to 'Edit', edit_donor_path(@donor) %> |
+  <%= link_to 'Back', donors_path %>
+</div>
+
 <table>
   <tr><td>Id</td><td><%= @donor.id %></td></tr>
   <tr><td>Order Number</td><td><%= @donor.order_number %></td></tr>
@@ -12,8 +17,3 @@
   <% end %>
   </td></tr>
 </table>
-
-<div class="links">
-  <%= link_to 'Edit', edit_donor_path(@donor) %> |
-  <%= link_to 'Back', donors_path %>
-</div>
