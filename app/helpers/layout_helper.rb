@@ -19,6 +19,14 @@ module LayoutHelper
   def admin_page?
     @is_admin_page
   end
+
+  def hold_flash_notices
+    @hold_flash_notices = true
+  end
+  
+  def hold_flash_notices?
+    @hold_flash_notices
+  end
   
   
   

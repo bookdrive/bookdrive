@@ -36,7 +36,7 @@ Bookdrive::Application.routes.draw do
     end
   end
 
-
+  match 'oops' => 'pages#oops', :as => :oops
   match 'press' => 'pages#press', :as => :press
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
   match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks

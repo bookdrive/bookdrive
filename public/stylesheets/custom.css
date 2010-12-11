@@ -691,3 +691,17 @@ img.book_cover {
   font-size: 153%;
   font-weight: bold;
 }
+
+.oops p {
+  margin-top: 25px;
+  font-size: 138%;
+}
+
+.oops ul {
+  margin: 25px 0 25px 75px;
+}
+
+.oops ul li {
+  font-size: 138%;
+  margin-bottom: 25px;
+}

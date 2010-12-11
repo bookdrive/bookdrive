@@ -38,7 +38,7 @@ authorization do
   role :guest do
     has_permission_on :donors, :to => [:submit_registration, :downloads]
     has_permission_on :gifts, :to => [:download]
-    has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about, :press]
+    has_permission_on :pages, :to => [:home, :usedbooks, :thankyou, :faq, :about, :press, :oops]
     has_permission_on :books, :to => [:update_wishlist]
   end
   
