@@ -21,4 +21,8 @@ class PagesController < ApplicationController
   def thankyou
     @donor = Donor.new
   end
+  
+  def staff
+  end
+  
 end

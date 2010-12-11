@@ -670,3 +670,24 @@ img.book_cover {
   margin-right: 0;
   margin-left: 25px;
 }
+
+.staff_overview p {
+  font-size: 138%;
+  
+}
+
+.staff_overview ul {
+  margin-left: 0;
+}
+
+.staff_overview ul li {
+  margin-bottom: 20px;
+  list-style: none;
+  font-size: 138%;
+  
+}
+
+.staff_overview ul li a {
+  font-size: 153%;
+  font-weight: bold;
+}

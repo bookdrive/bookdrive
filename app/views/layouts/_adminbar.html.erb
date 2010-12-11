@@ -4,17 +4,18 @@
   <em>Admin Bar</em>
   
   <div class="nav">
+      <%= tab_for "Overview", staff_path %>
     <% if permitted_to? :manage, :books %>
       <%= tab_for "Books", books_path %>
     <% end %>
-    <% if permitted_to? :manage, :faqs %>
-      <%= tab_for "FAQs", users_path %>
+    <% if permitted_to? :manage, :press %>
+      <%= tab_for "Articles", articles_path %>
     <% end %>
     <% if permitted_to? :manage, :schools %>
       <%= tab_for "Schools", schools_path %>
     <% end %>
-    <% if permitted_to? :manage, :press %>
-      <%= tab_for "Articles", articles_path %>
+    <% if permitted_to? :manage, :faqs %>
+      <%= tab_for "Questions", users_path %>
     <% end %>
     <% if permitted_to? :manage, :donors %>
       <%= tab_for "Donors", donors_path %>
