@@ -372,6 +372,10 @@ textarea:focus, input[type='text']:focus, input[type='email']:focus, input[type=
   background-color: #aaaaaa;
 }
 
+textarea {
+  width: 100%;
+}
+
 
 input[type='checkbox'] {
   margin-left: 0;

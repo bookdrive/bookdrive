@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="inputs">
-    <%= f.input :question, :as => :text, :input_html => { :style => "width: 100%", :rows => 3} %>
-    <%= f.input :answer, :input_html => { :style => "width: 100%;" } %>
+    <%= f.input :question, :as => :text, :input_html => { :rows => 3} %>
+    <%= f.input :answer, :input_html => { :rows => 10 } %>
     <%= f.input :category, :collection => ['About the Drive', 'Technical Issues'] %>
     <%= f.input :position %>
   </div>
