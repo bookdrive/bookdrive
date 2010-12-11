@@ -13,7 +13,7 @@
 
   <div class="inputs">
     <%= f.input :name %>
-    <%= f.input :level, :collection => ['Elementary School', 'Middle School', 'High Schools'] %>
+    <%= f.input :level, :collection => ['Elementary School', 'Middle School', 'High School'] %>
     <%= f.input :students, :hint => "The size of the student body (generally available on greaterschools.org)", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
     <%= f.input :proficiency, :hint => "As a percentage", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
     <%= f.input :lunch_eligibility,  :hint => "Percentage of student body eligible for free or reduced price lunches", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 1, :maxlength => 4, :size => 10  } %>
