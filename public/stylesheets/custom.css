@@ -368,9 +368,10 @@ textarea, input[type='text'], input[type='email'], input[type='password'], input
 
 }
 
-textarea, input[type='text']:focus, input[type='email']:focus, input[type='password']:focus,  input[type='number']:focus, input[type='url']:focus {
+textarea:focus, input[type='text']:focus, input[type='email']:focus, input[type='password']:focus,  input[type='number']:focus, input[type='url']:focus {
   background-color: #aaaaaa;
 }
+
 
 input[type='checkbox'] {
   margin-left: 0;
