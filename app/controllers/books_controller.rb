@@ -84,7 +84,7 @@ class BooksController < ApplicationController
     if @book == nil
       @book = Book.new(params[:book])
     end
-    
+
     @book.source = current_user
     
     respond_to do |format|
@@ -138,6 +138,7 @@ class BooksController < ApplicationController
   
   def create_book_from_wl(wl_book)    
     new_book = Book.new( wl_book.attribute_hash() )
+    new_book.source = 'Wish List'
     new_book.save
   end
   
@@ -194,7 +195,6 @@ class BooksController < ApplicationController
       @book.amazon_image_original_url = @book.amazon_image_url.sub(/(.+I\/[^\.]+)\..+/,'\1.jpg')
       @book.amazon_image_url.sub!(/_PIsitb-.+?,-[\d]+/,'')
     end
-    
-    @book.source = "Manual"
+
   end
 end
