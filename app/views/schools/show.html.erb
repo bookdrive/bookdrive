@@ -1,0 +1,30 @@
+<% title "Schools &raquo; " + @school.name %>
+<% admin_page %>
+
+<div class="links">
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
+</div>
+
+
+<div class="show_school">
+
+
+<h1><%= @school.name %></h1>
+<p><%= link_to @school.website_url, @school.website_url, :target => "_blank" %><br />
+<%= link_to @school.greatschools_url, @school.greatschools_url, :target => "_blank"%></p>
+
+
+
+
+<div class="statbox">
+  <h3>School Stats</h3>
+  <ul class="list">
+    <li><span>Level</span> <em><%= @school.level %></em></li>
+    <li><span>Students</span> <em><%= @school.students %></em></li>
+    <li><span>Proficiency</span> <em><%= number_to_percentage @school.proficiency, :precision => 0 %></em></li>
+    <li><span>Free Lunch</span> <em><%= number_to_percentage @school.lunch_eligibility, :precision => 0 %></em></li>
+  </ul>
+</div>
+
+</div>

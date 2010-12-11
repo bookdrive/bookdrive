@@ -11,7 +11,7 @@
       <%= tab_for "FAQs", users_path %>
     <% end %>
     <% if permitted_to? :manage, :schools %>
-      <%= tab_for "Schools", users_path %>
+      <%= tab_for "Schools", schools_path %>
     <% end %>
     <% if permitted_to? :manage, :press %>
       <%= tab_for "Press", press_index_path %>

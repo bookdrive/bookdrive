@@ -8,6 +8,8 @@ authorization do
     has_permission_on :donors, :to => [:dominate]
     has_permission_on :gifts, :to => [:dominate]
     has_permission_on :download_events, :to => [:dominate]
+    has_permission_on :schools, :to => [:dominate]
+    
   end
 
   role :support do
@@ -18,6 +20,7 @@ authorization do
   role :content do
     includes :guest
     has_permission_on :press, :to => [:manage]
+    has_permission_on :schools, :to => [:manage]
   end
 
   role :catalog do

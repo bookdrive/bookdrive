@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  level: MyString
+  proficiency: 9.99
+  lunch_eligibility: 9.99
+  students: 1
+  website_url: MyString
+  greatschools_url: MyString
+
+two:
+  name: MyString
+  level: MyString
+  proficiency: 9.99
+  lunch_eligibility: 9.99
+  students: 1
+  website_url: MyString
+  greatschools_url: MyString
