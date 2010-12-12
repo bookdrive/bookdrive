@@ -32,6 +32,11 @@ role :db,  domain, :port => 2288, :primary => true # This is where Rails migrati
 #role :db,  "bookdrive"
 
 
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+set :rvm_ruby_string, 'ruby-1.9.2-p0'        # Or whatever env you want it to run in.
+set :rvm_type, :user
+
 desc "Tail remote logs"
 task :tail_log, :roles => :app do
   stream "tail -f #{shared_path}/log/#{stage}.log"
