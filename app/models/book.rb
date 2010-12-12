@@ -20,6 +20,8 @@ class Book < ActiveRecord::Base
   
   before_save :calculate_dollars
   before_create :calculate_dollars
+  before_save :calculate_total_book_count
+  before_create :calculate_total_book_count
   
   def update_from_wl_book(wl_book)
     wl_book.attribute_hash().each do |key,value|
@@ -41,6 +43,11 @@ class Book < ActiveRecord::Base
     copies = self.copies_delivered > self.copies_received ? self.copies_delivered : self.copies_received
     price = self.amazon_price && self.amazon_price > 0.00 ? self.amazon_price : 0.00
     self.dollars_donated = self.amazon_price.to_f * copies.to_i
+  end
+
+  def calculate_total_book_count
+    copies = self.copies_delivered > self.copies_received ? self.copies_delivered : self.copies_received
+    self.total_book_count = self.books_in_set * copies
   end
 
   

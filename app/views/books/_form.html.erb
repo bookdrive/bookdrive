@@ -30,7 +30,12 @@
     <div style="float:left;width:23%;margin-right: 5%">
     <%= f.input :amazon_strike_price, :hint => "This is the original price.", :input_html => { :default => 0, :min => 0, :max => 9999, :step => 0.01, :maxlength => 6, :size => 10  } %>
     </div>
+
+    <div style="float:left;width:23%;margin-right: 5%">
+    <%= f.input :books_in_set, :hint => "If a box set, how many books are in the set?", :input_html => { :default => 0, :min => 0, :max => 100, :step => 1, :maxlength => 3, :size => 4  } %>
     </div>
+    </div>
+    
     <!--
     <div style="overflow:hidden;">
     <div style="float:left;width:20%;margin-right: 5%">
