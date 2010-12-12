@@ -17,11 +17,14 @@ class DonorSweeper < ActionController::Caching::Sweeper
   end
  
   private
+
   def expire_cache_for(donor)
     # Expire the home page now that we added a new donor
-    expire_page(:controller => 'pages', :action => 'home')
+    # TURN OFF sweeping the home page when donors change. Update with wish list
+    #expire_page(:controller => 'pages', :action => 'home')
  
     # Expire a fragment
     #expire_fragment('all_available_products')
   end
+
 end
