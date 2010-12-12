@@ -2,7 +2,7 @@ class SchoolsController < ApplicationController
 
   filter_access_to :all
     
-  cache_sweeper :schools_sweeper
+  cache_sweeper :school_sweeper
     
   helper_method :sort_column, :sort_direction
 

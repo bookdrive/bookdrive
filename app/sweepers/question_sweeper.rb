@@ -1,4 +1,4 @@
-class QuestionsSweeper < ActionController::Caching::Sweeper
+class QuestionSweeper < ActionController::Caching::Sweeper
   observe Question # This sweeper is going to keep an eye on the Question model
  
   # If our sweeper detects that a question was created call this

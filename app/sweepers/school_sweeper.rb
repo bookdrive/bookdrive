@@ -1,4 +1,4 @@
-class SchoolsSweeper < ActionController::Caching::Sweeper
+class SchoolSweeper < ActionController::Caching::Sweeper
   observe School # This sweeper is going to keep an eye on the school model
  
   # If our sweeper detects that a school was created call this

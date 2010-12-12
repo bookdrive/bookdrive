@@ -1,4 +1,4 @@
-class ArticlesSweeper < ActionController::Caching::Sweeper
+class ArticleSweeper < ActionController::Caching::Sweeper
   observe Article # This sweeper is going to keep an eye on the Article model
  
   # If our sweeper detects that a Press was created call this

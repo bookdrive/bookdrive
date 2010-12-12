@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   filter_access_to :all
 
-  cache_sweeper :articles_sweeper
+  cache_sweeper :article_sweeper
 
   helper_method :sort_column, :sort_direction
   
