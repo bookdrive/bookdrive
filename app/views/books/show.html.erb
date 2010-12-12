@@ -30,6 +30,7 @@
     <li><span>Received</span> <em><%= @book.copies_received %></em></li>
     <li><span>Delivered</span> <em><%= @book.copies_delivered %></em></li>
     <li><span>Dollars</span> <em><%= number_to_currency @book.dollars_donated %></em></li>
+    <li><span>Total Books</span> <em><%= @book.total_book_count %></em></li>
   </ul>
 </div>
 
@@ -63,6 +64,7 @@
     <% end %>
     </li>
     <li><span>Cover</span> <em><%= @book.amazon_cover_type %></em></li>
+    <li><span>Books in Set</span> <em><%= @book.books_in_set %></em></li>
     <li><span>Availability</span> <em><%= @book.amazon_availability %></em></li>
     <% if @book.amazon_product_url != nil %><li><%= link_to 'Amazon Product Page', @book.amazon_product_url %></li><% end %>
     <% if @book.amazon_wl_cart_url != nil %><li><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %></li><% end %>
