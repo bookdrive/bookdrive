@@ -45,6 +45,7 @@ end
 
 before "deploy", "deploy:web:disable"
 after "deploy", "deploy:web:enable"
+after "deploy", "deploy:cleanup"
 
 namespace :deploy do
   [:start, :stop].each do |t|
