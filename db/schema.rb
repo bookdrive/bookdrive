@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101211103406) do
+ActiveRecord::Schema.define(:version => 20101212053215) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20101211103406) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "articles", ["title"], :name => "index_articles_on_title"
 
   create_table "books", :force => true do |t|
     t.string   "title",                                                                       :null => false
@@ -50,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20101211103406) do
     t.string   "amazon_image_original_url"
     t.integer  "user_id"
   end
+
+  add_index "books", ["author"], :name => "index_books_on_author"
+  add_index "books", ["title"], :name => "index_books_on_title"
 
   create_table "copies", :force => true do |t|
     t.integer  "book_id"
@@ -104,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20101211103406) do
     t.datetime "updated_at"
   end
 
+  add_index "questions", ["question"], :name => "index_questions_on_question"
+
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.string   "level"
@@ -115,6 +122,8 @@ ActiveRecord::Schema.define(:version => 20101211103406) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "schools", ["name"], :name => "index_schools_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
