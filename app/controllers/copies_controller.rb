@@ -44,19 +44,15 @@ class CopiesController < ApplicationController
   # POST /copies.xml
   def create
     @book = Book.find(params[:book_id])
-    @copy = Copy.new(params[:copy])
-    @copy.book = @book
-    @copy.user = current_user
     
-    respond_to do |format|
-      if @copy.save
-        format.html { redirect_to(@book, :notice => 'Copy was successfully created.') }
-        format.xml  { render :xml => @copy, :status => :created, :location => @copy }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @copy.errors, :status => :unprocessable_entity }
-      end
+    for i in 1..params[:copy][:copy_count].to_i do
+      @copy = Copy.new(params[:copy])
+      @copy.book = @book
+      @copy.user = current_user
+      @copy.save
     end
+    
+    redirect_to( @book, :notice => 'Copies successfully added.' )
   end
 
   # PUT /copies/1
@@ -78,11 +74,13 @@ class CopiesController < ApplicationController
   # DELETE /copies/1
   # DELETE /copies/1.xml
   def destroy
+    @book = Book.find(params[:book_id])
+    
     @copy = Copy.find(params[:id])
     @copy.destroy
 
     respond_to do |format|
-      format.html { redirect_to(copies_url) }
+      format.html { redirect_to(@book) }
       format.xml  { head :ok }
     end
   end

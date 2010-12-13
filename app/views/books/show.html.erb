@@ -37,13 +37,25 @@
 <div class="statbox copies">
   <h3>Copies Delivered</h3>
   <%= simple_form_for @copy, :url => book_copies_path(@book) do |f| %>
-    <div class="actions">
-      <%= f.button :submit, :value => "Add New Copy Delivered" %>
+    <div class="actions copy_actions" style="overflow: hidden;">
+      
+      <div style="float: left; margin: 0;padding: 0;">
+        <%= f.input :copy_count,
+            :collection => 1..99,
+        %>
+      </div>
+      
+      <div style="float: left; margin: 2px 0 0 5px;padding: 0;">
+        <%= f.button :submit,
+            :value => "Copies Delivered"
+        %>
+      </div>
+    
     </div>
   <% end %>
   <ul class="list">
     <% @book.copies.joins(:user).order("created_at DESC").each do |copy| %>
-    <li><span><%= copy.created_at.to_formatted_s(:mdhm) %></span> <em><%= copy.user.email.sub(/\@.+/,'') %></em></li>
+    <li><span><%= copy.created_at.to_formatted_s(:mdhm) %></span> <em><%= copy.user.email.sub(/\@.+/,'').slice(0,10) %> <%= link_to '[x]', book_copy_path(@book, copy), :confirm => 'Are you sure?', :method => :delete %></em></li>
     <% end %>
   </ul>
 </div>
