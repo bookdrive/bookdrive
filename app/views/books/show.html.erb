@@ -2,9 +2,22 @@
 <% admin_page %>
 
 
-<div class="links">
+<div style="overflow: hidden;">
+<div class="links" style="float: left;">
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+</div>
+
+<div style="float: right">
+<%= form_tag books_path, :method => 'get', :id => "books_search_remote", :class => "search_form_remote" do %>
+  <p>
+    <%= text_field_tag :search, params[:search],
+        :style => "padding: 3px 5px; margin-left: 15px; font-size: 108%;"
+    %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
 </div>
 
 <div class="show_book">
