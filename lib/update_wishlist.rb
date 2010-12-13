@@ -116,7 +116,9 @@ class AmazonWishListFetcher
     matches = item.match(/<div class="lineItemPart">\s*<span class="authorPart">by ([^\n]+?)\s*<\/span>(?:\((.+?)\))?</m)
     if matches && matches.length > 0
       book.author = matches[1].encode('UTF-8')
-      book.amazon_cover_type = matches[2].encode('UTF-8')
+      if matches[2] != nil
+        book.amazon_cover_type = matches[2].encode('UTF-8')
+      end
     end
 
     matches = item.match(/(?:<span class="strikeprice">\$([\d\.]+)<\/span>)?<span class="wlPriceBold" name="price\.[^"]+"><strong>\$([\d\.]+)<\/strong><\/span>/m)
