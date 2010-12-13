@@ -44,9 +44,10 @@ end
 
 
 before "deploy", "deploy:web:disable"
+before "deploy", "backup"
 after "deploy", "deploy:web:enable"
 after "deploy", "deploy:cleanup"
-
+  
 namespace :deploy do
   [:start, :stop].each do |t|
     desc "#{t} task is a no-op with mod_rails"
@@ -55,5 +56,16 @@ namespace :deploy do
     
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end  
+end
+
+task :backup, :roles => :db, :only => { :primary => true } do
+  filename = "#{backup_dir}/#{application}.dump.#{Time.now.to_f}.sql.bz2"
+  text = capture "cat #{deploy_to}/current/config/database.yml"
+  yaml = YAML::load(text)
+
+  on_rollback { run "rm #{filename}" }
+  run "mysqldump -u #{yaml[rails_env]['username']} -p #{yaml[rails_env]['database']} | bzip2 -c > #{filename}" do |ch, stream, out|
+    ch.send_data "#{yaml[rails_env]['password']}\n" if out =~ /^Enter password:/
   end
 end
