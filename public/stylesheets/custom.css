@@ -466,10 +466,11 @@ label abbr {
   margin: 35px auto 15px;
   font-size: 90%;
   padding: 5px;
+  width: 75%;
 }
 
 .schoolstats th {
-  width: 60%;
+  width: 50%;
   background-color: #999;
   font-style: italic;
   font-weight: bold;
@@ -479,6 +480,7 @@ label abbr {
 
 .schoolstats td {
   padding: 7px 15px;
+  white-space: nowrap;
 }
 
 .schoolstats tr {
