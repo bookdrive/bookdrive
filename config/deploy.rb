@@ -45,7 +45,6 @@ end
 
 before "deploy", "deploy:web:disable"
 before "deploy", "backup"
-after "deploy", "deploy:web:enable"
 after "deploy", "deploy:cleanup"
   
 namespace :deploy do
