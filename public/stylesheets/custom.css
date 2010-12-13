@@ -738,3 +738,7 @@ img.book_cover {
 .article .embed {
   margin-top: 20px;
 }
+
+.copy_actions label {
+  display: none;
+}
