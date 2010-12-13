@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Maintenance</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <style type="text/css">
+    body { background-color: #999; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      background-color: #eee;
+      width: 30em;
+      padding: 1em 4em;
+      margin: 6em auto 0 auto;
+      border: 2px solid #900;
+    }
+    h1 { font-size: 150%; margin-bottom: 5px;}
+    h2 { font-size: 121%; margin-top: 0; color: #900; margin-bottom: 2em;}
+  </style>
+</head>
+
+<body>
+  <div class="dialog">    
+    <h1>Richmond Book Drive</h1>
+    <h2>System Maintenance</h2>
+    <p>We’re currently offline for <%= reason ? reason : 'maintenance' %> as of <% tz = ENV['TZ']
+    ENV['TZ'] = 'US/Pacific' %><%= Time.now.localtime.strftime('%H:%M %Z') %><% ENV['TZ'] = tz %>.</p>
+    <p>Sorry for the inconvenience. We’ll be back <%= deadline ? "by #{deadline}" : 'shortly' %>.</p>
+  </div>
+</body>
+</html>
