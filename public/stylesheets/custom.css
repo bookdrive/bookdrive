@@ -748,3 +748,71 @@ img.book_cover {
 .copy_actions label {
   display: none;
 }
+
+
+.ordernumber {
+  padding: 20px 12px;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  background-color: #555;
+  color: #e0e0e0;
+  margin: 25px auto;
+  text-align: center;
+}
+
+
+.beware {
+  padding: 10px 12px;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  border: 2px solid #631;
+  background-color: #a85;
+  color: #521;
+  margin: 0 auto 25px;
+  width: 70%;
+  text-align: center;
+}
+
+.beware p {
+  margin: 0;
+}
+
+
+.beware h3 {
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.beware h3 span {
+  text-transform: none;
+}
+
+
+.ordernumber label {
+  font-size: 121%;
+  margin-bottom: 10px;
+}
+
+.ordernumber .hint {
+  font-size: 113%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.ordernumber input[type='text'] {
+  padding: 8px 12px;
+  background-color: #999;
+}
+
+.field_with_errors textarea, .field_with_errors input[type='text'], .field_with_errors input[type='email'], .field_with_errors input[type='password'], .field_with_errors input[type='number'], .field_with_errors input[type='url'] {
+  background-color: #e88;
+}
+
+.ordernumber .field_with_errors .error {
+  width: 75%;
+  margin: 0 auto;
+}

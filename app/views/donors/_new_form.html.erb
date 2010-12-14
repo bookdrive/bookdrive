@@ -1,7 +1,34 @@
+
+
+<h1>Thank You!</h1>
+
+<p>Thank you so much for your donation! Students in Richmond schools will have more books to read thanks to donors like you.</p>
+
+<p>Enter your Amazon order number from your email receipt below to download the Pomplamoose Christmas album.</p>
+
+
+<div class="ordernumber">
+
+  <div class="beware">
+  <h3><span>i</span>Pads, <span>i</span>Phones, Smartphones and Tablets Beware</h3>
+  <p><i>Most handheld devices do not allow you to save downloads &mdash; please switch to your computer before submitting this form.</i></p>
+  </div>
+
+
 <%= simple_form_for @donor, :url => submit_registration_donors_path do |f| %>
-  <%= f.input :order_number, :label => 'Order Number', :input_html => { :maxlength => 30, :size => 30, :style => 'width: 98%' } %>
+
+  <%= f.input :order_number,
+      :label => 'Enter Your Order Number Below',
+      :hint => 'Each order number is only valid on one computer.',
+      :input_html => {
+          :maxlength => 50,
+          :size => 50
+      } 
+  %>
   <%= f.submit 'Get Your Pomplamoose Christmas Album' %>
 <% end %>
 
-<br />
+<br /><br />
 <%= image_tag 'email.png' %>
+
+</div>
