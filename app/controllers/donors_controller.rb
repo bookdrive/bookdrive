@@ -20,22 +20,12 @@ class DonorsController < ApplicationController
   # GET /donors/1.xml
   def show
     @donor = Donor.find_by_order_number(params[:id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @donor }
-    end
   end
 
   # GET /donors/new
   # GET /donors/new.xml
   def new
     @donor = Donor.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @donor }
-    end
   end
   
   def downloads
@@ -47,11 +37,6 @@ class DonorsController < ApplicationController
   # GET /donors/register.xml
   def register
     @donor = Donor.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @donor }
-    end
   end
 
 
@@ -79,7 +64,7 @@ class DonorsController < ApplicationController
         format.html { redirect_to(downloads_donor_path(@donor), :notice => 'Thank you for making a donation!') }
         format.xml  { render :xml => @donor, :status => :created, :location => @donor }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "register" }
         format.xml  { render :xml => @donor.errors, :status => :unprocessable_entity }
       end
     end
