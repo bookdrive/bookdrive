@@ -22,8 +22,8 @@ th, td {
 
 html, body {
   font-family: trebuchet ms, georgia;
-  color: #333333;
-  background-color: #666666;
+  color: #a85;
+  background-color: #A55B28;
 }
 
 
@@ -41,13 +41,13 @@ html, body {
 
 
 a, a:link, a:visited, a:active {
-  color: #006611;
+  color: #682D05;
   text-decoration: none;
 }
 
 
 a:hover {
-  color: #503020;
+  color: #8E3F0A;
   text-decoration: underline;
 }
 
@@ -63,8 +63,8 @@ a:hover {
   padding: 10px;
   height: 100px;
 
-  background-image: url('/images/title-banner.gif');
-  background-color: #eeeeee;
+  /*background-image: url('/images/title-banner.gif'); */
+  background-color: #733F1C;
 
   box-shadow: rgba(0,0,0, 0.4) -0px 3px 6px;
 	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -0px 3px 6px;
@@ -82,7 +82,7 @@ a:hover {
   margin: 0;
   padding: 0;
 
-  color: transparent;
+  color: #521;
 
   font-size: 4em;
   font-family: impact;
@@ -101,7 +101,7 @@ a:hover {
 }
 
 #header .transparent h1, #header .transparent h2 {
-  display: none;
+  /*display: none; */
 }
 
 #header h2 {
@@ -142,21 +142,23 @@ a:hover {
   -webkit-transition-timing-function: ease;
 
   font-size: 123.1%;
-  color: #eeeeee;
+  color: #a85;
   font-weight: bold;
 }
 
 #header .nav a {
-  background-color: #004411;
+  background-color: #521;
 }
 
 #header .nav a:hover {
-  background-color: #403020;
+  background-color: #a85;
+  color: #521;
   text-decoration: none;
 }
 
 #header .nav span {
-  background-color: #555555;
+  background-color: #a85;
+  color: #521;
 }
 
 #header .title a {
@@ -243,14 +245,14 @@ div#video {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
 
-  background-color: #dddddd;
+  background-color: #733F1C;
 
 }
 
 #section h1 {
   font-size: 182%;
   font-weight: bold;
-  color: #333;
+  color: #521;
   margin: 0 0 10px;
 }
 
@@ -268,7 +270,7 @@ div#video {
   font-size: 167%;
   font-style: italic;
   text-align: center;
-  color: #333333;
+  color: #613C16;
 }
 
 .home ol {
@@ -295,7 +297,7 @@ div#video {
 
   font-weight: bold;
   font-size: 143%;
-  color: #555;
+  color: #a85;
 }
 
 .wl_link {
@@ -319,8 +321,8 @@ div#video {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
 
-  background-color: #004411;
-  color: #eeeeee;
+  background-color: #562B00;
+  color: #A66B2F;
 
   text-align: center;
   font-weight: bold;
@@ -364,12 +366,12 @@ textarea, input[type='text'], input[type='email'], input[type='password'], input
 
   font-size: 131%;
   letter-spacing: 2px;
-  background-color: #6688aa;
+  background-color: #A6611A;
 
 }
 
 textarea:focus, input[type='text']:focus, input[type='email']:focus, input[type='password']:focus,  input[type='number']:focus, input[type='url']:focus {
-  background-color: #aaaaaa;
+  background-color: #A6611A;
 }
 
 textarea {
@@ -403,6 +405,10 @@ label abbr {
   color: #D00;
 }
 
+.info {
+  display: block;
+}
+
 .field_with_errors input {
   border-color: #D00;
   background-color: #D99;
@@ -413,7 +419,7 @@ label abbr {
   display: block;
   margin-left: 5px;
 
-  color: #555;
+  color: #a85;
   font-size: 12px;
   font-style: italic;
 }
@@ -755,8 +761,8 @@ img.book_cover {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
-  background-color: #555;
-  color: #e0e0e0;
+  background-color: #7D3F00;
+  color: #A66B2F;
   margin: 25px auto;
   text-align: center;
 }
@@ -800,16 +806,15 @@ img.book_cover {
   font-size: 113%;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #e0e0e0;
 }
 
 .ordernumber input[type='text'] {
   padding: 8px 12px;
-  background-color: #999;
+  background-color: #A6611A;
 }
 
 .field_with_errors textarea, .field_with_errors input[type='text'], .field_with_errors input[type='email'], .field_with_errors input[type='password'], .field_with_errors input[type='number'], .field_with_errors input[type='url'] {
-  background-color: #e88;
+  background-color: #562B00;
 }
 
 .ordernumber .field_with_errors .error {
