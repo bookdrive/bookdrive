@@ -765,6 +765,9 @@ img.book_cover {
   color: #A66B2F;
   margin: 25px auto;
   text-align: center;
+  background-color: #a85;
+  color: #562B00;
+  
 }
 
 
@@ -773,9 +776,9 @@ img.book_cover {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
-  border: 2px solid #631;
-  background-color: #a85;
-  color: #562B00;
+  border: 2px solid #fff;
+  background-color: #ff0;
+  color: #000;
   margin: 0 auto 25px;
   width: 70%;
   text-align: center;
@@ -810,8 +813,8 @@ img.book_cover {
 
 .ordernumber input[type='text'] {
   padding: 8px 12px;
-  background-color: #A6611A;
-  color: #562B00;
+  background-color: #562B00;
+  color: #a85;
 }
 
 .field_with_errors textarea, .field_with_errors input[type='text'], .field_with_errors input[type='email'], .field_with_errors input[type='password'], .field_with_errors input[type='number'], .field_with_errors input[type='url'] {
@@ -824,8 +827,8 @@ img.book_cover {
 }
 
 .ordernumber input[type='submit'] {
-  background-color: #A6611A;
-  color: #562B00;
+  background-color: #562B00;
+  color: #a85;
   border-color: #562B00;
   padding: 5px;
 }
