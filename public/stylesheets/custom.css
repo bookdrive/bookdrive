@@ -82,7 +82,7 @@ a:hover {
   margin: 0;
   padding: 0;
 
-  color: #521;
+  color: #562B00;
 
   font-size: 4em;
   font-family: impact;
@@ -147,18 +147,18 @@ a:hover {
 }
 
 #header .nav a {
-  background-color: #521;
+  background-color: #562B00;
 }
 
 #header .nav a:hover {
   background-color: #a85;
-  color: #521;
+  color: #562B00;
   text-decoration: none;
 }
 
 #header .nav span {
   background-color: #a85;
-  color: #521;
+  color: #562B00;
 }
 
 #header .title a {
@@ -252,7 +252,7 @@ div#video {
 #section h1 {
   font-size: 182%;
   font-weight: bold;
-  color: #521;
+  color: #562B00;
   margin: 0 0 10px;
 }
 
@@ -270,7 +270,7 @@ div#video {
   font-size: 167%;
   font-style: italic;
   text-align: center;
-  color: #613C16;
+  color: #562B00;
 }
 
 .home ol {
@@ -537,7 +537,7 @@ p.mission {
 blockquote {
   font-weight: bold;
   font-size: 123.1%;
-  color: #666;
+  color: #562B00;
   margin-left: 35px;
 }
 
@@ -775,7 +775,7 @@ img.book_cover {
   border-radius:         10px;
   border: 2px solid #631;
   background-color: #a85;
-  color: #521;
+  color: #562B00;
   margin: 0 auto 25px;
   width: 70%;
   text-align: center;
