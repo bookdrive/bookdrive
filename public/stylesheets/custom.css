@@ -770,9 +770,12 @@ img.book_cover {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
-  border: 2px solid #631;
-  background-color: #a85;
-  color: #521;
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+  border: 2px solid #d61;
+  background-color: #fa5;
+  color: #000;
   margin: 0 auto 25px;
   width: 70%;
   text-align: center;
@@ -780,6 +783,7 @@ img.book_cover {
 
 .beware p {
   margin: 0;
+  font-style: italic;
 }
 
 
