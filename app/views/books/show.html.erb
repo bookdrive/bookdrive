@@ -22,13 +22,13 @@
 
 <div class="show_book">
 
-<% if @book.amazon_image_original_url != nil %>
+<% if @book.amazon_image_original_url.present? %>
   <%= image_tag @book.amazon_image_original_url, :class => 'book_cover', :alt => @book.title %>
 <% end %>
 
 
 <h1><%= @book.title %></h1>
-<% if @book.author != nil %>
+<% if @book.author.present? %>
 <h2><%= @book.author %></h2>
 <% end %>
 
@@ -84,15 +84,16 @@
   <ul class="list">
     <li><span>Merchant</span> <em><%= @book.amazon_merchant %></em></li>
     <li><span>Price</span> <em class="price"><%= number_to_currency @book.amazon_price %>
-    <% if @book.amazon_strike_price != nil %>
-      <strong class="strike_price">(<strike><%= number_to_currency @book.amazon_strike_price %></strike>)</strong></em>
+    <% if @book.amazon_strike_price.present? %>
+      <strong class="strike_price">(<strike><%= number_to_currency @book.amazon_strike_price %></strike>)</strong>
     <% end %>
+    </em>
     </li>
     <li><span>Cover</span> <em><%= @book.amazon_cover_type %></em></li>
     <li><span>Books in Set</span> <em><%= @book.books_in_set %></em></li>
     <li><span>Availability</span> <em><%= @book.amazon_availability %></em></li>
-    <% if @book.amazon_product_url != nil %><li><%= link_to 'Amazon Product Page', @book.amazon_product_url %></li><% end %>
-    <% if @book.amazon_wl_cart_url != nil %><li><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %></li><% end %>
+    <% if @book.amazon_product_url.present? %><li><%= link_to 'Amazon Product Page', @book.amazon_product_url %></li><% end %>
+    <% if @book.amazon_wl_cart_url.present? %><li><%= link_to 'Amazon Add to Cart', @book.amazon_wl_cart_url %></li><% end %>
 
   </ul>
 
@@ -103,8 +104,8 @@
   <div class="statbox">
   <h3>Wish List</h3>
   <ul>
-  <li><span>Added</span> <% if @book.amazon_wl_add_date != nil %><em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em><% end %></li>
-  <li><span>Priority</span> <% if @book.amazon_wl_priority != nil %><em><%= @book.amazon_wl_priority %></em><% end %></li>
+  <li><span>Added</span> <% if @book.amazon_wl_add_date.present? %><em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em><% end %></li>
+  <li><span>Priority</span> <% if @book.amazon_wl_priority.present? %><em><%= @book.amazon_wl_priority %></em><% end %></li>
   <li><span>Comment</span> <% if @book.amazon_wl_comment.present? %><em class="comment"><%= @book.amazon_wl_comment %></em><% end %></li>
   </div>
 
