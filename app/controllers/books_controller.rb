@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   
   def update_wishlist
+    @@logger = logger
     @wl_books = AmazonWishListFetcher.new.get_updated_wl_books()
     
     @books = Book.all
