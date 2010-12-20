@@ -625,6 +625,9 @@ blockquote {
   font-weight: bold;
 }
 
+.statbox .comment {
+  font-size: 85%;
+}
 
 .copies ul {
   font-size: 85%;
@@ -816,3 +819,5 @@ img.book_cover {
   width: 75%;
   margin: 0 auto;
 }
+
+

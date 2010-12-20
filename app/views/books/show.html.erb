@@ -105,7 +105,7 @@
   <ul>
   <li><span>Added</span> <% if @book.amazon_wl_add_date != nil %><em><%= @book.amazon_wl_add_date.to_formatted_s(:long) %></em><% end %></li>
   <li><span>Priority</span> <% if @book.amazon_wl_priority != nil %><em><%= @book.amazon_wl_priority %></em><% end %></li>
-  <li><span>Comment</span> <% if @book.amazon_wl_comment.present? %><em><%= @book.amazon_wl_comment %></em><% end %></li>
+  <li><span>Comment</span> <% if @book.amazon_wl_comment.present? %><em class="comment"><%= @book.amazon_wl_comment %></em><% end %></li>
   </div>
 
 </div>
