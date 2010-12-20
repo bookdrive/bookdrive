@@ -22,6 +22,10 @@ class BooksController < ApplicationController
         book_identifier = b.author + '-' + book_identifier
       end
       
+      if b.amazon_product_url.present?
+        book_identifier = b.amazon_product_url
+      end
+      
       @books_map[book_identifier] = b
     end
     
@@ -30,6 +34,10 @@ class BooksController < ApplicationController
 
       if wl_book.author != nil
         wl_book_identifier = wl_book.author + '-' + wl_book_identifier
+      end
+
+      if wl_book.amazon_product_url != nil
+        wl_book_identifier = wl_book.amazon_product_url
       end
       
       if @books_map.include?(wl_book_identifier)
