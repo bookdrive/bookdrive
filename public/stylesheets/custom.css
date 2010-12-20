@@ -824,4 +824,13 @@ img.book_cover {
   margin: 0 auto;
 }
 
+.email {
+  text-align: center;
+}
+
+.email img {
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;  
+}
 
