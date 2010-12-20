@@ -30,14 +30,25 @@ $(function() {
 
 
 function downloadAlbum(link) {
-  document.location = link.href;
-  document.getElementById('album_link').innerText = 'Your Album is Now Downloading!';
+  dl_href = link.href
+  if ( document.all ) {
+    document.getElementById('album_link').innerText = 'Your Album is Now Downloading!';
+  } else {
+    document.getElementById('album_link').textContent = 'Your Album is Now Downloading!';    
+  }
   document.getElementById('album_link').className = 'downloading';
+  document.location = link.href;
 }
 
 
 function downloadTrack(link, idname) {
-  document.location = link.href;
-  document.getElementById(idname).innerText = 'Your Track is Now Downloading!';
+  dl_href = link.href
+  track_name = link.textContent
+  if ( document.all ) {
+    document.getElementById(idname).innerText = track_name + ': Now Downloading!';    
+  } else {
+    document.getElementById(idname).textContent = track_name + ': Now Downloading!';        
+  }
   document.getElementById(idname).className = 'downloading';
+  document.location = dl_href;
 }
