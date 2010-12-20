@@ -23,9 +23,15 @@ class ApplicationController < ActionController::Base
       return
     end
     donor_code = cookies['donor_' + order_number]
-    logger.debug donor_code
-    #logger.debug @donor.donor_code
     if !@donor || !donor_code || donor_code != @donor.donor_code
+      logger.info "Confirm Donor Failed: "
+      logger.info "  Order Number: " + order_number
+      if donor_code
+        logger.info "  Donor Code: " + donor_code
+      end
+      if @donor
+        logger.info "  Donor: " + @donor.inspect
+      end
       redirect_to thankyou_path, :alert => "The order number you entered has already been used on another computer."
     end
   end
