@@ -27,3 +27,10 @@ $(function() {
     return false;
   });
 });
+
+
+function downloadAction(link) {
+  document.location = link.href
+  document.getElementById('album_link').innerText = 'Your Album is Now Downloading!';
+  document.getElementById('album_link').className = 'downloading'
+}

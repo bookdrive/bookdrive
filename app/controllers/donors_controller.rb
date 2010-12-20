@@ -1,7 +1,7 @@
 class DonorsController < ApplicationController
   filter_access_to :all
 
-  before_filter :confirm_donor, :only => [:downloads]
+  before_filter :confirm_donor, :only => [:downloads, :download_tracks]
 
   before_filter :cleanse_order_number, :only => [:submit_registration, :create]
 
@@ -29,6 +29,10 @@ class DonorsController < ApplicationController
   end
   
   def downloads
+    
+  end
+
+  def download_tracks
     
   end
 
