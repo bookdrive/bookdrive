@@ -13,6 +13,6 @@
     <%= link_to "Download Pomplamoose's Christmas Album", download_donor_gift_path( @donor, album ), :onclick => 'downloadAlbum(this);return false;' %>
   </div>
   
-  <p>If you do not have the ability to open .zip files, you may choose to download each .mp3 individually. Go to the <%= link_to "Tracks as mp3 files", download_tracks_donor_path( @donor ) %> page to download each mp3.</p>
+  <p>If you do not have the ability to open .zip files, you may choose to download each .mp3 individually. Go to the <b><%= link_to "Individual Tracks", download_tracks_donor_path( @donor ) %></b> page to download them one by one.</p>
 
 </p>
