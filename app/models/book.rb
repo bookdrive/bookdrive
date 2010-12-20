@@ -29,8 +29,8 @@ class Book < ActiveRecord::Base
       old_value = send(key)
       
       if key.to_s == 'amazon_wl_add_date'
-        if  old_value.to_formatted_s(:long).sub(/\s\s/,/ /) != value.to_s
-          logger.debug 'add_date: ' + old_value.to_formatted_s(:long).sub(/\s\s/,/ /)
+        if  old_value.to_formatted_s(:long).sub(/\s\s/,' ') != value.to_s
+          logger.debug 'add_date: ' + old_value.to_formatted_s(:long).sub(/\s\s/,' ')
           logger.debug 'add_date: ' + value.to_s + "\n"
           send(key+'=',value)
         end
