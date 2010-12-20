@@ -43,7 +43,9 @@ class BooksController < ApplicationController
       if @books_map.include?(wl_book_identifier)
         book = @books_map[wl_book_identifier]
         book.update_from_wl_book(wl_book)
-        book.save
+        if book.changed?
+          book.save
+        end
       else
         create_book_from_wl(wl_book)
       end
