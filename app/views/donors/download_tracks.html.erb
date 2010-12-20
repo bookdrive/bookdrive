@@ -1,0 +1,19 @@
+<% title "Download Tracks" %>
+
+<h1>Download Individual Tracks</h1>
+
+<p><b>ONLY USE THIS PAGE IF YOU CAN'T OPEN ZIP FILES.</b><br />If you have the ability to open .zip files, go to the <b><%= link_to "DOWNLOADS PAGE", downloads_donor_path( @donor ) %></b> and click the big green button to get the album.</p>
+
+<%= render :partial => 'download_location' %>
+
+  
+  <p>If you do not have the ability to open .zip files, you may choose to download each .mp3 individually using the links below. Only use these links if you have not already downloaded the .zip on the previous page. They're the SAME files!</p>
+
+  <ul class="tracks">
+  <% Gift.all.each do |gift| %>
+    <% if gift.name != "Pomplamoose Christmas Album" %>
+      <li><%= link_to gift.name, download_donor_gift_path( @donor, gift ) %></li>
+    <% end %>
+  <% end %>
+  </ul>
+</p>

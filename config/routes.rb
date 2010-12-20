@@ -34,6 +34,7 @@ Bookdrive::Application.routes.draw do
     end
     member do
       get 'downloads'
+      get 'download_tracks'
     end
     collection do
       get 'register'

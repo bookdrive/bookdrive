@@ -298,13 +298,13 @@ div#video {
   color: #555;
 }
 
-.wl_link {
+.wl_link, .album_link {
   margin-bottom: 40px;
   text-align: center;
 }
 
 
-.wl_link a {
+.wl_link a, .album_link a {
   padding: 7px 20px;
 
   box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
@@ -329,11 +329,24 @@ div#video {
 }
 
 
-.wl_link a:hover {
+.wl_link a:hover, .album_link a:hover {
   background-color: #403020;
   text-decoration: none;
 }
 
+#album_link {
+  margin-top: 30px;
+}
+
+#album_link.downloading {
+  color: #fff;
+  background-color: #666;
+  font-size: 121%;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 10px;
+}
 
 .links {
   margin-top: 5px;
@@ -797,6 +810,11 @@ img.book_cover {
   text-transform: none;
 }
 
+.beware ul {
+  text-align: left;
+  margin-left: 150px;
+}
+
 
 .ordernumber label {
   font-size: 121%;
@@ -834,3 +852,10 @@ img.book_cover {
 	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;  
 }
 
+ul.tracks {
+  margin: 25px 0 25px 50px;
+}
+
+ul.tracks li {
+  margin-bottom: 7px;
+}

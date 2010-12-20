@@ -1,12 +1,18 @@
 <% title "Downloads" %>
 
-<h1>Thank You!</h1>
+<h1>Download Pomplamoose's Christmas Album!</h1>
 
-<p>
-  <b>Download Pomplamoose's Christmas Album!</b>
-  <ul>
-  <% Gift.all.each do |gift| %>
-    <li><%= link_to gift.name, download_donor_gift_path( @donor, gift ) %></li>
-  <% end %>
-  </ul>
+<p>Thank you for your donation! You may now download the Pomplamoose Christmas Album to your computer! Please note that this is the only computer at which you may download the album using this order number.</p>
+
+  <%= render :partial => 'download_location' %>
+
+<p>Click on the button below to download the entire album as a .zip file.</p>
+  
+  <div id="album_link" class="album_link">
+    <% album = Gift.find_by_name("Pomplamoose Christmas Album") %>
+    <%= link_to "Download Pomplamoose's Christmas Album", download_donor_gift_path( @donor, album ), :onclick => 'downloadAction(this);return false;' %>
+  </div>
+  
+  <p>If you do not have the ability to open .zip files, you may choose to download each .mp3 individually. Go to the <%= link_to "Tracks as mp3 files", download_tracks_donor_path( @donor ) %> page to download each mp3.</p>
+
 </p>
