@@ -25,7 +25,20 @@ class Book < ActiveRecord::Base
   
   def update_from_wl_book(wl_book)
     wl_book.attribute_hash().each do |key,value|
-      send(key+'=',value)
+      
+      old_value = send(key)
+      
+      if key.to_s == 'amazon_wl_add_date'
+        if  old_value.to_formatted_s(:long) != value.to_s
+          logger.debug 'add_date: ' + old_value.to_formatted_s(:long)
+          logger.debug 'add_date: ' + value.to_s + "\n"
+          send(key+'=',value)
+        end
+      elsif old_value.to_s != value.to_s
+        logger.debug key + ': ' + old_value.to_s
+        logger.debug key + ': ' + value.to_s + "\n"
+        send(key+'=',value)
+      end
     end
   end
   

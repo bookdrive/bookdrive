@@ -16,6 +16,7 @@ class WishListBook
   attr_writer :amazon_cover_type
   attr_writer :amazon_wl_add_date
   attr_writer :amazon_wl_priority
+  attr_writer :amazon_wl_comment
   attr_writer :copies_desired
   attr_writer :copies_received
   attr_reader :title
@@ -33,6 +34,7 @@ class WishListBook
   attr_reader :amazon_cover_type
   attr_reader :amazon_wl_add_date
   attr_reader :amazon_wl_priority
+  attr_reader :amazon_wl_comment
   attr_reader :copies_desired
   attr_reader :copies_received
   
@@ -111,6 +113,7 @@ class AmazonWishListFetcher
     matches = item.match(/<span class="small productTitle"><strong>\s*<a href="(.+?)">(.+?)</m)
     if matches && matches.length > 0
       book.amazon_product_url, book.title = matches[1,2]
+      book.amazon_product_url.sub!(/ref=wl_it_dp_v\/[\d\-]+/,'')
     end
 
     matches = item.match(/<div class="lineItemPart">\s*<span class="authorPart">by ([^\n]+?)\s*<\/span>(?:\((.+?)\))?</m)
@@ -168,11 +171,17 @@ class AmazonWishListFetcher
       end
     end
     
-    matches = item.match(/<span class="wlProductInfoRow wlBuyButton"><a href="(.+?)(?:&amp;session-id=[\d\-]+)?">/)
+    #matches = item.match(/<span class="wlProductInfoRow wlBuyButton"><a href="(.+?)(?:&amp;session-id=[\d\-]+)?">/)
+    #if matches && matches.length > 0
+    #  book.amazon_wl_cart_url = 'http://www.amazon.com' + matches[1]
+    #  book.amazon_wl_cart_url.sub!(/ref=cm_wl_addtocart_v\/[\d\-]+/,'')
+    #end
+    
+    matches = item.match(/<span class="commentValueText">([^<]+)<\/span>/)
     if matches && matches.length > 0
-      book.amazon_wl_cart_url = 'http://www.amazon.com' + matches[1]
+      book.amazon_wl_comment = matches[1]
     end
-        
+
     return book
   
   end

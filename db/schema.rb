@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212062921) do
+ActiveRecord::Schema.define(:version => 20101220055017) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20101212062921) do
     t.integer  "user_id"
     t.integer  "books_in_set",                                             :default => 1
     t.integer  "total_book_count",                                         :default => 0
+    t.text     "amazon_wl_comment"
   end
 
   add_index "books", ["author"], :name => "index_books_on_author"
