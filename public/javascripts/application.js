@@ -29,8 +29,15 @@ $(function() {
 });
 
 
-function downloadAction(link) {
-  document.location = link.href
+function downloadAlbum(link) {
+  document.location = link.href;
   document.getElementById('album_link').innerText = 'Your Album is Now Downloading!';
-  document.getElementById('album_link').className = 'downloading'
+  document.getElementById('album_link').className = 'downloading';
+}
+
+
+function downloadTrack(link, idname) {
+  document.location = link.href;
+  document.getElementById(idname).innerText = 'Your Track is Now Downloading!';
+  document.getElementById(idname).className = 'downloading';
 }
