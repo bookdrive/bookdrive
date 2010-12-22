@@ -50,13 +50,6 @@ end
 class AmazonWishListFetcher
 
   @@books = Array.new
-  
-  @@book_count = 0
-  @@copies_desired = 0
-  @@copies_received = 0
-  @@dollars_donated = 0
-  @@books_complete = 0
-  @@books_empty = 0
 
   def get_local(page)
     url = "http://localhost:3000/wl" + page.to_s + ".html"
@@ -65,21 +58,21 @@ class AmazonWishListFetcher
   end
 
   def get_remote(page)
-    url = "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO/?_encoding=UTF8&filter=all&sort=universal-title&layout=standard&reveal=all&page=" + page.to_s
-    #@@logger.debug 'Getting Remote URL: ' + url
+    url = "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=all&filter=all&sort=universal-title&layout=standard&page=" + page.to_s
+    puts 'Getting Remote URL: ' + url
     html = Net::HTTP.get_response(URI.parse(url)).body.force_encoding("ISO-8859-1").encode('UTF-8')
-    #file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
-    #file.puts html
-    #file.close
+    file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
+    file.puts html
+    file.close
     html
   end
 
   def parse_wl_page(page = 1)
   
-    #html = get_local(page)
-    #if html =~ /No route matches/
+    html = get_local(page)
+    if html =~ /No route matches/
       html = get_remote(page)
-    #end
+    end
     
     parse_items(html.force_encoding('UTF-8'))
 
@@ -91,9 +84,6 @@ class AmazonWishListFetcher
     html.scan(/<tbody\sname=\"item.+?<\/tbody>/m) do |item|
       book = parse_item(item)
       @@books.push( book )
-      @@book_count += 1
-      @@books_empty += 1 if book.copies_received != nil && book.copies_received < 1
-      @@books_complete += 1 if book.copies_received != nil && book.copies_desired != nil && book.copies_received >= book.copies_desired
     end
 
   end
@@ -113,7 +103,7 @@ class AmazonWishListFetcher
     matches = item.match(/<span class="small productTitle"><strong>\s*<a href="(.+?)">(.+?)</m)
     if matches && matches.length > 0
       book.amazon_product_url, book.title = matches[1,2]
-      book.amazon_product_url.sub!(/ref=wl_it_dp_v\/[\d\-]+/,'')
+      book.amazon_product_url.sub!(/ref=wl_it_dp_v(?:\/[\d\-]+)?/,'')
     end
 
     matches = item.match(/<div class="lineItemPart">\s*<span class="authorPart">by ([^\n]+?)\s*<\/span>(?:\((.+?)\))?</m)
@@ -149,16 +139,11 @@ class AmazonWishListFetcher
     matches = item.match(/<span class="quantityValueText">(\d+)<\/span>/)
     if matches && matches.length > 0
       book.copies_desired = matches[1].to_i
-      @@copies_desired += book.copies_desired
     end
 
     matches = item.match(/<span class="recQuantityValueText">(\d+)<\/span>/)
     if matches && matches.length > 0
       book.copies_received = matches[1].to_i
-      @@copies_received += book.copies_received
-      if book.amazon_price != nil
-        @@dollars_donated += book.copies_received * book.amazon_price
-      end
     end
 
     matches = item.match(/<span class="priorityValueText">(\S+)<\/span>/m)
@@ -171,11 +156,11 @@ class AmazonWishListFetcher
       end
     end
     
-    #matches = item.match(/<span class="wlProductInfoRow wlBuyButton"><a href="(.+?)(?:&amp;session-id=[\d\-]+)?">/)
-    #if matches && matches.length > 0
-    #  book.amazon_wl_cart_url = 'http://www.amazon.com' + matches[1]
-    #  book.amazon_wl_cart_url.sub!(/ref=cm_wl_addtocart_v\/[\d\-]+/,'')
-    #end
+    matches = item.match(/<span class="wlProductInfoRow wlBuyButton"><a href="(.+?)(?:&amp;session-id=[\d\-]+)?">/)
+    if matches && matches.length > 0
+      book.amazon_wl_cart_url = 'http://www.amazon.com' + matches[1]
+      book.amazon_wl_cart_url.sub!(/ref=cm_wl_addtocart_v\/[\d\-]+/,'')
+    end
     
     matches = item.match(/<span class="commentValueText">([^<]+)<\/span>/)
     if matches && matches.length > 0
@@ -201,14 +186,4 @@ class AmazonWishListFetcher
     @@books
   end
 
-  def cl_run
-    fetch_wish_list()
-    puts 'Titles: ' + @@book_count.to_s
-    puts 'Desired: ' + @@copies_desired.to_s
-    puts 'Received: ' + @@copies_received.to_s
-    puts 'Dollars: ' + @@dollars_donated.round.to_s
-    puts 'Complete: ' + @@books_complete.to_s
-    puts 'Empty: ' + @@books_empty.to_s
-    
-  end
 end
