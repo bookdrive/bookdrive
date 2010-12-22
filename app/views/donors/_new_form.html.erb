@@ -4,19 +4,26 @@
 
 <p>Thank you so much for your donation! Students in Richmond schools will have more books to read thanks to donors like you. Enter your Amazon order number from your email receipt below to download the Pomplamoose Christmas album.</p>
 
+<% if @is_mobile %>
+<div class="beware">
+<h3><span>i</span>Pads, <span>i</span>Phones, Smartphones and Tablets</h3>
+<p>You have come to the RIGHT PLACE, but it looks like you're on a mobile device, so we have disabled the form. Mobile devices do not allow you to save downloads so we're sparing you the trouble.<br /><br />Please switch to your <b>HOME COMPUTER</b> to download the album.</p>
+</div>
+
+<% else %>
 
 <div class="ordernumber">
 
+
   <div class="beware">
-  <h3><span>i</span>Pads, <span>i</span>Phones, Smartphones and Tablets</h3>
-  <p>Most handheld devices do not allow you to save downloads &mdash; please switch to your <b>home computer</b> before submitting this form!</p>
+  <h3>Work Computer</h3>
+  <p>We only allow you to download to ONE COMPUTER &mdash; please switch to your <b>HOME COMPUTER</b> before submitting this form!</p>
   </div>
 
   <div class="beware">
-  <h3>At Work or on your Work computer?</h3>
-  <p>We only allow you to download to one computer &mdash; please switch to your <b>home computer</b> before submitting this form!</p>
+  <h3>Cookies Required</h3>
+  <p>Cookies must be enabled to download album. If you don't know what we're talking about, you're probably fine! If you have disabled cookies, please allow them for our site before submitting the form.</p>
   </div>
-
 
 <%= simple_form_for @donor, :url => submit_registration_donors_path do |f| %>
 
@@ -31,7 +38,10 @@
   <%= f.submit 'Get Your Pomplamoose Christmas Album' %>
 <% end %>
 </div>
+<% end %>
 
+<% if !@is_mobile %>
 <div class="email">
 <%= image_tag 'email.png' %>
 </div>
+<% end %>
