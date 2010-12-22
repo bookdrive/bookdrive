@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220055017) do
+ActiveRecord::Schema.define(:version => 20101222034030) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,15 +27,15 @@ ActiveRecord::Schema.define(:version => 20101220055017) do
   add_index "articles", ["title"], :name => "index_articles_on_title"
 
   create_table "books", :force => true do |t|
-    t.string   "title",                                                                       :null => false
+    t.string   "title",                                                                                       :null => false
     t.string   "author"
-    t.decimal  "amazon_price",              :precision => 10, :scale => 2
-    t.integer  "copies_desired",                                           :default => 0
-    t.integer  "copies_received",                                          :default => 0
-    t.boolean  "copies_complete",                                          :default => false
-    t.string   "amazon_product_url"
-    t.string   "amazon_wl_cart_url"
-    t.string   "amazon_image_url"
+    t.decimal  "amazon_price",                              :precision => 10, :scale => 2
+    t.integer  "copies_desired",                                                           :default => 0
+    t.integer  "copies_received",                                                          :default => 0
+    t.boolean  "copies_complete",                                                          :default => false
+    t.string   "amazon_product_url",        :limit => 1000
+    t.string   "amazon_wl_cart_url",        :limit => 1000
+    t.string   "amazon_image_url",          :limit => 1000
     t.integer  "amazon_image_width"
     t.integer  "amazon_image_height"
     t.string   "amazon_cover_type"
@@ -43,16 +43,16 @@ ActiveRecord::Schema.define(:version => 20101220055017) do
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amazon_strike_price",       :precision => 10, :scale => 2
+    t.decimal  "amazon_strike_price",                       :precision => 10, :scale => 2
     t.string   "amazon_availability"
     t.string   "amazon_merchant"
     t.string   "amazon_wl_priority"
-    t.decimal  "dollars_donated",           :precision => 10, :scale => 2
-    t.integer  "copies_delivered",                                         :default => 0
-    t.string   "amazon_image_original_url"
+    t.decimal  "dollars_donated",                           :precision => 10, :scale => 2
+    t.integer  "copies_delivered",                                                         :default => 0
+    t.string   "amazon_image_original_url", :limit => 1000
     t.integer  "user_id"
-    t.integer  "books_in_set",                                             :default => 1
-    t.integer  "total_book_count",                                         :default => 0
+    t.integer  "books_in_set",                                                             :default => 1
+    t.integer  "total_book_count",                                                         :default => 0
     t.text     "amazon_wl_comment"
   end
 
