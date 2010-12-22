@@ -18,12 +18,13 @@ class BooksController < ApplicationController
     @books.each do |b|
       book_identifier = b.title
 
-      if b.author != nil
+      if b.author.present?
         book_identifier = b.author + '-' + book_identifier
       end
       
       if b.amazon_product_url.present?
         book_identifier = b.amazon_product_url
+        book_identifier.sub!(/ref=wl_it_dp_v\/[\d\-]+/,'')
       end
       
       @books_map[book_identifier] = b
@@ -38,12 +39,14 @@ class BooksController < ApplicationController
 
       if wl_book.amazon_product_url != nil
         wl_book_identifier = wl_book.amazon_product_url
+        wl_book_identifier.sub!(/ref=wl_it_dp_v\/[\d\-]+/,'')
       end
       
       if @books_map.include?(wl_book_identifier)
         book = @books_map[wl_book_identifier]
         book.update_from_wl_book(wl_book)
         if book.changed?
+          logger.debug "UPDATE: " + book.title
           book.save
         end
       else
@@ -151,9 +154,13 @@ class BooksController < ApplicationController
   end
   
   def create_book_from_wl(wl_book)    
-    new_book = Book.new( wl_book.attribute_hash() )
-    new_book.source = 'Wish List'
-    new_book.save
+    @new_book = Book.new( wl_book.attribute_hash() )
+    @new_book.source = 'Wish List'
+    logger.debug "CREATE: " + @new_book.title
+    logger.debug @new_book.inspect
+    if ! @new_book.save
+      logger.debug  @new_book.errors
+    end
   end
   
   def load_book_from_amazon
@@ -164,12 +171,11 @@ class BooksController < ApplicationController
     logger.debug 'Going to load book from amazon'
     @book = Book.new
     
-    url = params[:book][:amazon_product_url].sub(/\/ref=.+/,'/ref=wl_it_dp_v/186-9414514-3216048?ie=UTF8&coliid=I186S500LUL8IF&colid=1WJWNVAVRKJVO')
-    #html = Net::HTTP.get_response(URI.parse(url)).body.force_encoding("ISO-8859-1").encode('UTF-8')
+    url = params[:book][:amazon_product_url].sub(/\/ref=.+?coliid=([A-Z0-9]+)\&.+/,'/?ie=UTF8&coliid=\1&colid=1WJWNVAVRKJVO')
     html = Net::HTTP.get_response(URI.parse(url)).body
     
     @book.amazon_product_url = url
-
+    
     matches = html.match(/<h1 class="parseasinTitle"><span id="btAsinTitle" style="">([^<]+)\s*(?:<span style="text-transform:capitalize; font-size: 16px;">([^<]+)<\/span>)?<\/span><\/h1>/)
     if matches && matches.length > 0
       @book.title = matches[1]
