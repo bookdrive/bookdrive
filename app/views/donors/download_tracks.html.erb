@@ -12,8 +12,8 @@
   <ul class="tracks">
   <% Gift.all.each do |gift| %>
     <% if gift.name != "Pomplamoose Christmas Album" %>
-      <%= content_tag :li, :id => 'track_' + gift.id.to_s + '_link' do %>
-        <%= link_to gift.name, download_donor_gift_path( @donor, gift ), :onclick => 'downloadTrack(this,\'track_'.html_safe + gift.id.to_s + '_link\');return false;'.html_safe %>
+      <%= content_tag :li, :id => 'track_' + gift.id.to_s + '_li', :class => 'track_link' do %>
+        <%= link_to gift.name, download_donor_gift_path( @donor, gift ), :id => 'track_' + gift.id.to_s %>
       <% end %>
     <% end %>
   <% end %>

@@ -6,6 +6,14 @@ $(function() {
     $.getScript(this.href);
     return false;
   });
+  $("#album_link a").live("click", function() {
+    downloadAlbum(this);
+    return false;
+  });
+  $(".track_link a").live("click", function() {
+    downloadTrack(this);
+    return false;
+  });
   $("#donors_search input").keyup(function() {
     $.get($("#donors_search").attr("action"), $("#donors_search").serialize(), null, "script");
     return false;
@@ -49,14 +57,15 @@ function downloadAlbum(link) {
 }
 
 
-function downloadTrack(link, idname) {
+function downloadTrack(link) {
   dl_href = link.href
+  li_id = link.id + '_li'
   track_name = link.textContent
   if ( document.all ) {
-    document.getElementById(idname).innerText = track_name + ': Now Downloading!';    
+    document.getElementById(li_id).innerText = track_name + ': Now Downloading!';    
   } else {
-    document.getElementById(idname).textContent = track_name + ': Now Downloading!';        
+    document.getElementById(li_id).textContent = track_name + ': Now Downloading!';        
   }
-  document.getElementById(idname).className = 'downloading';
+  document.getElementById(li_id).className = 'downloading';
   document.location = dl_href;
 }
