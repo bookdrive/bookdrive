@@ -1,4 +1,5 @@
 require 'net/http'
+require 'open-uri'
 
 class WishListBook
   attr_writer :title
@@ -52,9 +53,12 @@ class AmazonWishListFetcher
   @@books = Array.new
 
   def get_local(page)
-    url = "http://localhost:3000/wishlist/wl" + page.to_s + ".html"
-    puts 'Getting Local URL: ' + url
-    Net::HTTP.get_response(URI.parse(url)).body
+    path = "/Users/marshall/Documents/rails/bookdrive/public/wishlist/wl" + page.to_s + ".html"
+    if ! File.exists?(path)
+      return ''
+    end
+    f = File.open(path, "r")
+    f.read
   end
 
   def get_remote(page)
@@ -71,7 +75,7 @@ class AmazonWishListFetcher
   
     if ENV['RAILS_ENV'] == 'development'
       html = get_local(page)
-      if html =~ /No route matches/
+      if html.length < 100
         html = get_remote(page)
       end
     else
