@@ -57,6 +57,7 @@ class AmazonWishListFetcher
     if ! File.exists?(path)
       return ''
     end
+    puts "Loading from cache: " + path
     f = File.open(path, "r")
     f.read
   end
@@ -65,9 +66,13 @@ class AmazonWishListFetcher
     url = "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=all&filter=all&sort=universal-title&layout=standard&page=" + page.to_s
     puts 'Getting Remote URL: ' + url
     html = Net::HTTP.get_response(URI.parse(url)).body.force_encoding("ISO-8859-1").encode('UTF-8')
-    file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wishlist/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
-    file.puts html
-    file.close
+    
+    if ENV['RAILS_ENV'] == 'development'
+      file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wishlist/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
+      file.puts html
+      file.close
+    end
+    
     html
   end
 
