@@ -10,9 +10,7 @@
     <th><%= sortable 'amazon_cover_type', 'Cover' %></th>
     <th><%= sortable 'amazon_price', 'Price' %></th>
     <th><%= sortable 'amazon_wl_priority', 'Priority' %></th>
-    <th><%= sortable 'copies_desired', 'Des' %></th>
-    <th><%= sortable 'copies_received', 'Rec' %></th>
-    <th><%= sortable 'copies_delivered', 'Del' %></th>
+    <th><%= sortable 'books_in_set', 'Set' %></th>
   </tr>
   </thead>
 
@@ -24,15 +22,13 @@
 
   <tbody>
 <% @books.each do |book| %>
-  <tr onclick="document.location='<%= book_path(book) %>';return false;">     
-    <td><%= book.title %></td>
+  <tr>
+    <td><%=  link_to '', book_path(book) %><%= book.title %></td>
     <td><%= book.author %></td>
     <td><%= book.amazon_cover_type %></td>
     <td><%= number_to_currency book.amazon_price %></td>
     <td><%= book.amazon_wl_priority %></td>
-    <td><%= book.copies_desired %></td>
-    <td><%= book.copies_received %></td>
-    <td><%= book.copies_delivered %></td>
+    <td><%= book.books_in_set %></td>
   </tr>
 <% end %>
 </tbody>
