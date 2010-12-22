@@ -52,7 +52,7 @@ class AmazonWishListFetcher
   @@books = Array.new
 
   def get_local(page)
-    url = "http://localhost:3000/wl" + page.to_s + ".html"
+    url = "http://localhost:3000/wishlist/wl" + page.to_s + ".html"
     puts 'Getting Local URL: ' + url
     Net::HTTP.get_response(URI.parse(url)).body
   end
@@ -61,7 +61,7 @@ class AmazonWishListFetcher
     url = "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=all&filter=all&sort=universal-title&layout=standard&page=" + page.to_s
     puts 'Getting Remote URL: ' + url
     html = Net::HTTP.get_response(URI.parse(url)).body.force_encoding("ISO-8859-1").encode('UTF-8')
-    file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
+    file = File.new("/Users/marshall/Documents/rails/bookdrive/public/wishlist/wl" + page.to_s + ".html", File::WRONLY|File::TRUNC|File::CREAT, 0644)
     file.puts html
     file.close
     html
@@ -69,11 +69,15 @@ class AmazonWishListFetcher
 
   def parse_wl_page(page = 1)
   
-    html = get_local(page)
-    if html =~ /No route matches/
-      html = get_remote(page)
+    if ENV['RAILS_ENV'] == 'development'
+      html = get_local(page)
+      if html =~ /No route matches/
+        html = get_remote(page)
+      end
+    else
+      html = get_remote(path)
     end
-    
+
     parse_items(html.force_encoding('UTF-8'))
 
     return html.match(/<a href="[^"]+"><span>Next/)
