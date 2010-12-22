@@ -2,11 +2,11 @@
 <% admin_page %>
 
 <div class="statbox bookstats">
-  <h3>Copies</h3>
+  <h3>Titles</h3>
   <ul class="list">
-    <li><span>Copies Desired</span> <em><%= number_with_delimiter Book.sum(:copies_desired) %></em></li>
-    <li><span>Copies Received</span> <em><%= number_with_delimiter Book.sum(:copies_received) %></em></li>
-    <li><span>Copies Delivered</span> <em><%= number_with_delimiter Book.sum(:copies_delivered) %></em></li>
+    <li><span>Unique Titles</span> <em><%= number_with_delimiter Book.count(:title) %></em></li>
+    <li><span>Titles Complete</span> <em><%= number_with_delimiter Book.where("copies_complete=?",true).count(:title) %></em></li>
+    <li><span>Titles Remaining</span> <em><%= number_with_delimiter Book.where("copies_complete=?",false).count(:title) %></em></li>
   </ul>
 </div>
 
