@@ -6,7 +6,7 @@
   <ul class="list">
     <li><span>Unique Titles</span> <em><%= number_with_delimiter Book.count(:title) %></em></li>
     <li><span>Titles Complete</span> <em><%= number_with_delimiter Book.where("copies_complete=?",true).count(:title) %></em></li>
-    <li><span>Titles Remaining</span> <em><%= number_with_delimiter Book.where("copies_complete=?",false).count(:title) %></em></li>
+    <li><span>Titles Available</span> <em><%= number_with_delimiter Book.where("copies_complete=?",false).count(:title) %></em></li>
   </ul>
 </div>
 
