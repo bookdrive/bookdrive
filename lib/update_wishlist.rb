@@ -84,7 +84,7 @@ class AmazonWishListFetcher
         html = get_remote(page)
       end
     else
-      html = get_remote(path)
+      html = get_remote(page)
     end
 
     parse_items(html.force_encoding('UTF-8'))
