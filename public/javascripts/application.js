@@ -26,8 +26,16 @@ $(function() {
     $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
     return false;
   });
+  $("table.index tr").live("click", function(e) {
+    if (e.metaKey) {
+      var newWindow = window.open($('a', this).attr('href'));
+      newWindow.focus();
+    } else {
+      document.location = $('a', this).attr('href');
+    }
+    return false;
+  });
 });
-
 
 function downloadAlbum(link) {
   dl_href = link.href
