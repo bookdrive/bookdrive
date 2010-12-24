@@ -173,6 +173,7 @@ class AmazonWishListFetcher
     if matches && matches.length > 0
       book.amazon_wl_cart_url = 'http://www.amazon.com' + matches[1]
       book.amazon_wl_cart_url.sub!(/ref=cm_wl_addtocart_v\/[\d\-]+/,'')
+      book.amazon_wl_cart_url.sub!(/offeringID.1=.+?\&amp;/,'')
     end
     
     matches = item.match(/<span class="commentValueText">([^<]+)<\/span>/)
