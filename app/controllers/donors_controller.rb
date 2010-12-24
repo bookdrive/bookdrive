@@ -41,6 +41,7 @@ class DonorsController < ApplicationController
   # GET /donors/register.xml
   def register
     @donor = Donor.new
+    
   end
 
 
@@ -53,26 +54,30 @@ class DonorsController < ApplicationController
   def submit_registration
     @donor = Donor.new(params[:donor])
     
-    respond_to do |format|
-      
-      if cookies['donor_' + @donor.order_number] && existing_donor = Donor.find_by_order_number( @donor.order_number )
-      
-        format.html { redirect_to downloads_donor_path( existing_donor ) }
-      
-      elsif @donor.save
-        cookies['donor_' + @donor.order_number] = {
-          :value => @donor.donor_code,
-          :expires => 2.months.from_now
-        }
+    # Test for Cookies Disabled
+    if !cookies['_bookdrive_session']
 
-        format.html { redirect_to(downloads_donor_path(@donor), :notice => 'Thank you for making a donation!') }
-        format.xml  { render :xml => @donor, :status => :created, :location => @donor }
-      else
-        format.html { render :action => "register" }
-        format.xml  { render :xml => @donor.errors, :status => :unprocessable_entity }
-      end
-    end
+      redirect_to cookies_required_path
+      
+    # Returning donor with existing order number
+    elsif cookies['donor_' + @donor.order_number] && existing_donor = Donor.find_by_order_number( @donor.order_number )
     
+      redirect_to downloads_donor_path( existing_donor )
+    
+    # New donor
+    elsif @donor.save
+      
+      cookies['donor_' + @donor.order_number] = {
+        :value => @donor.donor_code,
+        :expires => 2.months.from_now
+      }
+
+      redirect_to( downloads_donor_path(@donor), :notice => 'Thank you for making a donation!')
+      
+    # Fails (most likely already exists)
+    else
+      render :action => "register"
+    end
     
   end
 

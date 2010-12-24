@@ -43,6 +43,7 @@ Bookdrive::Application.routes.draw do
   end
 
   match 'oops' => 'pages#oops', :as => :oops
+  match 'cookies_required' => 'pages#cookies_required', :as => :cookies_required
   match 'press' => 'pages#press', :as => :press
   match 'thankyou' => 'pages#thankyou', :as => :thankyou
   match 'usedbooks' => 'pages#usedbooks', :as => :usedbooks
