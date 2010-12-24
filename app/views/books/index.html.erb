@@ -13,7 +13,7 @@
 <div class="statbox bookstats">
   <h3>Books and Dollars</h3>
   <ul class="list">
-    <li><span>Total Books</span> <em><%= Book.sum(:total_book_count) %></em></li>
+    <li><span>Total Books</span> <em><%= number_with_delimiter Book.sum(:total_book_count) %></em></li>
     <li><span>Total Dollars</span> <em><%= number_to_currency Book.sum(:dollars_donated) %></em></li>
     <li><span>Dollars per Donor</span> <em><%= number_to_currency( Book.sum(:dollars_donated) / Donor.count ) %></em></li>
   </ul>
