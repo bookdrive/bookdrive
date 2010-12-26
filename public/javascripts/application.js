@@ -69,3 +69,11 @@ function downloadTrack(link) {
   document.getElementById(li_id).className = 'downloading';
   document.location = dl_href;
 }
+
+function recordOutboundLink(link, category, action) {
+  try {
+    var myTracker=_gat._getTrackerByName();
+    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
+    setTimeout('document.location = "' + link.href + '"', 100)
+  }catch(err){}
+}
