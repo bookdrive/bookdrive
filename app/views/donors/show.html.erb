@@ -3,8 +3,9 @@
 
 
 <div class="links">
+  <%= link_to 'Back', donors_path %> |
   <%= link_to 'Edit', edit_donor_path(@donor) %> |
-  <%= link_to 'Back', donors_path %>
+  <%= link_to 'Destroy', @donor, :confirm => 'Are you sure?', :method => :delete %>
 </div>
 
 <table>
