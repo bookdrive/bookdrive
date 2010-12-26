@@ -46,9 +46,6 @@ $(function() {
 });
 
 function downloadAlbum(link) {
-  if ( pageTracker ) {
-    pageTracker._trackPageview('/downloads/album');
-  }
 
   dl_href = link.href
   if ( document.all ) {
@@ -57,14 +54,14 @@ function downloadAlbum(link) {
     document.getElementById('album_link').textContent = 'Your Album is Now Downloading!';    
   }
   document.getElementById('album_link').className = 'downloading';
-  document.location = link.href;
+  try {
+    var myTracker=_gat._getTrackerByName();
+    _gaq.push(['myTracker._trackEvent', 'downloads', 'album' ]);
+    setTimeout('document.location = "' + link.href + '"', 100)
+  }catch(err){}
 }
 
-
 function downloadTrack(link) {
-  if ( pageTracker ) {
-    pageTracker._trackPageview('/downloads/' + link.id);
-  }
   
   dl_href = link.href
   li_id = link.id + '_li'
@@ -75,7 +72,11 @@ function downloadTrack(link) {
     document.getElementById(li_id).textContent = track_name + ': Now Downloading!';        
   }
   document.getElementById(li_id).className = 'downloading';
-  document.location = dl_href;
+  try {
+    var myTracker=_gat._getTrackerByName();
+    _gaq.push(['myTracker._trackEvent', 'downloads', link.id ]);
+    setTimeout('document.location = "' + dl_href + '"', 100)
+  }catch(err){}
 }
 
 function recordOutboundLink(link, category, action) {
