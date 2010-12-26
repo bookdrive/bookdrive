@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101222034030) do
+ActiveRecord::Schema.define(:version => 20101226005609) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20101222034030) do
     t.integer  "copies_desired",                                                           :default => 0
     t.integer  "copies_received",                                                          :default => 0
     t.boolean  "copies_complete",                                                          :default => false
-    t.string   "amazon_product_url",        :limit => 1000
+    t.string   "amazon_product_url"
     t.string   "amazon_wl_cart_url",        :limit => 1000
     t.string   "amazon_image_url",          :limit => 1000
     t.integer  "amazon_image_width"
@@ -77,9 +77,10 @@ ActiveRecord::Schema.define(:version => 20101222034030) do
     t.string   "address2"
     t.string   "city"
     t.string   "state"
-    t.boolean  "cd_requested", :default => false
+    t.boolean  "cd_requested",    :default => false
     t.string   "country"
     t.string   "email"
+    t.integer  "downloads_count", :default => 0
   end
 
   add_index "donors", ["order_number"], :name => "index_donors_on_order_number"
