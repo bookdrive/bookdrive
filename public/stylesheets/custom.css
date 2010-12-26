@@ -265,6 +265,7 @@ div#video {
 
 .home h2 {
   margin: 0;
+  line-height: 128%;
 }
 
 .home h3 {
@@ -278,8 +279,9 @@ div#video {
   border-radius:         5px;
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
-  font-family: courier new;
+  font-family: courier;
   letter-spacing: 5px;
+  font-weight: normal;
 }
 
 .home ol {
