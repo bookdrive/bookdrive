@@ -8,9 +8,15 @@
 </div>
 <% end %>
 
-<div class="home">
+<% content_for :library do %>
+<div id="section" class="home">
+  <%= link_away "Help LPS-Richmond get a library for all of your donated books!", 'http://paypal.com' %><br />
+  <%= link_to "Learn more...", library_path %>
+</div>
+<% end %>
 
-  <h3><%= number_with_delimiter Donor.count %> donors have given <%= number_with_delimiter Book.sum(:total_book_count) %> books and counting!</h3>
+<div class="home">
+  <h3><%= number_with_delimiter Donor.count %> donors &nbsp;&nbsp;|&nbsp;&nbsp; <%= number_with_delimiter Book.sum(:total_book_count) %> books</h3>
 
 <ol>
   <li><span>Step 1</span><b><%= link_away "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>
