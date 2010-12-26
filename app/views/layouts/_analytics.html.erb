@@ -1,7 +1,17 @@
+<%
+  # Use QA account by default
+  @ga_account = 'UA-661691-7'
+
+  # Prod account if rails_env is production
+  if ENV['RAILS_ENV'] == 'production'
+    @ga_account = 'UA-661691-6'
+  end
+%>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-661691-6']);
+  _gaq.push(['_setAccount', <%= @ga_account %>]);
   _gaq.push(['_trackPageview']);
 
   (function() {
