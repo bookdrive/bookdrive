@@ -46,6 +46,10 @@ $(function() {
 });
 
 function downloadAlbum(link) {
+  if ( pageTracker ) {
+    pageTracker._trackPageview('/downloads/album');
+  }
+
   dl_href = link.href
   if ( document.all ) {
     document.getElementById('album_link').innerText = 'Your Album is Now Downloading!';
@@ -58,6 +62,10 @@ function downloadAlbum(link) {
 
 
 function downloadTrack(link) {
+  if ( pageTracker ) {
+    pageTracker._trackPageview('/downloads/' + link.id);
+  }
+  
   dl_href = link.href
   li_id = link.id + '_li'
   track_name = link.textContent
