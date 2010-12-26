@@ -291,22 +291,19 @@ div#video {
   padding: 0;
   margin: 0 0 20px;
   list-style-type: none;
-
   font-size: 131%;
 }
 
 .home ol li span {
-  position: relative;
-  top: -3px;
-
   float: left;
   height: 2em;
   margin-right: 20px;
   
   font-weight: bold;
   font-size: 143%;
-  color: #555;
   font-variant: small-caps;
+
+  color: #555;
 }
 
 .wl_link, .album_link {
