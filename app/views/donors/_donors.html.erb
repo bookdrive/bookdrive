@@ -7,7 +7,7 @@
   <tr>
     <th><%= sortable "order_number" %></th>
     <th><%= sortable "created_at" %></th>
-    <th><%= sortable "downloads" %></th>
+    <th><%= sortable "downloads_count", "Downloads" %></th>
   </tr>
   </thead>
   
@@ -22,7 +22,7 @@
   <tr>
     <td><%= link_to '', donor_path(donor) %><%= donor.order_number %></td>
     <td><%= donor.created_at.to_formatted_s(:long) %></td>
-    <td><%= donor.download_events.count %></td>
+    <td><%= donor.downloads_count %></td>
   </tr>
 <% end %>
 </tbody>
