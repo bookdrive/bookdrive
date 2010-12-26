@@ -32,6 +32,11 @@ class PagesController < ApplicationController
   def cookies_required
   end
   
+  def offsite
+    @p_url = params[:p_url]
+    @p_title = params[:p_title]
+  end
+  
   
   private
   

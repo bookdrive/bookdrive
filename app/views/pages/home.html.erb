@@ -13,13 +13,13 @@
   <h3><%= number_with_delimiter Donor.count %> donors have given <%= number_with_delimiter Book.sum(:total_book_count) %> books and counting!</h3>
 
 <ol>
-  <li><span>Step 1</span><b><%= link_to "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8", :target => "_blank" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>
+  <li><span>Step 1</span><b><%= link_away "Visit the Wish List", "http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" %></b> on Amazon.com to select and purchase a book (or books!) for Richmond&rsquo;s students.</li>
   <li><span>Step 2</span>Make sure to select Richmond Book Drive as the shipping address.</li>
   <li><span>Step 3</span>Once you&rsquo;ve completed your order, visit the <b><%= link_to "Thank You", thankyou_path %></b> page to download Pomplamoose's Christmas Album.</li>
 </ol>
 
 <div class="wl_link">
-<a href="http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=8" target="_blank">View the Wish List on Amazon.com</a>
+<%= link_away 'View the Wish List on Amazon.com', 'http://www.amazon.com/registry/wishlist/1WJWNVAVRKJVO?reveal=unpurchased&filter=all&sort=priority&layout=standard' %>
 </div>
 
 <p class="help">Need Help? Check out our <b><%= link_to "FAQ", faq_path %></b> or<br /> email us at <%= link_to "richmondbookdrive@gmail.com", "mailto:richmondbookdrive@gmail.com" %></p>
