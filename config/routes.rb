@@ -42,6 +42,7 @@ Bookdrive::Application.routes.draw do
     end
   end
 
+  match 'offsite' => 'pages#offsite', :as => :offsite
   match 'oops' => 'pages#oops', :as => :oops
   match 'cookies_required' => 'pages#cookies_required', :as => :cookies_required
   match 'press' => 'pages#press', :as => :press

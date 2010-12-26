@@ -52,4 +52,8 @@ module LayoutHelper
     end
   end
   
+  def link_away(title, url)
+    link_to title, offsite_path(:p_title => title, :p_url => url), :target => '_blank'
+  end
+  
 end
