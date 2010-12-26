@@ -56,6 +56,7 @@ class BooksController < ApplicationController
     
     # Expire the home page after the wish list has been updated
     expire_page(:controller => 'pages', :action => 'home')
+    expire_fragment('bookstats')
     
     redirect_to books_path, :notice => 'Updated books from the Amazon Wish List'
   end

@@ -20,7 +20,8 @@ class SchoolSweeper < ActionController::Caching::Sweeper
   def expire_cache_for(school)
     # Expire the about page now that we changed school
     expire_page(:controller => 'pages', :action => 'about')
- 
+    expire_fragment('schoolstats')
+    
     # Expire a fragment
     #expire_fragment('all_available_products')
   end
