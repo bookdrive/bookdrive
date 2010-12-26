@@ -263,6 +263,10 @@ div#video {
 .home {
 }
 
+.home h2 {
+  margin: 0;
+}
+
 .home h3 {
   background-color: #666;
   margin: 10px 0 25px;
