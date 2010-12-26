@@ -1,0 +1,11 @@
+<% title "Snippet %raquo; " + @snippet.name %>
+<% admin_page %>
+
+<div class="links">  
+  <%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+  <%= link_to 'Back', snippets_path %>
+</div>
+
+<h1><%= @snippet.name %></h1>
+
+<%= @snippet.content %>
