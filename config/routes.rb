@@ -2,10 +2,10 @@ Bookdrive::Application.routes.draw do
 
 
   match 'staff' => 'pages#staff', :as => :staff
-
   match 'staff' => 'pages#staff', :as => 'user_root'
 
   scope "/staff" do
+    resources :snippets
     resources :schools
     resources :books do
       resources :copies

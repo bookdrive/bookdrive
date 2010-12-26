@@ -34,6 +34,10 @@ $(function() {
     $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
     return false;
   });
+  $("#snippets_search input").keyup(function() {
+    $.get($("#snippets_search").attr("action"), $("#snippets_search").serialize(), null, "script");
+    return false;
+  });
   $("table.index tr").live("click", function(e) {
     if (e.metaKey) {
       var newWindow = window.open($('a', this).attr('href'));

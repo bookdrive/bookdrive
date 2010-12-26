@@ -1,16 +1,11 @@
 <% title "Questions &raquo; " + @question.id.to_s + " &raquo; Edit" %>
 <% admin_page %>
 
-
 <div class="links">
 <%= link_to 'Show', @question %> |
 <%= link_to 'Back', questions_path %>
 </div>
 
-
 <h1>Editing question</h1>
 
-
-
 <%= render 'form' %>
-

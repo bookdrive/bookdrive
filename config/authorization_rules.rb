@@ -10,7 +10,7 @@ authorization do
     has_permission_on :schools, :to => [:dominate]
     has_permission_on :articles, :to => [:dominate]
     has_permission_on :questions, :to => [:dominate]
-    
+    has_permission_on :snippets, :to => [:dominate]
   end
 
   role :support do
@@ -24,6 +24,7 @@ authorization do
     has_permission_on :schools, :to => [:manage]
     has_permission_on :articles, :to => [:manage]
     has_permission_on :questions, :to => [:manage]
+    has_permission_on :snippets, :to => [:manage]
   end
 
   role :catalog do
