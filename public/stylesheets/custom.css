@@ -264,22 +264,28 @@ div#video {
 }
 
 .home h3 {
+  background-color: #666;
   margin: 10px 0 25px;
-  font-size: 167%;
-  font-style: italic;
+  font-size: 138%;
   text-align: center;
-  color: #333333;
+  padding: 5px;
+  color: #eeeeee;
+  margin-top: 0;
+  border-radius:         5px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  font-family: courier new;
+  letter-spacing: 5px;
 }
 
 .home ol {
   list-style-type: none;
-  padding-left: 20px;
+  margin: 5px 30px 40px 25px;
 }
 
 .home ol li {
   padding: 0;
-  margin: 0 0 2em;
-
+  margin: 0 0 20px;
   list-style-type: none;
 
   font-size: 131%;
@@ -290,12 +296,13 @@ div#video {
   top: -3px;
 
   float: left;
-  height: 100%;
+  height: 2em;
   margin-right: 20px;
-
+  
   font-weight: bold;
   font-size: 143%;
   color: #555;
+  font-variant: small-caps;
 }
 
 .wl_link, .album_link {

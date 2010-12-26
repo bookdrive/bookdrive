@@ -36,6 +36,9 @@ class PagesController < ApplicationController
     @p_url = params[:p_url]
     @p_title = params[:p_title]
   end
+
+  def library
+  end
   
   
   private
