@@ -1,6 +1,8 @@
 <% title "Books" %>
 <% admin_page %>
 
+<% cache 'bookstats' do %>
+
 <div class="statbox bookstats">
   <h3>Titles</h3>
   <ul class="list">
@@ -18,6 +20,8 @@
     <li><span>Dollars per Donor</span> <em><%= number_to_currency( Book.sum(:dollars_donated) / Donor.count ) %></em></li>
   </ul>
 </div>
+
+<% end %>
 
 
 <div class="links">

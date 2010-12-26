@@ -1,6 +1,7 @@
 <% title "Schools" %>
 <% admin_page %>
 
+<% cache 'schoolstats' do %>
 <div class="statbox bookstats">
   <h3>Schools</h3>
   <ul class="list">
@@ -9,6 +10,7 @@
     <li><span>Average Proficiency</span> <em><%= number_to_percentage School.average(:proficiency), :precision => 0 %></em></li>
   </ul>
 </div>
+<% end %>
 
 
 <div class="links">
