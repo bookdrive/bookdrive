@@ -870,3 +870,55 @@ ul.tracks {
 ul.tracks li {
   margin-bottom: 7px;
 }
+
+.thermometer {
+  position:relative;
+  float:left;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.thermometer span {
+  float: left;
+  margin-left: 15px;
+  font-size: 200%;
+  font-weight: bold;
+  font-family: courier;
+}
+
+.paypal_button {
+  float:right;
+  position:relative;
+  right:-15px;
+  text-align:right;
+  margin-top: 13px;
+}
+
+.library_donate {
+  position:relative;
+  overflow:hidden;
+  background-color: #999;
+  box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
+	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
+	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;  
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  padding: 5px;
+  margin: 10px 0 25px;
+}
+
+.donation_values {
+  line-height: 175%;
+  font-size: 115%;
+}
+
+.donation_values ul {
+  margin: 5px 5px 5px 25px;
+  padding: 0;
+}
+
+.donation_values ul li {
+  list-style: none;
+}
