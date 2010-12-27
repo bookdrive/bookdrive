@@ -8,6 +8,9 @@
     <% if permitted_to? :manage, :books %>
       <%= tab_for "Books", books_path %>
     <% end %>
+    <% if permitted_to? :manage, :snippets %>
+      <%= tab_for "Snippets", snippets_path %>
+    <% end %>
     <% if permitted_to? :manage, :press %>
       <%= tab_for "Articles", articles_path %>
     <% end %>
@@ -28,5 +31,5 @@
     </strong>
   </div>
 
-  
+
 </div>
