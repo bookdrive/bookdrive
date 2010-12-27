@@ -10,13 +10,13 @@
   <%= Snippet.find_by_name('LPS-Richmond Library - Short Story').content.html_safe %>
   </div>
 
-  <%= render :partial => '/layouts/paypal_button' %>
+  <%= render :partial => '/layouts/paypal_button', :locals => { :donatebutton_page => 'library' }  %>
 
   <div class="donation_values">
   <%= Snippet.find_by_name('LPS-Richmond Library - Donation Values').content.html_safe %>
   </div>
 
-  <div style="text-align: center; position:relative; overflow:hidden;margin: 0 0 15px 25px;">
+  <div style="text-align: center; position:relative; overflow:hidden; margin: 0 0 15px 10px;">
   <%= render :partial => '/layouts/thermometer' %>
   </div>
 

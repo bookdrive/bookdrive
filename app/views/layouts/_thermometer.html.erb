@@ -1,6 +1,6 @@
 <div class="thermometer">
   <div style="float:left;width:250px;">    
-  <img alt='Progress' src='http://www.fundraiserinsight.org/libs/thermometer.php?current=<%= Snippet.find_by_name('Library Donations To Date').content %>&max=<%= Snippet.find_by_name('Library Donation Goal').content %>&curr=36&t_id=0&skin=small_hor' border='0' style="position: absolute; clip: rect(0 250px 35px 0);" />&nbsp;
+  <img alt='Progress' src='http://www.fundraiserinsight.org/libs/thermometer.php?current=<%= Snippet.find_by_name('Library Donations To Date').content %>&max=<%= Snippet.find_by_name('Library Donation Goal').content %>&curr=36&t_id=0&skin=small_hor' border='0' style="position: absolute; clip: rect(1px 250px 35px 0);" />&nbsp;
   </div>
   <span><%= number_to_currency Snippet.find_by_name('Library Donation Goal').content, :precision => 0 %> Goal</span>
 </div>

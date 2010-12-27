@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   filter_access_to :all
 
-  caches_page :home, :about, :faq, :usedbooks, :press, :cookies
+  caches_page :home, :about, :faq, :usedbooks, :press, :cookies, :library
   
   def home
   end
