@@ -853,11 +853,11 @@ img.book_cover {
   margin: 0 auto;
 }
 
-.email {
+.email_image {
   text-align: center;
 }
 
-.email img {
+.email_image img {
   box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;
 	-webkit-box-shadow: rgba(0,0,0, 0.4 ) -3px 3px 3px;
 	-moz-box-shadow: rgba(0,0,0, 0.4) -3px 3px 3px;  
