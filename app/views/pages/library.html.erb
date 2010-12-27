@@ -1,19 +1,16 @@
 <% title "LPS-Richmond Library" %>
 
-
 <h1 style="font-size:148%">Can you help Leadership Public Schools - Richmond get a library?</h1>
-
-
 
 <div class="library_donate">
   <div style="font-size: 121%;margin-top: 10px;margin-left:10px;">
-  <%= Snippet.find_by_name('LPS-Richmond Library - Short Story').content.html_safe %>
+  <%= snippet 'LPS-Richmond Library - Short Story' %>
   </div>
 
   <%= render :partial => '/layouts/paypal_button', :locals => { :donatebutton_page => 'library' }  %>
 
   <div class="donation_values">
-  <%= Snippet.find_by_name('LPS-Richmond Library - Donation Values').content.html_safe %>
+  <%= snippet 'LPS-Richmond Library - Donation Values' %>
   </div>
 
   <div style="text-align: center; position:relative; overflow:hidden; margin: 0 0 15px 10px;">
@@ -24,8 +21,8 @@
 
 <img src="/images/img0644_250.jpg" width="250" height="188" alt="Books and Students" style="float:right;margin: 0 0 7px 15px;" />
 
-<%= Snippet.find_by_name('LPS-Richmond Library - Long Story').content.html_safe %>
+<%= snippet 'LPS-Richmond Library - Long Story' %>
 
 <div class="cost_breakdown">
-<%= Snippet.find_by_name('LPS-Richmond Library - Cost Breakdown').content.html_safe %>
+<%= snippet 'LPS-Richmond Library - Cost Breakdown' %>
 </div>
