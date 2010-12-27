@@ -855,6 +855,7 @@ img.book_cover {
 
 .email_image {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .email_image img {
