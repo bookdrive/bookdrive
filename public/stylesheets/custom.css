@@ -882,9 +882,8 @@ ul.tracks li {
 .thermometer span {
   float: left;
   margin-left: 15px;
-  font-size: 200%;
+  font-size: 175%;
   font-weight: bold;
-  font-family: courier;
 }
 
 .paypal_button {
@@ -909,6 +908,11 @@ ul.tracks li {
   margin: 10px 0 25px;
 }
 
+.library_donate .paypal_button {
+  right: 15px;
+  margin-top: 20px;
+}
+
 .donation_values {
   line-height: 175%;
   font-size: 115%;
@@ -921,4 +925,20 @@ ul.tracks li {
 
 .donation_values ul li {
   list-style: none;
+}
+
+.cost_breakdown b {
+  text-transform: uppercase;
+}
+
+.cost_breakdown table {
+  
+}
+
+.cost_breakdown th {
+  font-weight: bold;
+}
+
+.cost_breakdown td {
+  padding: 5px;
 }
