@@ -11,7 +11,7 @@
 <ul>
 
   <% if permitted_to? :manage, :articles %>
-  <li><%= link_to "Enter Press Articles", articles_path %><br />Add new press articles to be displayed on the press page</li>
+  <li><%= link_to "Enter Articles", articles_path %><br />Add new articles to be displayed on the press page</li>
   <% end %>
 
   <% if permitted_to? :manage, :books %>
