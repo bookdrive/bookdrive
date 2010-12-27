@@ -85,10 +85,6 @@ class DonorsController < ApplicationController
   # POST /donors.xml
   def create
 
-    # Clean the confirmation code before creating the donor
-    params[:donor][:order_number].gsub!(/\D/,'')
-    params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
-
     @donor = Donor.new(params[:donor])
     
     respond_to do |format|
@@ -146,7 +142,8 @@ class DonorsController < ApplicationController
   
   def cleanse_order_number
     # Clean the confirmation code before creating the donor
-    params[:donor][:order_number].gsub!(/\D/,'')
+    params[:donor][:order_number].upcase!
+    params[:donor][:order_number].gsub!(/[^0-9A-Z]/,'')
     params[:donor][:order_number].sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')    
   end
       

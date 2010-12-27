@@ -2,7 +2,7 @@ class Donor < ActiveRecord::Base
   has_many :download_events
   
   validates_presence_of :order_number, :message => "You must enter your order number before submitting the form!"
-  validates_format_of :order_number, :with => /\A\d{3}-?\d{7}-?\d{7}\Z/, :message => "Oops! This is not a valid order number. Try to copy and paste it from your confirmation email again."
+  validates_format_of :order_number, :with => /\A(?:\d{3}-?\d{7}-?\d{7}|[A-Z0-9]{17})\Z/, :message => "Oops! This is not a valid order number. Try to copy and paste it from your confirmation email again."
   validates_uniqueness_of :order_number, :message => "I'm sorry, the order number you entered has already been used on another computer. If you believe this is an error, please email us at richmondbookdrive@gmail.com."
 
 #  validates_presence_of :full_name, :if => :should_validate_address?
@@ -39,7 +39,7 @@ class Donor < ActiveRecord::Base
   end
   
   def format_order_number
-    if ( self.order_number !~ /-\d+-/ )
+    if ( self.order_number !~ /-\d+-/ && self.order_number !~ /[A-Z]/ )
       self.order_number.sub!(/(\d{3})-?(\d{7})-?(\d{7})/, '\1-\2-\3')
     end
   end

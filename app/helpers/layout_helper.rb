@@ -56,5 +56,14 @@ module LayoutHelper
     #link_to title, offsite_path(:p_title => title, :p_url => url), :target => '_blank'
     link_to title, url, :target => '_blank', :onclick => "recordOutboundLink(this, 'Outbound Links', '" + url + "');return false;"
   end
+  
+  def snippet(name)
+    snip = Snippet.find_by_name(name)
+    if snip != nil && snip.content.present?
+      snip.content.html_safe
+    else
+      ""
+    end
+  end
 
 end
