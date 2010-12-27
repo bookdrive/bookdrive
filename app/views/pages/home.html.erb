@@ -11,7 +11,7 @@
 <% content_for :library do %>
 <div id="section" class="home">
 
-    <%= render :partial => '/layouts/paypal_button' %>
+    <%= render :partial => '/layouts/paypal_button', :locals => { :donatebutton_page => 'home' } %>
 
   <h2>Help Leadership Public Schools-Richmond get a library for all of your donated books! <%= link_to "Learn more...", library_path %></h2>
 

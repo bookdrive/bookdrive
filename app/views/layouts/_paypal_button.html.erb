@@ -1,5 +1,5 @@
 <div class="paypal_button">
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="recordDonateButtonClick('<%= donatebutton_page %>')">
 <input type="hidden" name="cmd" value="_donations">
 <input type="hidden" name="business" value="richmondbookdrive@gmail.com">
 <input type="hidden" name="lc" value="US">
