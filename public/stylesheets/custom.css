@@ -905,7 +905,7 @@ ul.tracks li {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
-  padding: 5px;
+  padding: 10px 15px;
   margin: 10px 0 25px;
 }
 
@@ -914,13 +914,19 @@ ul.tracks li {
   margin-top: 20px;
 }
 
+.library_donate .thankyou {
+  margin: 20px 100px 0;
+  font-style: italic;
+  text-align: center;
+}
+
 .donation_values {
   line-height: 175%;
   font-size: 115%;
 }
 
 .donation_values ul {
-  margin: 5px 5px 5px 50px;
+  margin: 0px 5px 10px 25px;
   padding: 0;
 }
 
