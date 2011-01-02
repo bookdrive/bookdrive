@@ -939,13 +939,10 @@ ul.tracks li {
 }
 
 .cost_breakdown table {
-  
+  margin-top: 5px;
 }
 
 .cost_breakdown th {
   font-weight: bold;
-}
-
-.cost_breakdown td {
-  padding: 5px;
+  padding: 5px 15px 5px 0;
 }
