@@ -1,1 +1,2 @@
 $("#books").html("<%= escape_javascript(render("books")) %>");
+document.title = "Richmond Book Drive » " + "<%= escape_javascript("#{params[:search].to_s.titleize} Books by #{(params[:sort] || 'title').titleize} - Page #{params[:page] || 1}") %>";

@@ -1,53 +1,73 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-$(function() {
-  $("#donors th a, #donors .pagination a, #books th a, #books .pagination a").live("click", function() {
-    $.getScript(this.href);
-    return false;
+if (history && history.pushState) {
+
+  $(function() {
+    
+    $(".index th a, .index .pagination a").live("click", function(e) {
+      $.getScript(this.href);
+      history.pushState(null, document.title, this.href);
+      e.preventDefault();
+    });
+
+    $("#donors_search input").keyup(function() {
+      $.get($("#donors_search").attr("action"), $("#donors_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#donors_search").attr("action") + "?" + $("#donors_search").serialize());
+    });
+
+    $("#books_search input").keyup(function() {
+      $.get($("#books_search").attr("action"), $("#books_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#books_search").attr("action") + "?" + $("#books_search").serialize());
+    });
+
+    $("#schools_search input").keyup(function() {
+      $.get($("#schools_search").attr("action"), $("#schools_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#schools_search").attr("action") + "?" + $("#schools_search").serialize());
+    });
+
+    $("#articles_search input").keyup(function() {
+      $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#articles_search").attr("action") + "?" + $("#articles_search").serialize());
+    });
+
+    $("#questions_search input").keyup(function() {
+      $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#questions_search").attr("action") + "?" + $("#questions_search").serialize());
+    });
+
+    $("#snippets_search input").keyup(function() {
+      $.get($("#snippets_search").attr("action"), $("#snippets_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#snippets_search").attr("action") + "?" + $("#snippets_search").serialize());
+    });
+
+    $("table.index tr").live("click", function(e) {
+      if (e.metaKey) {
+        var newWindow = window.open($('a', this).attr('href'));
+        newWindow.focus();
+      } else {
+        document.location = $('a', this).attr('href');
+      }
+    });
+
+    $(window).bind("popstate", function() {
+      $.getScript(location.href);
+    });
+
+    $("#album_link a").live("click", function() {
+      downloadAlbum(this);
+      return false;
+    });
+
+    $(".track_link a").live("click", function() {
+      downloadTrack(this);
+      return false;
+    });
+
   });
-  $("#album_link a").live("click", function() {
-    downloadAlbum(this);
-    return false;
-  });
-  $(".track_link a").live("click", function() {
-    downloadTrack(this);
-    return false;
-  });
-  $("#donors_search input").keyup(function() {
-    $.get($("#donors_search").attr("action"), $("#donors_search").serialize(), null, "script");
-    return false;
-  });
-  $("#books_search input").keyup(function() {
-    $.get($("#books_search").attr("action"), $("#books_search").serialize(), null, "script");
-    return false;
-  });
-  $("#schools_search input").keyup(function() {
-    $.get($("#schools_search").attr("action"), $("#schools_search").serialize(), null, "script");
-    return false;
-  });
-  $("#articles_search input").keyup(function() {
-    $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
-    return false;
-  });
-  $("#questions_search input").keyup(function() {
-    $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
-    return false;
-  });
-  $("#snippets_search input").keyup(function() {
-    $.get($("#snippets_search").attr("action"), $("#snippets_search").serialize(), null, "script");
-    return false;
-  });
-  $("table.index tr").live("click", function(e) {
-    if (e.metaKey) {
-      var newWindow = window.open($('a', this).attr('href'));
-      newWindow.focus();
-    } else {
-      document.location = $('a', this).attr('href');
-    }
-    return false;
-  });
-});
+
+}
+
 
 function downloadAlbum(link) {
 
