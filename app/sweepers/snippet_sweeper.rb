@@ -21,6 +21,8 @@ class SnippetSweeper < ActionController::Caching::Sweeper
     # Expire the faq index now that we changed question
     expire_page(:controller => 'pages', :action => 'library')
     expire_page(:controller => 'pages', :action => 'home')
+    expire_page(:controller => 'pages', :action => 'about')
+    expire_page(:controller => 'pages', :action => 'usedbooks')
  
     # Expire a fragment
     expire_fragment('all_snippets')
