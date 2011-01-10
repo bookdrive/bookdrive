@@ -32,7 +32,7 @@ class SnippetsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @snippet }
-    end
+    endnd
   end
 
   # GET /snippets/1/edit
