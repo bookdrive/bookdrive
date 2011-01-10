@@ -21,8 +21,8 @@
 
   <tbody>
 <% @schools.each do |school| %>
-  <tr onclick="document.location='<%= school_path(school) %>';return false;">     
-    <td><%= school.name %></td>
+  <tr>     
+    <td><%= link_to '', school_path(school) %><%= school.name %></td>
     <td><%= school.level %></td>
     <td><%= school.students %></td>
     <td><%= number_to_percentage school.proficiency, :precision => 0 %></td>

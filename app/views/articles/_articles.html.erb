@@ -19,8 +19,8 @@
 
   <tbody>
 <% @articles.each do |article| %>
-  <tr onclick="document.location='<%= article_path(article) %>';return false;">     
-    <td><%= article.title %></td>
+  <tr>     
+    <td><%= link_to '', article_path(article) %><%= article.title %></td>
     <td><%= article.source %></td>
     <td><%= article.date.to_formatted_s(:month_and_day) %></td>
   </tr>
