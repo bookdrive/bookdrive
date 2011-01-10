@@ -80,10 +80,13 @@ function downloadAlbum(link) {
   document.getElementById('album_link').className = 'downloading';
   try {
     var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', 'downloads', 'album' ]);
+    category = 'downloads';
+    action = 'album';
+    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
     setTimeout('document.location = "' + link.href + '"', 100)
   }catch(err){}
 }
+
 
 function downloadTrack(link) {
   
@@ -98,23 +101,31 @@ function downloadTrack(link) {
   document.getElementById(li_id).className = 'downloading';
   try {
     var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', 'downloads', link.id ]);
+    category = 'downloads';
+    action = link.id;
+    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
     setTimeout('document.location = "' + dl_href + '"', 100)
   }catch(err){}
 }
 
+
 function recordOutboundLink(link, category, action) {
   try {
     var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', category, action]);
-    setTimeout('document.location = "' + link.href + '"', 100)
+    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
+    setTimeout('var newWindow = window.open("' + link.href + '");', 100)
+    newWindow.focus();
   }catch(err){}
+  
 }
 
+
 function recordDonateButtonClick(page) {
+  category = 'donate';
+  action = page;
   try {
     var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', 'donate', page]);
+    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
   }catch(err){}
 }
 
