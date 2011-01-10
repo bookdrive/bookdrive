@@ -17,13 +17,13 @@
 
 <div class="school">
 <h3><%= school.name %></h3>
-<p><%= link_away school.website_url, school.website_url %></p>
+<p><%= link_to school.website_url, school.website_url %></p>
 <ul>
   <li><span><%= number_with_delimiter school.students %></span> students</li>
   <li><span><%= number_to_percentage school.proficiency, :precision => 0 %></span> proficient or advanced on English language arts state tests</li>
   <li><span><%= number_to_percentage school.lunch_eligibility, :precision => 0 %></span> eligible for free or reduced-price lunch</li>
 </ul>
-<p>Profile of <%= school.name %> on <%= link_away "GreatSchools.org", school.greatschools_url  %></p>
+<p>Profile of <%= school.name %> on <%= link_to "GreatSchools.org", school.greatschools_url  %></p>
 </div>
 
 <% end %>
