@@ -4,16 +4,16 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <title>Richmond Book Drive<%= yield(:title) %></title>
-  
-  <% if !user_signed_in? %>
-    <%= render 'layouts/analytics' %>
-  <% end %>
-  
+    
   <%= render 'layouts/assets' %>
 
   <%= yield :head %>
 
   <%= csrf_meta_tag %>
+
+  <% if !user_signed_in? || hold_flash_notices %>
+    <%= render 'layouts/analytics' %>
+  <% end %>
     
 </head>
 <body>
