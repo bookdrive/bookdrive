@@ -74,7 +74,7 @@ function downloadAlbum(link) {
   action = 'album';
 
   try {
-    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
+    _gaq.push(['_trackEvent', category, action]);
     setTimeout('document.location = "' + link.href + '"', 100)
   }catch(err){}
 }
@@ -96,7 +96,7 @@ function downloadTrack(link) {
   action = link.id;
 
   try {
-    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
+    _gaq.push(['_trackEvent', category, action]);
     setTimeout('document.location = "' + dl_href + '"', 100)
   } catch(err) {}
 
@@ -107,7 +107,7 @@ function recordDonateButtonClick(page) {
   category = 'donate';
   action = page;
   try {
-    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
+    _gaq.push(['_trackEvent', category, action]);
   } catch(err) {}
 }
 
