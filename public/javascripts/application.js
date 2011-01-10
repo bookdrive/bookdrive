@@ -11,34 +11,9 @@ if (history && history.pushState) {
       e.preventDefault();
     });
 
-    $("#donors_search input").keyup(function() {
-      $.get($("#donors_search").attr("action"), $("#donors_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#donors_search").attr("action") + "?" + $("#donors_search").serialize());
-    });
-
-    $("#books_search input").keyup(function() {
-      $.get($("#books_search").attr("action"), $("#books_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#books_search").attr("action") + "?" + $("#books_search").serialize());
-    });
-
-    $("#schools_search input").keyup(function() {
-      $.get($("#schools_search").attr("action"), $("#schools_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#schools_search").attr("action") + "?" + $("#schools_search").serialize());
-    });
-
-    $("#articles_search input").keyup(function() {
-      $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#articles_search").attr("action") + "?" + $("#articles_search").serialize());
-    });
-
-    $("#questions_search input").keyup(function() {
-      $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#questions_search").attr("action") + "?" + $("#questions_search").serialize());
-    });
-
-    $("#snippets_search input").keyup(function() {
-      $.get($("#snippets_search").attr("action"), $("#snippets_search").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#snippets_search").attr("action") + "?" + $("#snippets_search").serialize());
+    $("#index_search input").keyup(function() {
+      $.get($("#index_search").attr("action"), $("#index_search").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#index_search").attr("action") + "?" + $("#index_search").serialize());
     });
 
     $("table.index tr").live("click", function(e) {
