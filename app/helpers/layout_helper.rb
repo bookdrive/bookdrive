@@ -52,7 +52,7 @@ module LayoutHelper
     end
   end
   
-  def link_to(title, url)
+  def link_away(title, url)
     #link_to title, offsite_path(:p_title => title, :p_url => url), :target => '_blank'
     link_to title, url, :target => '_blank', :onclick => "recordOutboundLink(this, 'Outbound Links', '" + url + "');return false;"
   end
