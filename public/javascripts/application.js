@@ -39,6 +39,22 @@ if (history && history.pushState) {
       return false;
     });
 
+    $(document).ready(function(){
+      var localserver = document.location.hostname;
+      // unfortunately misses if any uppercase used in link scheme
+      $("a[href^=http://],a[href^=https://]")
+        .not("a[href^=http://"+localserver+"]")
+        .not("a[href^=http://www."+localserver+"]")
+        .click(function(e){
+            $(this).attr("target", "_blank");
+            _gaq.push(['_trackEvent', 
+                       'Outgoing Click',
+                       $(this).attr("href"),
+                       $(this).text()
+                     ]);
+            return true;
+        });
+    });
   });
 
 }
@@ -53,11 +69,12 @@ function downloadAlbum(link) {
     document.getElementById('album_link').textContent = 'Your Album is Now Downloading!';    
   }
   document.getElementById('album_link').className = 'downloading';
+  
+  category = 'downloads';
+  action = 'album';
+
   try {
-    var myTracker=_gat._getTrackerByName();
-    category = 'downloads';
-    action = 'album';
-    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
+    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
     setTimeout('document.location = "' + link.href + '"', 100)
   }catch(err){}
 }
@@ -74,24 +91,15 @@ function downloadTrack(link) {
     document.getElementById(li_id).textContent = track_name + ': Now Downloading!';        
   }
   document.getElementById(li_id).className = 'downloading';
-  try {
-    var myTracker=_gat._getTrackerByName();
-    category = 'downloads';
-    action = link.id;
-    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
-    setTimeout('document.location = "' + dl_href + '"', 100)
-  }catch(err){}
-}
-
-
-function recordOutboundLink(link, category, action) {
-  try {
-    var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
-    setTimeout('var newWindow = window.open("' + link.href + '");', 100)
-    newWindow.focus();
-  }catch(err){}
   
+  category = 'downloads';
+  action = link.id;
+
+  try {
+    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
+    setTimeout('document.location = "' + dl_href + '"', 100)
+  } catch(err) {}
+
 }
 
 
@@ -99,8 +107,7 @@ function recordDonateButtonClick(page) {
   category = 'donate';
   action = page;
   try {
-    var myTracker=_gat._getTrackerByName();
-    _gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
-  }catch(err){}
+    _gaq.push(['_trackEvent', ' + category + ', ' + action + ']);
+  } catch(err) {}
 }
 
