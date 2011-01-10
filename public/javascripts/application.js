@@ -70,7 +70,7 @@ function downloadAlbum(link) {
   }
   document.getElementById('album_link').className = 'downloading';
   
-  category = 'downloads';
+  category = 'Downloads';
   action = 'album';
 
   try {
@@ -92,7 +92,7 @@ function downloadTrack(link) {
   }
   document.getElementById(li_id).className = 'downloading';
   
-  category = 'downloads';
+  category = 'Downloads';
   action = link.id;
 
   try {
@@ -104,7 +104,7 @@ function downloadTrack(link) {
 
 
 function recordDonateButtonClick(page) {
-  category = 'donate';
+  category = 'Donate';
   action = page;
   try {
     _gaq.push(['_trackEvent', category, action]);
