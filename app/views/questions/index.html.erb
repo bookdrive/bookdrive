@@ -9,7 +9,7 @@
 <h1>Questions</h1>
 
 
-<%= form_tag questions_path, :method => 'get', :id => "questions_search", :class => "search_form" do %>
+<%= form_tag questions_path, :method => 'get', :id => "index_search", :class => "search_form" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>

@@ -4,7 +4,7 @@
 <% admin_page %>
 
 
-<%= form_tag donors_path, :method => 'get', :id => "donors_search", :class => "search_form" do %>
+<%= form_tag donors_path, :method => 'get', :id => "index_search", :class => "search_form" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
