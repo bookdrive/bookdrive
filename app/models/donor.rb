@@ -25,7 +25,7 @@ class Donor < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('order_number LIKE ?', "%#{search}%")
+      where('order_number ILIKE ?', "%#{search}%")
     else
       scoped
     end

@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('question LIKE ?', "%#{search}%")
+      where('question ILIKE ?', "%#{search}%")
     else
       scoped
     end
