@@ -35,6 +35,15 @@ qa:
   password: dnomhcir
   host: localhost
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: bookdrive_staging
+  pool: 5
+  username: bookdrive
+  password: dnomhcir
+  host: localhost
+    
 production:
   adapter: postgresql
   encoding: unicode
