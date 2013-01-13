@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 #
 # Rails Version
 #
-gem 'rails', '3.0.3'
+gem 'rails', '3.2.11'
 
 #
 # Database
@@ -38,14 +38,6 @@ gem 'will_paginate'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'jammit'
-
-
-#
-# Deployment
-#
-gem 'passenger'
-gem 'capistrano'
-gem 'capistrano-ext'
 
 
 #
