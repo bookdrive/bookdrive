@@ -50,7 +50,7 @@ class Deployer
   end
 
   def migrate
-    run "heroku run rake db:migrate --remote #{@environment} --app bookdrive-#{@environment}"
+    heroku "run rake db:migrate --remote #{@environment} --app bookdrive-#{@environment}"
   end
 
   def hoptoad_deploy
@@ -60,5 +60,9 @@ class Deployer
   def run(command)
     puts "  #{command}"
     %x{#{command}}
+  end
+  
+  def heroku(command)
+    system("GEM_HOME='' BUNDLE_GEMFILE='' GEM_PATH='' RUBYOPT='' /usr/local/heroku/bin/heroku #{command}")
   end
 end
