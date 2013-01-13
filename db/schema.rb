@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(:version => 20101226223753) do
 
   create_table "books", :force => true do |t|
     t.string   "title",                                                                                       :null => false
-    t.string   "author"
+    t.string   "author",                                                                                      :null => false
     t.decimal  "amazon_price",                              :precision => 10, :scale => 2
     t.integer  "copies_desired",                                                           :default => 0
     t.integer  "copies_received",                                                          :default => 0
     t.boolean  "copies_complete",                                                          :default => false
-    t.string   "amazon_product_url"
+    t.string   "amazon_product_url",        :limit => 1000
     t.string   "amazon_wl_cart_url",        :limit => 1000
     t.string   "amazon_image_url",          :limit => 1000
     t.integer  "amazon_image_width"
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(:version => 20101226223753) do
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.string   "level"
-    t.decimal  "proficiency",       :precision => 10, :scale => 0
-    t.decimal  "lunch_eligibility", :precision => 10, :scale => 0
+    t.decimal  "proficiency"
+    t.decimal  "lunch_eligibility"
     t.integer  "students"
     t.string   "website_url"
     t.string   "greatschools_url"

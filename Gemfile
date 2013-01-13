@@ -9,7 +9,7 @@ gem 'rails', '3.0.3'
 #
 # Database
 #
-gem 'mysql2'
+gem 'pg'
 
 
 #
